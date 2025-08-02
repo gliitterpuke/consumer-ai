@@ -28,9 +28,11 @@ interface Community {
 interface ChatInterfaceProps {
   community: Community
   username: string
+  onShowProfile: (user: any) => void
+  onStartDM: (userName: string) => void
 }
 
-export function ChatInterface({ community, username }: ChatInterfaceProps) {
+export function ChatInterface({ community, username, onShowProfile, onStartDM }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([])
   const [inputValue, setInputValue] = useState('')
   const [isTyping, setIsTyping] = useState(false)
@@ -158,7 +160,19 @@ export function ChatInterface({ community, username }: ChatInterfaceProps) {
                   <div className="text-lg flex-shrink-0">{message.avatar}</div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="font-semibold text-sm">{message.author}</span>
+                      <button 
+                        onClick={() => onShowProfile({
+                          name: message.author,
+                          avatar: message.avatar,
+                          isAI: message.isAI,
+                          personality: message.isAI ? aiPersonalities[message.author.toLowerCase().replace('_', '_')]?.personality : undefined,
+                          backstory: message.isAI ? aiPersonalities[message.author.toLowerCase().replace('_', '_')]?.backstory : undefined,
+                          responseStyle: message.isAI ? aiPersonalities[message.author.toLowerCase().replace('_', '_')]?.responseStyle : undefined
+                        })}
+                        className="font-semibold text-sm hover:underline hover:text-primary transition-colors cursor-pointer"
+                      >
+                        {message.author}
+                      </button>
                       <span className="text-xs opacity-70">
                         {formatTime(message.timestamp)}
                       </span>

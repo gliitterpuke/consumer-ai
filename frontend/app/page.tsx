@@ -10,6 +10,8 @@ import { ThemeToggle } from '@/components/theme-toggle'
 import { ChatInterface } from '@/components/chat-interface'
 import { PersonalityCreator } from '@/components/personality-creator'
 import { UsernameModal } from '@/components/username-modal'
+import { UserProfileModal } from '@/components/user-profile-modal'
+import { DMInterface } from '@/components/dm-interface'
 import { MessageSquare, Users, Plus, Settings, Heart } from 'lucide-react'
 
 export default function Home() {
@@ -17,6 +19,11 @@ export default function Home() {
   const [currentCommunity, setCurrentCommunity] = useState('late-night-coders')
   const [showUsernameModal, setShowUsernameModal] = useState(true)
   const [showPersonalityCreator, setShowPersonalityCreator] = useState(false)
+  const [showProfileModal, setShowProfileModal] = useState(false)
+  const [selectedUser, setSelectedUser] = useState<any>(null)
+  const [currentView, setCurrentView] = useState<'chat' | 'dm'>('chat')
+  const [dmPartner, setDmPartner] = useState<any>(null)
+  const [activeDMs, setActiveDMs] = useState<string[]>([])
 
   const communities = [
     {
@@ -45,6 +52,34 @@ export default function Home() {
   const handleUsernameSubmit = (newUsername: string) => {
     setUsername(newUsername)
     setShowUsernameModal(false)
+  }
+
+  const handleShowProfile = (user: any) => {
+    setSelectedUser(user)
+    setShowProfileModal(true)
+  }
+
+  const handleStartDM = (userName: string) => {
+    const user = {
+      name: userName,
+      avatar: userName === 'Confidence_Coach' ? '💪' : 
+              userName === 'Wingman_Will' ? '😎' :
+              userName === 'Smooth_Sam' ? '🕺' :
+              userName === 'Relationship_Rick' ? '❤️' :
+              userName === 'Honest_Harry' ? '🤔' :
+              userName === 'Anxiety_Andy' ? '😰' : '🤖',
+      isAI: true
+    }
+    setDmPartner(user)
+    setCurrentView('dm')
+    if (!activeDMs.includes(userName)) {
+      setActiveDMs(prev => [...prev, userName])
+    }
+  }
+
+  const handleBackToChat = () => {
+    setCurrentView('chat')
+    setDmPartner(null)
   }
 
   if (showUsernameModal) {
@@ -103,6 +138,45 @@ export default function Home() {
               </div>
             </div>
 
+            {/* DMs Section */}
+            <div className="p-4 border-t">
+              <h3 className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wide">
+                Direct Messages
+              </h3>
+              <div className="space-y-2">
+                {activeDMs.length > 0 ? (
+                  activeDMs.map((dmUser) => (
+                    <Card 
+                      key={dmUser}
+                      className={`cursor-pointer transition-all hover:shadow-md ${currentView === 'dm' && dmPartner?.name === dmUser ? 'ring-2 ring-primary bg-primary/5' : 'hover:bg-accent/50'}`}
+                      onClick={() => handleStartDM(dmUser)}
+                    >
+                      <CardContent className="p-3">
+                        <div className="flex items-center gap-3">
+                          <div className="text-lg">
+                            {dmUser === 'Confidence_Coach' ? '💪' : 
+                             dmUser === 'Wingman_Will' ? '😎' :
+                             dmUser === 'Smooth_Sam' ? '🕺' :
+                             dmUser === 'Relationship_Rick' ? '❤️' :
+                             dmUser === 'Honest_Harry' ? '🤔' :
+                             dmUser === 'Anxiety_Andy' ? '😰' : '🤖'}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="font-medium text-sm truncate">{dmUser}</p>
+                            <p className="text-xs text-muted-foreground">Online</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))
+                ) : (
+                  <div className="text-sm text-muted-foreground text-center py-4">
+                    No active DMs
+                  </div>
+                )}
+              </div>
+            </div>
+
             {/* Create AI Section */}
             <div className="p-4 border-t">
               <Button 
@@ -133,10 +207,20 @@ export default function Home() {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
-        <ChatInterface 
-          community={communities.find(c => c.id === currentCommunity)!}
-          username={username}
-        />
+        {currentView === 'chat' ? (
+          <ChatInterface 
+            community={communities.find(c => c.id === currentCommunity)!}
+            username={username}
+            onShowProfile={handleShowProfile}
+            onStartDM={handleStartDM}
+          />
+        ) : (
+          <DMInterface 
+            dmPartner={dmPartner!}
+            username={username}
+            onBack={handleBackToChat}
+          />
+        )}
       </div>
 
       {/* Personality Creator Modal */}
@@ -153,6 +237,16 @@ export default function Home() {
           />
         </DialogContent>
       </Dialog>
+
+      {/* User Profile Modal */}
+      {selectedUser && (
+        <UserProfileModal
+          isOpen={showProfileModal}
+          onClose={() => setShowProfileModal(false)}
+          user={selectedUser}
+          onStartDM={handleStartDM}
+        />
+      )}
     </div>
   )
 }
