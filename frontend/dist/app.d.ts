@@ -77,5 +77,18 @@ declare class AICommunities {
     private sendDMMessageInMain;
     private showDMTypingInMain;
     private generateDMResponseInMain;
+    private initTheme;
+    private setupThemeToggle;
+    private setTheme;
+    private toggleTheme;
+    private initializePersonalityCreator;
+    private initializeEmojiPicker;
+    private initializeSliders;
+    private initializePreviewUpdates;
+    private resetPersonalityCreator;
+    private createAIPersonality;
+    private createRandomPersonality;
+    private createCustomPersonality;
+    private closePersonalityCreatorModal;
 }
 //# sourceMappingURL=app.d.ts.map

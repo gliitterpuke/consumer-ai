@@ -11,9 +11,13 @@
     <div class="app">
         <!-- Sidebar -->
         <div class="sidebar">
-            <div class="server-header">
+            <div class="app-header">
                 <h2>🤖 AI Communities</h2>
                 <p class="tagline">Never sleep, always care</p>
+                <button id="theme-toggle" class="theme-toggle" title="Toggle theme">
+                    <span class="theme-icon light-icon">☀️</span>
+                    <span class="theme-icon dark-icon">🌙</span>
+                </button>
             </div>
             
             <div class="communities-list">
@@ -74,6 +78,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <div class="create-ai-section">
+                <button id="create-ai-trigger" class="create-ai-btn">
+                    <span class="create-icon">➕</span>
+                    <span>Create AI Personality</span>
+                </button>
             </div>
             
             <div class="user-area">
@@ -292,6 +303,121 @@
                     <button id="dm-send-button" class="send-button">
                         <i class="fas fa-paper-plane"></i>
                     </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Personality Creator Modal -->
+    <div class="modal-overlay" id="personality-creator-modal" style="display: none;">
+        <div class="modal personality-creator-content">
+            <div class="modal-header">
+                <h3>Create AI Personality</h3>
+                <button class="close-button" id="close-personality-creator">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body personality-creator-body">
+                <div class="creator-options">
+                    <div class="option-card" id="random-option">
+                        <div class="option-icon">🎲</div>
+                        <h4>Random Generation</h4>
+                        <p>Let us create a unique AI personality for you</p>
+                    </div>
+                    <div class="option-card" id="custom-option">
+                        <div class="option-icon">⚙️</div>
+                        <h4>Custom Creation</h4>
+                        <p>Design your AI personality from scratch</p>
+                    </div>
+                </div>
+                
+                <div id="custom-creator" class="custom-creator" style="display: none;">
+                    <div class="creator-section">
+                        <label for="ai-name">Name</label>
+                        <input type="text" id="ai-name" placeholder="Enter AI name...">
+                    </div>
+                    
+                    <div class="creator-section">
+                        <label for="ai-avatar">Avatar Emoji</label>
+                        <div class="emoji-picker">
+                            <input type="text" id="ai-avatar" placeholder="Pick an emoji..." readonly>
+                            <div class="emoji-grid">
+                                <span class="emoji-option">🤖</span>
+                                <span class="emoji-option">👨‍💻</span>
+                                <span class="emoji-option">👩‍💻</span>
+                                <span class="emoji-option">🧠</span>
+                                <span class="emoji-option">💡</span>
+                                <span class="emoji-option">⚡</span>
+                                <span class="emoji-option">🎯</span>
+                                <span class="emoji-option">🚀</span>
+                                <span class="emoji-option">💪</span>
+                                <span class="emoji-option">😎</span>
+                                <span class="emoji-option">🤔</span>
+                                <span class="emoji-option">😊</span>
+                                <span class="emoji-option">🎨</span>
+                                <span class="emoji-option">🔥</span>
+                                <span class="emoji-option">⭐</span>
+                                <span class="emoji-option">🌟</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="creator-section">
+                        <label for="ai-personality">Personality Traits</label>
+                        <textarea id="ai-personality" placeholder="Describe the AI's personality traits..."></textarea>
+                    </div>
+                    
+                    <div class="creator-section">
+                        <label for="ai-backstory">Backstory</label>
+                        <textarea id="ai-backstory" placeholder="What's their background and experience?"></textarea>
+                    </div>
+                    
+                    <div class="creator-section">
+                        <label for="ai-response-style">Response Style</label>
+                        <textarea id="ai-response-style" placeholder="How do they communicate and respond?"></textarea>
+                    </div>
+                    
+                    <div class="behavior-settings">
+                        <h4>Behavior Settings</h4>
+                        <div class="slider-group">
+                            <div class="slider-item">
+                                <label>Response Frequency</label>
+                                <input type="range" id="response-frequency" min="1" max="10" value="5">
+                                <span class="slider-value">5</span>
+                            </div>
+                            <div class="slider-item">
+                                <label>Response Speed</label>
+                                <input type="range" id="response-speed" min="1" max="10" value="5">
+                                <span class="slider-value">5</span>
+                            </div>
+                            <div class="slider-item">
+                                <label>Chattiness</label>
+                                <input type="range" id="chattiness" min="1" max="10" value="5">
+                                <span class="slider-value">5</span>
+                            </div>
+                            <div class="slider-item">
+                                <label>Empathy Level</label>
+                                <input type="range" id="empathy" min="1" max="10" value="5">
+                                <span class="slider-value">5</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="preview-section">
+                        <h4>Preview</h4>
+                        <div class="ai-preview-card">
+                            <div class="preview-avatar" id="preview-avatar">🤖</div>
+                            <div class="preview-info">
+                                <div class="preview-name" id="preview-name">AI Name</div>
+                                <div class="preview-personality" id="preview-personality">Personality preview...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button id="create-ai-btn" class="primary-button">Create AI Personality</button>
+                    <button id="cancel-creator-btn" class="secondary-button">Cancel</button>
                 </div>
             </div>
         </div>

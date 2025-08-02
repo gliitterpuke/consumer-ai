@@ -65,8 +65,10 @@ class AICommunities {
     };
 
     constructor() {
+        this.initTheme();
         this.initializeEventListeners();
         this.initializeProfileAndDM();
+        this.initializePersonalityCreator();
         this.showUsernameModal();
         this.startMessagePolling();
     }
@@ -833,6 +835,298 @@ class AICommunities {
 
         // Update main screen display
         this.displayDMMessagesInMain(memberId);
+    }
+
+    // Theme Management
+    private initTheme(): void {
+        // Check for saved theme preference or default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        this.setTheme(savedTheme);
+        
+        // Set up theme toggle event listener when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                this.setupThemeToggle();
+            });
+        } else {
+            this.setupThemeToggle();
+        }
+    }
+
+    private setupThemeToggle(): void {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                this.toggleTheme();
+            });
+        }
+    }
+
+    private setTheme(theme: string): void {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }
+
+    private toggleTheme(): void {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        this.setTheme(newTheme);
+    }
+
+    // Personality Creator Modal
+    private initializePersonalityCreator(): void {
+        const createAiTrigger = document.getElementById('create-ai-trigger');
+        const personalityCreatorModal = document.getElementById('personality-creator-modal');
+        const closePersonalityCreator = document.getElementById('close-personality-creator');
+        const randomOption = document.getElementById('random-option');
+        const customOption = document.getElementById('custom-option');
+        const customCreator = document.getElementById('custom-creator');
+        const createAiBtn = document.getElementById('create-ai-btn');
+        const cancelCreatorBtn = document.getElementById('cancel-creator-btn');
+
+        if (createAiTrigger && personalityCreatorModal) {
+            createAiTrigger.addEventListener('click', () => {
+                personalityCreatorModal.style.display = 'flex';
+            });
+        }
+
+        if (closePersonalityCreator && personalityCreatorModal) {
+            closePersonalityCreator.addEventListener('click', () => {
+                personalityCreatorModal.style.display = 'none';
+                this.resetPersonalityCreator();
+            });
+        }
+
+        if (cancelCreatorBtn && personalityCreatorModal) {
+            cancelCreatorBtn.addEventListener('click', () => {
+                personalityCreatorModal.style.display = 'none';
+                this.resetPersonalityCreator();
+            });
+        }
+
+        if (randomOption && customOption && customCreator) {
+            randomOption.addEventListener('click', () => {
+                randomOption.classList.add('selected');
+                customOption.classList.remove('selected');
+                customCreator.style.display = 'none';
+            });
+
+            customOption.addEventListener('click', () => {
+                customOption.classList.add('selected');
+                randomOption.classList.remove('selected');
+                customCreator.style.display = 'block';
+            });
+        }
+
+        // Initialize emoji picker
+        this.initializeEmojiPicker();
+        
+        // Initialize sliders
+        this.initializeSliders();
+        
+        // Initialize form inputs for preview
+        this.initializePreviewUpdates();
+
+        if (createAiBtn) {
+            createAiBtn.addEventListener('click', () => {
+                this.createAIPersonality();
+            });
+        }
+    }
+
+    private initializeEmojiPicker(): void {
+        const emojiOptions = document.querySelectorAll('.emoji-option');
+        const avatarInput = document.getElementById('ai-avatar') as HTMLInputElement;
+        const previewAvatar = document.getElementById('preview-avatar');
+
+        emojiOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                emojiOptions.forEach(opt => opt.classList.remove('selected'));
+                // Add selected class to clicked option
+                option.classList.add('selected');
+                
+                // Update input and preview
+                const emoji = option.textContent || '🤖';
+                if (avatarInput) avatarInput.value = emoji;
+                if (previewAvatar) previewAvatar.textContent = emoji;
+            });
+        });
+    }
+
+    private initializeSliders(): void {
+        const sliders = document.querySelectorAll('.slider-item input[type="range"]');
+        
+        sliders.forEach(slider => {
+            const valueDisplay = slider.parentElement?.querySelector('.slider-value');
+            
+            slider.addEventListener('input', (e) => {
+                const target = e.target as HTMLInputElement;
+                if (valueDisplay) {
+                    valueDisplay.textContent = target.value;
+                }
+            });
+        });
+    }
+
+    private initializePreviewUpdates(): void {
+        const nameInput = document.getElementById('ai-name') as HTMLInputElement;
+        const personalityInput = document.getElementById('ai-personality') as HTMLTextAreaElement;
+        const previewName = document.getElementById('preview-name');
+        const previewPersonality = document.getElementById('preview-personality');
+
+        if (nameInput && previewName) {
+            nameInput.addEventListener('input', () => {
+                previewName.textContent = nameInput.value || 'AI Name';
+            });
+        }
+
+        if (personalityInput && previewPersonality) {
+            personalityInput.addEventListener('input', () => {
+                previewPersonality.textContent = personalityInput.value || 'Personality preview...';
+            });
+        }
+    }
+
+    private resetPersonalityCreator(): void {
+        // Reset option selection
+        const randomOption = document.getElementById('random-option');
+        const customOption = document.getElementById('custom-option');
+        const customCreator = document.getElementById('custom-creator');
+        
+        if (randomOption) randomOption.classList.remove('selected');
+        if (customOption) customOption.classList.remove('selected');
+        if (customCreator) customCreator.style.display = 'none';
+
+        // Reset form inputs
+        const form = document.getElementById('personality-creator-modal');
+        if (form) {
+            const inputs = form.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                if (input instanceof HTMLInputElement || input instanceof HTMLTextAreaElement) {
+                    if (input.type !== 'range') {
+                        input.value = '';
+                    } else {
+                        input.value = '5';
+                        const valueDisplay = input.parentElement?.querySelector('.slider-value');
+                        if (valueDisplay) valueDisplay.textContent = '5';
+                    }
+                }
+            });
+        }
+
+        // Reset emoji selection
+        const emojiOptions = document.querySelectorAll('.emoji-option');
+        emojiOptions.forEach(option => option.classList.remove('selected'));
+
+        // Reset preview
+        const previewName = document.getElementById('preview-name');
+        const previewPersonality = document.getElementById('preview-personality');
+        const previewAvatar = document.getElementById('preview-avatar');
+        
+        if (previewName) previewName.textContent = 'AI Name';
+        if (previewPersonality) previewPersonality.textContent = 'Personality preview...';
+        if (previewAvatar) previewAvatar.textContent = '🤖';
+    }
+
+    private async createAIPersonality(): Promise<void> {
+        const randomOption = document.getElementById('random-option');
+        const isRandom = randomOption?.classList.contains('selected');
+
+        if (isRandom) {
+            await this.createRandomPersonality();
+        } else {
+            await this.createCustomPersonality();
+        }
+    }
+
+    private async createRandomPersonality(): Promise<void> {
+        try {
+            const response = await fetch('/api/personalities/random', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    communityId: this.currentCommunity
+                })
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Random AI personality created:', result);
+                this.closePersonalityCreatorModal();
+                // Show success message
+                alert('AI personality created successfully!');
+            } else {
+                console.error('Failed to create random personality');
+            }
+        } catch (error) {
+            console.error('Error creating random personality:', error);
+        }
+    }
+
+    private async createCustomPersonality(): Promise<void> {
+        const nameInput = document.getElementById('ai-name') as HTMLInputElement;
+        const avatarInput = document.getElementById('ai-avatar') as HTMLInputElement;
+        const personalityInput = document.getElementById('ai-personality') as HTMLTextAreaElement;
+        const backstoryInput = document.getElementById('ai-backstory') as HTMLTextAreaElement;
+        const responseStyleInput = document.getElementById('ai-response-style') as HTMLTextAreaElement;
+        
+        const responseFrequency = document.getElementById('response-frequency') as HTMLInputElement;
+        const responseSpeed = document.getElementById('response-speed') as HTMLInputElement;
+        const chattiness = document.getElementById('chattiness') as HTMLInputElement;
+        const empathy = document.getElementById('empathy') as HTMLInputElement;
+
+        if (!nameInput?.value || !personalityInput?.value) {
+            alert('Please fill in at least the name and personality fields.');
+            return;
+        }
+
+        const personalityData = {
+            name: nameInput.value,
+            avatar: avatarInput?.value || '🤖',
+            personality: personalityInput.value,
+            backstory: backstoryInput?.value || '',
+            responseStyle: responseStyleInput?.value || '',
+            behaviorSettings: {
+                responseFrequency: parseInt(responseFrequency?.value || '5'),
+                responseSpeed: parseInt(responseSpeed?.value || '5'),
+                chattiness: parseInt(chattiness?.value || '5'),
+                empathy: parseInt(empathy?.value || '5')
+            },
+            communityId: this.currentCommunity
+        };
+
+        try {
+            const response = await fetch('/api/personalities', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(personalityData)
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Custom AI personality created:', result);
+                this.closePersonalityCreatorModal();
+                // Show success message
+                alert('AI personality created successfully!');
+            } else {
+                console.error('Failed to create custom personality');
+            }
+        } catch (error) {
+            console.error('Error creating custom personality:', error);
+        }
+    }
+
+    private closePersonalityCreatorModal(): void {
+        const modal = document.getElementById('personality-creator-modal');
+        if (modal) {
+            modal.style.display = 'none';
+            this.resetPersonalityCreator();
+        }
     }
 }
 
