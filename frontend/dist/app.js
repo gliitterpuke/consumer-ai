@@ -9,6 +9,7 @@ class AICommunities {
         this.typingUsers = new Set();
         this.dmHistories = new Map();
         this.currentDMUser = null;
+        this.currentView = 'community';
         this.avatarMap = {
             'confidence_coach': '💪',
             'wingman_will': '😎',
@@ -104,6 +105,31 @@ class AICommunities {
                 profileModal.style.display = 'none';
                 this.openDM(memberId);
             }
+        });
+        // DM section toggle
+        const dmToggle = document.getElementById('dm-toggle');
+        const dmList = document.getElementById('dm-list');
+        dmToggle?.addEventListener('click', () => {
+            const isCollapsed = dmList.style.display === 'none';
+            dmList.style.display = isCollapsed ? 'block' : 'none';
+            const icon = dmToggle.querySelector('i');
+            if (icon) {
+                icon.className = isCollapsed ? 'fas fa-chevron-down' : 'fas fa-chevron-up';
+            }
+        });
+        // DM item clicks
+        document.querySelectorAll('.dm-item').forEach((item) => {
+            item.addEventListener('click', () => {
+                const memberId = item.dataset.memberId;
+                if (memberId) {
+                    this.openDM(memberId);
+                    // Remove unread indicator
+                    const unreadBadge = item.querySelector('.dm-unread');
+                    if (unreadBadge) {
+                        unreadBadge.style.display = 'none';
+                    }
+                }
+            });
         });
     }
     showUsernameModal() {
@@ -229,6 +255,13 @@ class AICommunities {
         const content = input?.value.trim();
         if (!content)
             return;
+        // Handle DM context
+        if (this.currentView === 'dm' && this.currentDMUser) {
+            this.sendDMMessageInMain(content);
+            input.value = '';
+            return;
+        }
+        // Handle community context
         try {
             const response = await fetch(`/api/communities/${this.currentCommunity}/messages`, {
                 method: 'POST',
@@ -349,18 +382,37 @@ class AICommunities {
     }
     openDM(memberId) {
         this.currentDMUser = memberId;
-        // Update DM modal header
-        const dmUserName = document.getElementById('dm-user-name');
-        const dmUserAvatar = document.getElementById('dm-user-avatar');
-        if (dmUserName)
-            dmUserName.textContent = this.getMemberName(memberId);
-        if (dmUserAvatar)
-            dmUserAvatar.textContent = this.avatarMap[memberId] || '🤖';
-        // Show DM modal
-        const dmModal = document.getElementById('dm-modal');
-        dmModal.style.display = 'flex';
-        // Load DM messages
+        this.currentView = 'dm';
+        // Update chat header to show DM info
+        const channelName = document.getElementById('current-channel');
+        const channelDescription = document.getElementById('channel-description');
+        const channelIcon = document.querySelector('.channel-icon');
+        if (channelName)
+            channelName.textContent = this.getMemberName(memberId);
+        if (channelDescription)
+            channelDescription.textContent = `Direct message with ${this.getMemberName(memberId)}`;
+        if (channelIcon)
+            channelIcon.textContent = this.avatarMap[memberId] || '🤖';
+        // Clear main messages area and show DM messages
+        const messagesContainer = document.getElementById('messages-container');
+        if (messagesContainer) {
+            messagesContainer.innerHTML = `
+                <div class="dm-header-info">
+                    <div class="dm-avatar-large">${this.avatarMap[memberId] || '🤖'}</div>
+                    <h3>This is the beginning of your direct message history with ${this.getMemberName(memberId)}</h3>
+                    <p>Only you and ${this.getMemberName(memberId)} can see these messages.</p>
+                </div>
+                <div id="dm-messages-main"></div>
+            `;
+        }
+        // Load and display DM messages
         this.loadDMMessages(memberId);
+        this.displayDMMessagesInMain(memberId);
+        // Update input placeholder
+        const messageInput = document.getElementById('message-input');
+        if (messageInput) {
+            messageInput.placeholder = `Message ${this.getMemberName(memberId)}...`;
+        }
     }
     closeDM() {
         const dmModal = document.getElementById('dm-modal');
@@ -395,6 +447,34 @@ class AICommunities {
         `).join('');
         // Scroll to bottom
         dmMessages.scrollTop = dmMessages.scrollHeight;
+    }
+    displayDMMessagesInMain(memberId) {
+        const messages = this.dmHistories.get(memberId) || [];
+        const dmMessagesMain = document.getElementById('dm-messages-main');
+        if (!dmMessagesMain)
+            return;
+        dmMessagesMain.innerHTML = messages.map(message => {
+            const avatar = message.isUser ? '👤' : this.avatarMap[memberId] || '🤖';
+            const messageClass = message.isUser ? 'user-message' : 'ai-message';
+            const username = message.isUser ? this.username : this.getMemberName(memberId);
+            return `
+                <div class="message ${messageClass}">
+                    <div class="message-avatar">${avatar}</div>
+                    <div class="message-content">
+                        <div class="message-header">
+                            <span class="message-author">${username}</span>
+                            <span class="message-timestamp">${this.formatTimestamp(message.timestamp)}</span>
+                        </div>
+                        <div class="message-text">${message.content}</div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        // Scroll to bottom
+        const messagesContainer = document.getElementById('messages-container');
+        if (messagesContainer) {
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
     }
     sendDMMessage() {
         const dmInput = document.getElementById('dm-input');
@@ -505,6 +585,124 @@ class AICommunities {
         this.dmHistories.set(memberId, messages);
         // Display updated messages
         this.displayDMMessages(messages);
+    }
+    sendDMMessageInMain(content) {
+        if (!this.currentDMUser)
+            return;
+        // Add user message
+        const userMessage = {
+            id: `dm_${Date.now()}`,
+            content,
+            timestamp: new Date().toISOString(),
+            isUser: true
+        };
+        const messages = this.dmHistories.get(this.currentDMUser) || [];
+        messages.push(userMessage);
+        this.dmHistories.set(this.currentDMUser, messages);
+        // Update main screen display
+        this.displayDMMessagesInMain(this.currentDMUser);
+        // Show typing indicator and generate AI response
+        this.showDMTypingInMain();
+        setTimeout(() => {
+            this.generateDMResponseInMain(this.currentDMUser, content);
+        }, 1500 + Math.random() * 2000);
+    }
+    showDMTypingInMain() {
+        if (!this.currentDMUser)
+            return;
+        const dmMessagesMain = document.getElementById('dm-messages-main');
+        if (!dmMessagesMain)
+            return;
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'dm-typing-main';
+        typingDiv.innerHTML = `
+            <div class="message ai-message">
+                <div class="message-avatar">${this.avatarMap[this.currentDMUser] || '🤖'}</div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="message-author">${this.getMemberName(this.currentDMUser)}</span>
+                    </div>
+                    <div class="message-text">
+                        <div class="typing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        dmMessagesMain.appendChild(typingDiv);
+        // Scroll to bottom
+        const messagesContainer = document.getElementById('messages-container');
+        if (messagesContainer) {
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+    }
+    generateDMResponseInMain(memberId, userMessage) {
+        const responses = {
+            'confidence_coach': [
+                "I hear you, and I want you to know that what you're feeling is completely normal. I've been exactly where you are.",
+                "You know what? I used to think I'd never figure this out either. But here's what changed everything for me...",
+                "I'm really glad you came to me with this. Building confidence isn't about pretending - it's about being genuinely yourself.",
+                "Let me share something that took me years to learn: rejection isn't about you not being good enough."
+            ],
+            'wingman_will': [
+                "Yo, I'm glad you came to me with this! That's what I'm here for, dude. Let's figure this out together.",
+                "Alright, first things first - you're already doing better than most guys just by asking for help. That takes guts.",
+                "I've helped tons of my friends with this exact situation. Here's what usually works...",
+                "Dude, I can tell you're overthinking this. Let's break it down into simple steps."
+            ],
+            'smooth_sam': [
+                "I appreciate you being real with me. Authenticity is already putting you ahead of 90% of guys out there.",
+                "You know what I've learned? The smoothest thing you can do is just be genuinely interested in her as a person.",
+                "I used to try all these tricks and lines, but honestly? Just being yourself works so much better.",
+                "Here's the thing - confidence isn't about having all the answers. It's about being comfortable with who you are."
+            ],
+            'relationship_rick': [
+                "Thank you for sharing that with me. Building real connections takes time, and I can help you with that.",
+                "I've seen so many people rush into things. The best relationships start with genuine friendship and understanding.",
+                "What you're feeling is exactly what someone who cares about doing this right would feel. That's actually beautiful.",
+                "Let's talk about what really matters in building a connection with someone you care about."
+            ],
+            'honest_harry': [
+                "Alright, I'm going to give it to you straight because that's what you need right now.",
+                "I appreciate you being honest with me, so I'm going to be completely honest with you too.",
+                "Look, I'm not going to sugarcoat this, but I'm also not going to let you give up on yourself.",
+                "Here's the truth that most people won't tell you, but you need to hear..."
+            ],
+            'anxiety_andy': [
+                "Oh man, I totally get it. My anxiety used to be so bad that I couldn't even make eye contact with girls.",
+                "I know exactly how that feels - like your heart is going to beat out of your chest, right?",
+                "You know what helped me? Realizing that she's probably just as nervous about social interactions as I am.",
+                "I used to think everyone could see how anxious I was, but most people are too worried about themselves to notice."
+            ]
+        };
+        const memberResponses = responses[memberId] || responses['confidence_coach'];
+        if (!memberResponses || memberResponses.length === 0) {
+            console.error('No responses found for member:', memberId);
+            return;
+        }
+        const response = memberResponses[Math.floor(Math.random() * memberResponses.length)];
+        if (!response) {
+            console.error('Failed to generate response for member:', memberId);
+            return;
+        }
+        // Remove typing indicator
+        const typingEl = document.querySelector('.dm-typing-main');
+        typingEl?.remove();
+        // Add AI response
+        const aiMessage = {
+            id: `dm_ai_${Date.now()}`,
+            content: response,
+            timestamp: new Date().toISOString(),
+            isUser: false
+        };
+        const messages = this.dmHistories.get(memberId) || [];
+        messages.push(aiMessage);
+        this.dmHistories.set(memberId, messages);
+        // Update main screen display
+        this.displayDMMessagesInMain(memberId);
     }
 }
 // Initialize the app

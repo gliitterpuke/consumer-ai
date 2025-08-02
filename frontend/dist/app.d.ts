@@ -45,6 +45,7 @@ declare class AICommunities {
     private typingUsers;
     private dmHistories;
     private currentDMUser;
+    private currentView;
     private readonly avatarMap;
     constructor();
     private initializeEventListeners;
@@ -69,8 +70,12 @@ declare class AICommunities {
     private getMemberName;
     private loadDMMessages;
     private displayDMMessages;
+    private displayDMMessagesInMain;
     private sendDMMessage;
     private showDMTyping;
     private generateDMResponse;
+    private sendDMMessageInMain;
+    private showDMTypingInMain;
+    private generateDMResponseInMain;
 }
 //# sourceMappingURL=app.d.ts.map
