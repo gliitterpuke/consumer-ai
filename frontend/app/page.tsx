@@ -122,7 +122,11 @@ export default function Home() {
                         ? 'ring-2 ring-primary bg-primary/5' 
                         : 'hover:bg-accent/50'
                     }`}
-                    onClick={() => setCurrentCommunity(community.id)}
+                    onClick={() => {
+                      setCurrentCommunity(community.id)
+                      setCurrentView('chat')
+                      setDmPartner(null)
+                    }}
                   >
                     <CardContent className="p-4">
                       <div className="flex items-center gap-3">
