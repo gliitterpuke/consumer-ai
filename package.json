@@ -1,0 +1,32 @@
+{
+  "name": "ai-communities",
+  "version": "1.0.0",
+  "description": "Persistent AI Communities - Discord servers that never sleep and always care about you",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "keywords": [
+    "ai",
+    "community",
+    "loneliness",
+    "belonging",
+    "social",
+    "discord",
+    "hackathon"
+  ],
+  "author": "AI Communities Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "openai": "^4.20.1",
+    "ws": "^8.14.2",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

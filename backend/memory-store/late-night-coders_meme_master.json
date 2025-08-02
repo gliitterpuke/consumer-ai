@@ -1,0 +1,21 @@
+{
+  "conversations": [
+    {
+      "userId": "user_4osv2rowt",
+      "message": "Hey everyone! I'm kat, just joined the community 👋",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T20:32:30.372Z"
+    }
+  ],
+  "userProfiles": {
+    "user_4osv2rowt": {
+      "username": "kat",
+      "lastMessage": "Hey everyone! I'm kat, just joined the community 👋",
+      "lastSeen": "2025-08-02T20:32:30.372Z"
+    }
+  },
+  "relationships": {},
+  "lastMessages": []
+}

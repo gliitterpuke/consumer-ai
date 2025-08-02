@@ -1,0 +1,29 @@
+{
+  "conversations": [
+    {
+      "userId": "user_4osv2rowt",
+      "message": "Hey everyone! I'm kat, just joined the community 👋",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T20:32:30.371Z"
+    },
+    {
+      "userId": "user_4osv2rowt",
+      "message": "be my gym bro",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T20:32:51.833Z"
+    }
+  ],
+  "userProfiles": {
+    "user_4osv2rowt": {
+      "username": "kat",
+      "lastMessage": "be my gym bro",
+      "lastSeen": "2025-08-02T20:32:51.832Z"
+    }
+  },
+  "relationships": {},
+  "lastMessages": []
+}
