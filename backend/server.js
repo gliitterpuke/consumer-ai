@@ -369,6 +369,157 @@ async function generatePersonalityResponse(personality, userMessage, userContext
   return response;
 }
 
+// Create new AI personality
+app.post('/api/personalities', (req, res) => {
+  try {
+    const {
+      name,
+      avatar,
+      personality,
+      backstory,
+      responseStyle,
+      responseFrequency,
+      responseSpeed,
+      chattiness,
+      empathy,
+      communityId,
+      createdBy
+    } = req.body;
+
+    // Validate required fields
+    if (!name || !personality || !communityId) {
+      return res.status(400).json({ error: 'Missing required fields: name, personality, communityId' });
+    }
+
+    // Generate unique ID for the AI
+    const aiId = name.toLowerCase().replace(/[^a-z0-9]/g, '_');
+    
+    // Check if AI already exists in this community
+    if (aiPersonalities[communityId] && aiPersonalities[communityId][aiId]) {
+      return res.status(409).json({ error: 'AI personality with this name already exists in the community' });
+    }
+
+    // Create the new AI personality
+    const newPersonality = {
+      name,
+      avatar: avatar || '🤖',
+      personality,
+      backstory: backstory || 'A mysterious AI with an unknown past.',
+      responseStyle: responseStyle || 'Friendly and helpful, adapts to the conversation style.',
+      responseFrequency: parseInt(responseFrequency) || 50,
+      responseSpeed: parseInt(responseSpeed) || 5,
+      chattiness: parseInt(chattiness) || 5,
+      empathy: parseInt(empathy) || 7,
+      relationships: [], // Can be updated later
+      createdBy: createdBy || 'user',
+      createdAt: new Date().toISOString()
+    };
+
+    // Add to the community
+    if (!aiPersonalities[communityId]) {
+      aiPersonalities[communityId] = {};
+    }
+    aiPersonalities[communityId][aiId] = newPersonality;
+
+    // Update the community member list
+    if (!communities[communityId]) {
+      communities[communityId] = {
+        name: communityId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+        members: [],
+        messages: []
+      };
+    }
+    
+    communities[communityId].members.push({
+      id: aiId,
+      name,
+      avatar,
+      isAI: true
+    });
+
+    // Create memory system for the new AI
+    const aiMemory = new AIMemory(aiId, communityId);
+    
+    // Generate welcome message from the new AI
+    const welcomeMessage = {
+      id: uuidv4(),
+      userId: aiId,
+      username: name,
+      content: generateWelcomeMessage(newPersonality),
+      timestamp: new Date().toISOString(),
+      isAI: true
+    };
+
+    // Add welcome message to community
+    if (!messageHistory[communityId]) {
+      messageHistory[communityId] = [];
+    }
+    messageHistory[communityId].push(welcomeMessage);
+    communities[communityId].messages.push(welcomeMessage);
+
+    res.json({ 
+      success: true, 
+      personality: newPersonality,
+      message: 'AI personality created successfully',
+      aiId
+    });
+  } catch (error) {
+    console.error('Error creating AI personality:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Generate welcome message for new AI
+function generateWelcomeMessage(personality) {
+  const welcomeTemplates = [
+    `Hey everyone! ${personality.name} here. ${personality.personality.split('.')[0]}. Looking forward to getting to know you all! ${personality.avatar}`,
+    `What's up, community! I'm ${personality.name}. ${personality.backstory.split('.')[0]}. Excited to be part of this group! ${personality.avatar}`,
+    `Hello! ${personality.name} joining the conversation. ${personality.personality.split('.')[0]}. Can't wait to help out and share experiences! ${personality.avatar}`,
+    `Hey there! New member ${personality.name} checking in. ${personality.responseStyle.split(',')[0]}. Happy to be here! ${personality.avatar}`
+  ];
+  
+  return welcomeTemplates[Math.floor(Math.random() * welcomeTemplates.length)];
+}
+
+// Get all personalities for a community
+app.get('/api/communities/:communityId/personalities', (req, res) => {
+  const { communityId } = req.params;
+  const personalities = aiPersonalities[communityId] || {};
+  res.json(personalities);
+});
+
+// Delete AI personality
+app.delete('/api/personalities/:communityId/:aiId', (req, res) => {
+  try {
+    const { communityId, aiId } = req.params;
+    
+    if (!aiPersonalities[communityId] || !aiPersonalities[communityId][aiId]) {
+      return res.status(404).json({ error: 'AI personality not found' });
+    }
+
+    // Remove from personalities
+    delete aiPersonalities[communityId][aiId];
+    
+    // Remove from community members
+    if (communities[communityId]) {
+      communities[communityId].members = communities[communityId].members.filter(
+        member => member.id !== aiId
+      );
+    }
+
+    // Clean up memory files
+    const memoryPath = path.join(__dirname, 'memories', communityId, `${aiId}.json`);
+    if (fs.existsSync(memoryPath)) {
+      fs.unlinkSync(memoryPath);
+    }
+
+    res.json({ success: true, message: 'AI personality deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting AI personality:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });

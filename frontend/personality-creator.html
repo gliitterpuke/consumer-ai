@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Personality Creator - AI Communities</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        .creator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #36393f;
+            min-height: 100vh;
+        }
+        
+        .creator-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #2f3136;
+            border-radius: 12px;
+            border-left: 4px solid #5865f2;
+        }
+        
+        .creator-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .option-card {
+            background-color: #2f3136;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .option-card:hover {
+            border-color: #5865f2;
+            transform: translateY(-2px);
+        }
+        
+        .option-card.selected {
+            border-color: #5865f2;
+            background-color: rgba(88, 101, 242, 0.1);
+        }
+        
+        .option-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+        
+        .custom-form {
+            display: none;
+            background-color: #2f3136;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+        }
+        
+        .form-section h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #b9bbbe;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-input {
+            width: 100%;
+            background-color: #40444b;
+            border: none;
+            border-radius: 6px;
+            padding: 12px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+        
+        .form-input:focus {
+            outline: 2px solid #5865f2;
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .emoji-picker {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 8px;
+            margin-top: 8px;
+        }
+        
+        .emoji-option {
+            background-color: #40444b;
+            border: none;
+            border-radius: 6px;
+            padding: 8px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .emoji-option:hover {
+            background-color: #5865f2;
+        }
+        
+        .emoji-option.selected {
+            background-color: #5865f2;
+        }
+        
+        .slider-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .slider-item {
+            background-color: #40444b;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .slider-item label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #72767d;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #5865f2;
+            cursor: pointer;
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #5865f2;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .preview-card {
+            background-color: #2f3136;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #5865f2;
+        }
+        
+        .preview-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .preview-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #5865f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background-color: #5865f2;
+            color: #ffffff;
+        }
+        
+        .btn-primary:hover {
+            background-color: #4752c4;
+        }
+        
+        .btn-secondary {
+            background-color: #4f545c;
+            color: #ffffff;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5d6269;
+        }
+        
+        .random-preview {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .random-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #5865f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="creator-container">
+        <div class="creator-header">
+            <h1>🎭 AI Personality Creator</h1>
+            <p>Create the perfect AI companion for your community</p>
+        </div>
+        
+        <div class="creator-options">
+            <div class="option-card" id="random-option">
+                <span class="option-icon">🎲</span>
+                <h3>Random Generation</h3>
+                <p>Let AI create a completely unique personality with random traits, backstory, and behavior patterns</p>
+            </div>
+            
+            <div class="option-card" id="custom-option">
+                <span class="option-icon">⚙️</span>
+                <h3>Custom Creation</h3>
+                <p>Design every aspect of your AI personality - name, traits, response style, and timing</p>
+            </div>
+        </div>
+        
+        <!-- Random Generation Preview -->
+        <div class="random-preview" id="random-preview">
+            <div class="random-avatar" id="random-avatar">🤖</div>
+            <h2 id="random-name">Generating...</h2>
+            <p id="random-description">Creating a unique personality...</p>
+            <button class="btn btn-primary" id="generate-random">
+                <i class="fas fa-dice"></i>
+                Generate New Personality
+            </button>
+        </div>
+        
+        <!-- Custom Creation Form -->
+        <div class="custom-form" id="custom-form">
+            <div class="form-section">
+                <h3><i class="fas fa-user"></i> Basic Information</h3>
+                
+                <div class="form-group">
+                    <label for="ai-name">Name</label>
+                    <input type="text" id="ai-name" class="form-input" placeholder="e.g., Confident_Charlie">
+                </div>
+                
+                <div class="form-group">
+                    <label for="ai-avatar">Avatar Emoji</label>
+                    <input type="text" id="ai-avatar" class="form-input" placeholder="Click an emoji below or type your own" readonly>
+                    <div class="emoji-picker">
+                        <button class="emoji-option" data-emoji="💪">💪</button>
+                        <button class="emoji-option" data-emoji="😎">😎</button>
+                        <button class="emoji-option" data-emoji="😏">😏</button>
+                        <button class="emoji-option" data-emoji="❤️">❤️</button>
+                        <button class="emoji-option" data-emoji="🤔">🤔</button>
+                        <button class="emoji-option" data-emoji="😰">😰</button>
+                        <button class="emoji-option" data-emoji="🧠">🧠</button>
+                        <button class="emoji-option" data-emoji="🎯">🎯</button>
+                        <button class="emoji-option" data-emoji="🔥">🔥</button>
+                        <button class="emoji-option" data-emoji="✨">✨</button>
+                        <button class="emoji-option" data-emoji="🌟">🌟</button>
+                        <button class="emoji-option" data-emoji="💎">💎</button>
+                        <button class="emoji-option" data-emoji="🚀">🚀</button>
+                        <button class="emoji-option" data-emoji="⚡">⚡</button>
+                        <button class="emoji-option" data-emoji="🎭">🎭</button>
+                        <button class="emoji-option" data-emoji="🎨">🎨</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h3><i class="fas fa-brain"></i> Personality Traits</h3>
+                
+                <div class="form-group">
+                    <label for="ai-personality">Core Personality</label>
+                    <textarea id="ai-personality" class="form-input form-textarea" placeholder="Describe their main personality traits, what makes them unique..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ai-backstory">Backstory</label>
+                    <textarea id="ai-backstory" class="form-input form-textarea" placeholder="Their background, experiences, what shaped them..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ai-response-style">Response Style</label>
+                    <textarea id="ai-response-style" class="form-input form-textarea" placeholder="How they communicate, their tone, typical phrases..."></textarea>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h3><i class="fas fa-sliders-h"></i> Behavior Settings</h3>
+                
+                <div class="slider-group">
+                    <div class="slider-item">
+                        <label for="response-frequency">Response Frequency: <span id="freq-value">50%</span></label>
+                        <input type="range" id="response-frequency" class="slider" min="10" max="90" value="50">
+                        <small>How often they respond to messages</small>
+                    </div>
+                    
+                    <div class="slider-item">
+                        <label for="response-speed">Response Speed: <span id="speed-value">Medium</span></label>
+                        <input type="range" id="response-speed" class="slider" min="1" max="10" value="5">
+                        <small>How quickly they respond (1=instant, 10=slow)</small>
+                    </div>
+                    
+                    <div class="slider-item">
+                        <label for="chattiness">Chattiness: <span id="chat-value">Medium</span></label>
+                        <input type="range" id="chattiness" class="slider" min="1" max="10" value="5">
+                        <small>How much they talk in responses</small>
+                    </div>
+                    
+                    <div class="slider-item">
+                        <label for="empathy">Empathy Level: <span id="empathy-value">High</span></label>
+                        <input type="range" id="empathy" class="slider" min="1" max="10" value="8">
+                        <small>How emotionally supportive they are</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Preview -->
+        <div class="preview-card" id="preview-card" style="display: none;">
+            <h3>Preview</h3>
+            <div class="preview-header">
+                <div class="preview-avatar" id="preview-avatar">🤖</div>
+                <div>
+                    <h4 id="preview-name">AI Name</h4>
+                    <p id="preview-summary">Personality summary...</p>
+                </div>
+            </div>
+            <div id="preview-details">
+                <p><strong>Backstory:</strong> <span id="preview-backstory">...</span></p>
+                <p><strong>Response Style:</strong> <span id="preview-style">...</span></p>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-secondary" onclick="window.location.href='index.html'">
+                <i class="fas fa-arrow-left"></i>
+                Back to Community
+            </button>
+            <button class="btn btn-primary" id="create-personality">
+                <i class="fas fa-plus"></i>
+                Add to Community
+            </button>
+        </div>
+    </div>
+    
+    <script src="personality-creator.js"></script>
+</body>
+</html>
