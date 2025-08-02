@@ -7,6 +7,14 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-02T21:31:20.185Z"
+    },
+    {
+      "userId": "nervous123",
+      "message": "I really need dating advice, I get super nervous around women",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:44:19.609Z"
     }
   ],
   "userProfiles": {
@@ -14,6 +22,11 @@
       "username": "Max",
       "lastMessage": "Hey guys",
       "lastSeen": "2025-08-02T21:31:20.184Z"
+    },
+    "nervous123": {
+      "username": "ShyGuy",
+      "lastMessage": "I really need dating advice, I get super nervous around women",
+      "lastSeen": "2025-08-02T21:44:19.608Z"
     }
   },
   "relationships": {},

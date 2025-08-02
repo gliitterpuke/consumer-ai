@@ -11,7 +11,7 @@ class GeminiProvider {
     this.genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     
     this.defaultConfig = {
-      model: 'gemini-exp-1206',
+      model: 'models/gemini-2.5-flash',
       temperature: 0.8,
       maxOutputTokens: 150,
       topP: 0.9,
@@ -51,13 +51,27 @@ class GeminiProvider {
         const response = result.response;
         const content = response.text()?.trim();
 
+        console.log(`🤖 Raw Gemini response:`, {
+          hasResult: !!result,
+          hasResponse: !!response,
+          rawContent: content,
+          contentLength: content?.length,
+          contentType: typeof content
+        });
+
         if (!content) {
+          console.log(`❌ Empty response from Gemini - response object:`, response);
           throw new Error('Empty response from Gemini');
         }
 
         return content;
       } catch (error) {
         console.error('❌ Gemini API Error:', error.message);
+        console.error('❌ Full error:', error);
+        if (error.response) {
+          console.error('❌ Response status:', error.response.status);
+          console.error('❌ Response data:', error.response.data);
+        }
         throw error;
       }
     });

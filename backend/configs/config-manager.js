@@ -150,7 +150,9 @@ class ConfigManager {
   cleanup() {
     // Close all file watchers
     for (const watcher of this.fileWatchers.values()) {
-      watcher.close();
+      if (watcher && typeof watcher.close === 'function') {
+        watcher.close();
+      }
     }
     this.fileWatchers.clear();
     this.loadedConfigs.clear();

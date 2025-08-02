@@ -7,6 +7,22 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-02T21:30:59.293Z"
+    },
+    {
+      "userId": "test456",
+      "message": "I need help with dating advice, feeling nervous about asking someone out",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:41:26.879Z"
+    },
+    {
+      "userId": "tester789",
+      "message": "Quick question - best way to start a conversation with someone new?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:48:47.185Z"
     }
   ],
   "userProfiles": {
@@ -14,6 +30,16 @@
       "username": "Max",
       "lastMessage": "Hi! I'm Max, excited to be here!",
       "lastSeen": "2025-08-02T21:30:59.293Z"
+    },
+    "test456": {
+      "username": "NeedAdvice",
+      "lastMessage": "I need help with dating advice, feeling nervous about asking someone out",
+      "lastSeen": "2025-08-02T21:41:26.877Z"
+    },
+    "tester789": {
+      "username": "NewUser",
+      "lastMessage": "Quick question - best way to start a conversation with someone new?",
+      "lastSeen": "2025-08-02T21:48:47.184Z"
     }
   },
   "relationships": {},

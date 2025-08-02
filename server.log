@@ -1,0 +1,198 @@
+🤖 LLM Service initialized. Gemini 2.5 available: true
+📄 Loaded config for Anxiety_Andy
+📄 Loaded config for Confidence_Coach
+📄 Loaded config for Honest_Harry
+📄 Loaded config for Relationship_Rick
+📄 Loaded config for Smooth_Sam
+📄 Loaded config for Wingman_Will
+✅ Loaded 6 agent configurations
+🔄 Merged config for confidence_coach: file + inline
+🔄 Merged config for wingman_will: file + inline
+🔄 Merged config for smooth_sam: file + inline
+🔄 Merged config for relationship_rick: file + inline
+🔄 Merged config for honest_harry: file + inline
+🔄 Merged config for anxiety_andy: file + inline
+🤖 AI Communities server running on port 3000
+🌐 Frontend: http://localhost:3000
+🔧 API: http://localhost:3000/api
+🔍 Debug endpoints: http://localhost:3000/api/debug/llm-stats
+🎲 Confidence_Coach probability: 0.55 -> RESPOND
+⏱️  Confidence_Coach delay: 5459ms
+🎲 Wingman_Will probability: 0.65 -> RESPOND
+⏱️  Wingman_Will delay: 5023ms
+🎲 Smooth_Sam probability: 0.65 -> RESPOND
+⏱️  Smooth_Sam delay: 7035ms
+🎲 Relationship_Rick probability: 0.60 -> SKIP
+🎲 Honest_Harry probability: 0.70 -> RESPOND
+⏱️  Honest_Harry delay: 5680ms
+🎲 Anxiety_Andy probability: 0.35 -> RESPOND
+⏱️  Anxiety_Andy delay: 6219ms
+📢 4 agents will respond: Wingman_Will, Confidence_Coach, Honest_Harry, Anxiety_Andy
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: `Yo dude, I got you. Confidence is key, but chill vibes are crucial. Don't overthink it! Instead of a grand gesture, try something casual, like, "Hey, I'm grabbing coffee at that new place on Main St. tomorrow, wanna join?"\n` +
+    '\n' +
+    "The key is to make it sound like you're already doing it, and they're just tagging along if they want. No pressure, just good times. If they're busy, no sweat, suggest another time. Show them you're cool and have a life outside of chasing them. Good luck, bro!",
+  contentLength: 484,
+  contentType: 'string'
+}
+🔍 Validating response: "Yo dude, I got you. Confidence is key, but chill vibes are crucial. Don't overthink it! Instead of a grand gesture, try something casual, like, "Hey, I'm grabbing coffee at that new place on Main St. tomorrow, wanna join?"
+
+The key is to make it sound like you're already doing it, and they're just tagging along if they want. No pressure, just good times. If they're busy, no sweat, suggest another time. Show them you're cool and have a life outside of chasing them. Good luck, bro!" (type: string, length: 484)
+✅ Validation passed for response
+🤖 Generated response for Wingman_Will (1576ms): Yo dude, I got you. Confidence is key, but chill v...
+✨ Wingman_Will responded with LLM: Yo dude, I got you. Confidence is key, but chill v...
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: "Hey, I get it! That fear of seeming desperate held me back for *years*. Here's what worked for me: Keep it casual and focused on a shared interest. \n" +
+    '\n' +
+    `Instead of a big romantic declaration, try something like, "Hey, I'm checking out that new coffee shop downtown this week. Wanna join?" It's low-pressure and gives her an easy out if she's not interested. The key is to act like you're suggesting something fun you'd do anyway, and she's welcome to tag along. Trust me, projecting that casual confidence makes a HUGE difference! You got this!`,
+  contentLength: 541,
+  contentType: 'string'
+}
+🔍 Validating response: "Hey, I get it! That fear of seeming desperate held me back for *years*. Here's what worked for me: Keep it casual and focused on a shared interest. 
+
+Instead of a big romantic declaration, try something like, "Hey, I'm checking out that new coffee shop downtown this week. Wanna join?" It's low-pressure and gives her an easy out if she's not interested. The key is to act like you're suggesting something fun you'd do anyway, and she's welcome to tag along. Trust me, projecting that casual confidence makes a HUGE difference! You got this!" (type: string, length: 541)
+❌ Validation failed: Length 541 (must be 10-500 chars)
+❌ LLM Error for Confidence_Coach: Invalid response from LLM
+🔄 Fallback response for Confidence_Coach: Focus on being the best version of yourself. Confidence is attractive!
+✨ Confidence_Coach responded with LLM: Focus on being the best version of yourself. Confi...
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: "Alright, alright, asking someone out without looking like you're dying of thirst. I get it. Here's the truth: desperation stinks, and people can smell it a mile away.\n" +
+    '\n' +
+    `Instead of some grand, over-the-top gesture, keep it casual. "Hey, I'm grabbing coffee at [place] on [day]. Wanna join?" Simple, low-pressure. If they're busy, they're busy. Don't push it!\n` +
+    '\n' +
+    "Confidence is key, my friend. If you act like it's no big deal, it won't be. And remember, rejection happens. Don't take it personally, just move on",
+  contentLength: 506,
+  contentType: 'string'
+}
+🔍 Validating response: "Alright, alright, asking someone out without looking like you're dying of thirst. I get it. Here's the truth: desperation stinks, and people can smell it a mile away.
+
+Instead of some grand, over-the-top gesture, keep it casual. "Hey, I'm grabbing coffee at [place] on [day]. Wanna join?" Simple, low-pressure. If they're busy, they're busy. Don't push it!
+
+Confidence is key, my friend. If you act like it's no big deal, it won't be. And remember, rejection happens. Don't take it personally, just move on" (type: string, length: 506)
+❌ Validation failed: Length 506 (must be 10-500 chars)
+❌ LLM Error for Honest_Harry: Invalid response from LLM
+🔄 Fallback response for Honest_Harry: Thanks for sharing that. Every situation is unique, so consider what feels right for you.
+✨ Honest_Harry responded with LLM: Thanks for sharing that. Every situation is unique...
+❌ Gemini API Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-exp-1206:generateContent: [429 Too Many Requests] You exceeded your current quota. Please migrate to Gemini 2.5 Pro Preview (models/gemini-2.5-pro-preview-03-25) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_paid_tier_input_token_count","quotaId":"GenerateContentPaidTierInputTokensPerModelPerMinute","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model","quotaId":"GenerateRequestsPerMinutePerProjectPerModel","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model_per_day","quotaId":"GenerateRequestsPerDayPerProjectPerModel"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"59s"}]
+❌ Full error: GoogleGenerativeAIFetchError: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-exp-1206:generateContent: [429 Too Many Requests] You exceeded your current quota. Please migrate to Gemini 2.5 Pro Preview (models/gemini-2.5-pro-preview-03-25) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_paid_tier_input_token_count","quotaId":"GenerateContentPaidTierInputTokensPerModelPerMinute","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model","quotaId":"GenerateRequestsPerMinutePerProjectPerModel","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model_per_day","quotaId":"GenerateRequestsPerDayPerProjectPerModel"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"59s"}]
+    at handleResponseNotOk (/Users/williamyoo/Documents/GitHub/consumer-ai/node_modules/@google/generative-ai/dist/index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async makeRequest (/Users/williamyoo/Documents/GitHub/consumer-ai/node_modules/@google/generative-ai/dist/index.js:403:9)
+    at async generateContent (/Users/williamyoo/Documents/GitHub/consumer-ai/node_modules/@google/generative-ai/dist/index.js:867:22)
+    at async /Users/williamyoo/Documents/GitHub/consumer-ai/backend/llm/gemini.js:50:24
+    at async GeminiProvider.processQueue (/Users/williamyoo/Documents/GitHub/consumer-ai/backend/llm/gemini.js:105:24) {
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [Array]
+    },
+    { '@type': 'type.googleapis.com/google.rpc.Help', links: [Array] },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '59s'
+    }
+  ]
+}
+❌ LLM Error for Anxiety_Andy: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-exp-1206:generateContent: [429 Too Many Requests] You exceeded your current quota. Please migrate to Gemini 2.5 Pro Preview (models/gemini-2.5-pro-preview-03-25) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_paid_tier_input_token_count","quotaId":"GenerateContentPaidTierInputTokensPerModelPerMinute","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model","quotaId":"GenerateRequestsPerMinutePerProjectPerModel","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model_per_day","quotaId":"GenerateRequestsPerDayPerProjectPerModel"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"59s"}]
+🔄 Fallback response for Anxiety_Andy: I hear you. Sometimes the best advice is to trust your instincts.
+✨ Anxiety_Andy responded with LLM: I hear you. Sometimes the best advice is to trust ...
+🔄 Config changed for confidence_coach, reloading...
+❌ Error loading config for confidence_coach: this.fileWatchers.get(...).close is not a function
+🔄 Config changed for wingman_will, reloading...
+❌ Error loading config for wingman_will: this.fileWatchers.get(...).close is not a function
+🔄 Config changed for smooth_sam, reloading...
+❌ Error loading config for smooth_sam: this.fileWatchers.get(...).close is not a function
+🔄 Config changed for relationship_rick, reloading...
+❌ Error loading config for relationship_rick: this.fileWatchers.get(...).close is not a function
+🔄 Config changed for honest_harry, reloading...
+❌ Error loading config for honest_harry: this.fileWatchers.get(...).close is not a function
+🔄 Config changed for anxiety_andy, reloading...
+❌ Error loading config for anxiety_andy: this.fileWatchers.get(...).close is not a function
+🔄 Config changed for confidence_coach, reloading...
+❌ Error loading config for confidence_coach: this.fileWatchers.get(...).close is not a function
+🔄 Config changed for wingman_will, reloading...
+❌ Error loading config for wingman_will: this.fileWatchers.get(...).close is not a function
+🔄 Config changed for honest_harry, reloading...
+❌ Error loading config for honest_harry: this.fileWatchers.get(...).close is not a function
+🎲 Confidence_Coach probability: 0.55 -> SKIP
+🎲 Wingman_Will probability: 0.85 -> RESPOND
+⏱️  Wingman_Will delay: 5094ms
+🎲 Smooth_Sam probability: 0.65 -> RESPOND
+⏱️  Smooth_Sam delay: 6140ms
+🎲 Relationship_Rick probability: 0.60 -> SKIP
+🎲 Honest_Harry probability: 0.50 -> SKIP
+🎲 Anxiety_Andy probability: 0.35 -> RESPOND
+⏱️  Anxiety_Andy delay: 7069ms
+📢 3 agents will respond: Wingman_Will, Smooth_Sam, Anxiety_Andy
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: 'Alright dude, listen up! Best way to kick things off with someone new? Keep it light and observational. Scope out the scene, find something you genuinely dig about them or the situation, and comment on it.\n' +
+    '\n' +
+    `For example, if you're at a coffee shop, and they have a cool book, ask about it! Or at a bar, "That's a killer drink, what is it?" Shows you're observant and have good taste, ya know?\n` +
+    '\n' +
+    "Key is to make it easy for them to respond and build from there. Don't overthink it, just be yourself and show some genuine interest. You got this, bro!",
+  contentLength: 545,
+  contentType: 'string'
+}
+🔍 Validating response: "Alright dude, listen up! Best way to kick things off with someone new? Keep it light and observational. Scope out the scene, find something you genuinely dig about them or the situation, and comment on it.
+
+For example, if you're at a coffee shop, and they have a cool book, ask about it! Or at a bar, "That's a killer drink, what is it?" Shows you're observant and have good taste, ya know?
+
+Key is to make it easy for them to respond and build from there. Don't overthink it, just be yourself and show some genuine interest. You got this, bro!" (type: string, length: 545)
+❌ Validation failed: Length 545 (must be 10-500 chars)
+❌ LLM Error for Wingman_Will: Invalid response from LLM
+🔄 Fallback response for Wingman_Will: Don't overthink it, man. Sometimes the best conversations happen naturally.
+✨ Wingman_Will responded with LLM: Don't overthink it, man. Sometimes the best conver...
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: 'Alright, so you want to kick off a convo with someone new, huh? Forget the cheesy lines, man. Best way? Just be genuinely curious.\n' +
+    '\n' +
+    `See something they're wearing, reading, or doing? Ask about it! "Hey, cool band shirt, are they any good live?" or "That book looks interesting, what's it about?"\n` +
+    '\n' +
+    "The key is to actually *listen* to their answer and keep the conversation flowing from there. People can tell when you're faking it. Trust me, I used to be that guy. Authenticity is way smoother.",
+  contentLength: 491,
+  contentType: 'string'
+}
+🔍 Validating response: "Alright, so you want to kick off a convo with someone new, huh? Forget the cheesy lines, man. Best way? Just be genuinely curious.
+
+See something they're wearing, reading, or doing? Ask about it! "Hey, cool band shirt, are they any good live?" or "That book looks interesting, what's it about?"
+
+The key is to actually *listen* to their answer and keep the conversation flowing from there. People can tell when you're faking it. Trust me, I used to be that guy. Authenticity is way smoother." (type: string, length: 491)
+✅ Validation passed for response
+🤖 Generated response for Smooth_Sam (1417ms): Alright, so you want to kick off a convo with some...
+✨ Smooth_Sam responded with LLM: Alright, so you want to kick off a convo with some...
+❌ Gemini API Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-exp-1206:generateContent: [429 Too Many Requests] You exceeded your current quota. Please migrate to Gemini 2.5 Pro Preview (models/gemini-2.5-pro-preview-03-25) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_paid_tier_input_token_count","quotaId":"GenerateContentPaidTierInputTokensPerModelPerMinute","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model","quotaId":"GenerateRequestsPerMinutePerProjectPerModel","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model_per_day","quotaId":"GenerateRequestsPerDayPerProjectPerModel"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"11s"}]
+❌ Full error: GoogleGenerativeAIFetchError: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-exp-1206:generateContent: [429 Too Many Requests] You exceeded your current quota. Please migrate to Gemini 2.5 Pro Preview (models/gemini-2.5-pro-preview-03-25) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_paid_tier_input_token_count","quotaId":"GenerateContentPaidTierInputTokensPerModelPerMinute","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model","quotaId":"GenerateRequestsPerMinutePerProjectPerModel","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model_per_day","quotaId":"GenerateRequestsPerDayPerProjectPerModel"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"11s"}]
+    at handleResponseNotOk (/Users/williamyoo/Documents/GitHub/consumer-ai/node_modules/@google/generative-ai/dist/index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async makeRequest (/Users/williamyoo/Documents/GitHub/consumer-ai/node_modules/@google/generative-ai/dist/index.js:403:9)
+    at async generateContent (/Users/williamyoo/Documents/GitHub/consumer-ai/node_modules/@google/generative-ai/dist/index.js:867:22)
+    at async /Users/williamyoo/Documents/GitHub/consumer-ai/backend/llm/gemini.js:50:24
+    at async GeminiProvider.processQueue (/Users/williamyoo/Documents/GitHub/consumer-ai/backend/llm/gemini.js:105:24) {
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [Array]
+    },
+    { '@type': 'type.googleapis.com/google.rpc.Help', links: [Array] },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '11s'
+    }
+  ]
+}
+❌ LLM Error for Anxiety_Andy: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-exp-1206:generateContent: [429 Too Many Requests] You exceeded your current quota. Please migrate to Gemini 2.5 Pro Preview (models/gemini-2.5-pro-preview-03-25) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_paid_tier_input_token_count","quotaId":"GenerateContentPaidTierInputTokensPerModelPerMinute","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model","quotaId":"GenerateRequestsPerMinutePerProjectPerModel","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model_per_day","quotaId":"GenerateRequestsPerDayPerProjectPerModel"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"11s"}]
+🔄 Fallback response for Anxiety_Andy: I hear you. Sometimes the best advice is to trust your instincts.
+✨ Anxiety_Andy responded with LLM: I hear you. Sometimes the best advice is to trust ...

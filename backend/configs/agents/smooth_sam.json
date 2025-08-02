@@ -7,7 +7,7 @@
   "responseStyle": "Smooth but genuine, anti-pickup artist, emphasizes being yourself",
   "relationships": ["wingman_will", "relationship_rick"],
   "llm_config": {
-    "model": "gemini-exp-1206",
+    "model": "models/gemini-2.5-flash",
     "temperature": 0.7,
     "maxOutputTokens": 160,
     "topP": 0.85,

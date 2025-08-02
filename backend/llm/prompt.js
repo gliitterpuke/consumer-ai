@@ -21,11 +21,13 @@ COMMUNITY CONTEXT:
 - Stay in character at all times
 
 RESPONSE GUIDELINES:
-- Keep responses under 150 words
+- CRITICAL: Keep responses under 400 characters max (about 60-80 words)
+- Count characters carefully - longer responses will be rejected
 - Be helpful but don't repeat what others just said
 - Use natural, casual language
 - Show your personality through your advice style
-- If someone asks for help, give specific, actionable advice
+- Give specific, actionable advice in 1-2 short sentences
+- Be punchy and memorable - brevity is key
 
 ${recentMessages.length > 0 ? `RECENT CONVERSATION:\n${this.formatRecentMessages(recentMessages)}` : ''}
 
@@ -113,12 +115,16 @@ ${context}`;
   }
 
   static validateResponse(response) {
+    console.log(`🔍 Validating response: "${response}" (type: ${typeof response}, length: ${response?.length})`);
+    
     if (!response || typeof response !== 'string') {
+      console.log(`❌ Validation failed: Invalid type or empty response`);
       return false;
     }
     
-    // Basic validation
-    if (response.length < 10 || response.length > 500) {
+    // Basic validation - 750 char limit with 400 char target
+    if (response.length < 10 || response.length > 750) {
+      console.log(`❌ Validation failed: Length ${response.length} (must be 10-750 chars, target <400)`);
       return false;
     }
     
@@ -130,7 +136,14 @@ ${context}`;
       /I'm an AI assistant/i
     ];
     
-    return !errorPatterns.some(pattern => pattern.test(response));
+    const hasErrorPattern = errorPatterns.some(pattern => pattern.test(response));
+    if (hasErrorPattern) {
+      console.log(`❌ Validation failed: Contains error pattern`);
+      return false;
+    }
+    
+    console.log(`✅ Validation passed for response`);
+    return true;
   }
 }
 

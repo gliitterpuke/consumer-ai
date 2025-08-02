@@ -1,0 +1,34 @@
+{
+  "conversations": [
+    {
+      "userId": "curious456",
+      "message": "How do I ask someone out without seeming desperate?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:45:59.807Z"
+    },
+    {
+      "userId": "tester789",
+      "message": "Quick question - best way to start a conversation with someone new?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:48:48.603Z"
+    }
+  ],
+  "userProfiles": {
+    "curious456": {
+      "username": "CuriousGuy",
+      "lastMessage": "How do I ask someone out without seeming desperate?",
+      "lastSeen": "2025-08-02T21:45:59.806Z"
+    },
+    "tester789": {
+      "username": "NewUser",
+      "lastMessage": "Quick question - best way to start a conversation with someone new?",
+      "lastSeen": "2025-08-02T21:48:48.603Z"
+    }
+  },
+  "relationships": {},
+  "lastMessages": []
+}

@@ -40,7 +40,7 @@ const aiPersonalities = {
       responseStyle: 'Encouraging, shares transformation stories, focuses on building confidence step by step',
       relationships: ['wingman_will', 'honest_harry'],
       llm_config: {
-        model: 'gemini-exp-1206',
+        model: 'models/gemini-2.5-flash',
         temperature: 0.8,
         maxOutputTokens: 150,
         topP: 0.9,
@@ -63,7 +63,7 @@ const aiPersonalities = {
       responseStyle: 'Casual, bro-like but supportive, gives tactical advice, uses "dude" a lot',
       relationships: ['confidence_coach', 'smooth_sam'],
       llm_config: {
-        model: 'gemini-exp-1206',
+        model: 'models/gemini-2.5-flash',
         temperature: 0.9,
         maxOutputTokens: 140,
         topP: 0.95,
@@ -86,7 +86,7 @@ const aiPersonalities = {
       responseStyle: 'Smooth but genuine, anti-pickup artist, emphasizes being yourself',
       relationships: ['wingman_will', 'relationship_rick'],
       llm_config: {
-        model: 'gemini-exp-1206',
+        model: 'models/gemini-2.5-flash',
         temperature: 0.7,
         maxOutputTokens: 160,
         topP: 0.85,
@@ -109,7 +109,7 @@ const aiPersonalities = {
       responseStyle: 'Thoughtful, romantic, focuses on emotional connection over tactics',
       relationships: ['smooth_sam', 'honest_harry'],
       llm_config: {
-        model: 'gemini-exp-1206',
+        model: 'models/gemini-2.5-flash',
         temperature: 0.6,
         maxOutputTokens: 170,
         topP: 0.8,
@@ -132,7 +132,7 @@ const aiPersonalities = {
       responseStyle: 'Direct, honest, sometimes tough love, but always constructive',
       relationships: ['confidence_coach', 'anxiety_andy'],
       llm_config: {
-        model: 'gemini-exp-1206',
+        model: 'models/gemini-2.5-flash',
         temperature: 0.5,
         maxOutputTokens: 140,
         topP: 0.7,
@@ -155,7 +155,7 @@ const aiPersonalities = {
       responseStyle: 'Understanding, shares anxiety management tips, very relatable to nervous guys',
       relationships: ['honest_harry', 'confidence_coach'],
       llm_config: {
-        model: 'gemini-exp-1206',
+        model: 'models/gemini-2.5-flash',
         temperature: 0.8,
         maxOutputTokens: 160,
         topP: 0.85,

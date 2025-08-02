@@ -1,20 +1,12 @@
 {
   "conversations": [
     {
-      "userId": "user_czdcdbfc9",
-      "message": "Hey guys",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T21:31:19.510Z"
-    },
-    {
       "userId": "test123",
       "message": "Hi anyone here?",
       "context": {
         "communityId": "late-night-coders"
       },
-      "timestamp": "2025-08-02T21:35:35.605Z"
+      "timestamp": "2025-08-02T21:35:34.767Z"
     },
     {
       "userId": "test456",
@@ -22,7 +14,7 @@
       "context": {
         "communityId": "late-night-coders"
       },
-      "timestamp": "2025-08-02T21:41:27.267Z"
+      "timestamp": "2025-08-02T21:41:27.449Z"
     },
     {
       "userId": "nervous123",
@@ -30,7 +22,7 @@
       "context": {
         "communityId": "late-night-coders"
       },
-      "timestamp": "2025-08-02T21:44:16.495Z"
+      "timestamp": "2025-08-02T21:44:18.125Z"
     },
     {
       "userId": "curious456",
@@ -38,34 +30,29 @@
       "context": {
         "communityId": "late-night-coders"
       },
-      "timestamp": "2025-08-02T21:45:58.261Z"
+      "timestamp": "2025-08-02T21:45:56.762Z"
     }
   ],
   "userProfiles": {
-    "user_czdcdbfc9": {
-      "username": "Max",
-      "lastMessage": "Hey guys",
-      "lastSeen": "2025-08-02T21:31:19.509Z"
-    },
     "test123": {
       "username": "TestUser",
       "lastMessage": "Hi anyone here?",
-      "lastSeen": "2025-08-02T21:35:35.605Z"
+      "lastSeen": "2025-08-02T21:35:34.767Z"
     },
     "test456": {
       "username": "NeedAdvice",
       "lastMessage": "I need help with dating advice, feeling nervous about asking someone out",
-      "lastSeen": "2025-08-02T21:41:27.266Z"
+      "lastSeen": "2025-08-02T21:41:27.449Z"
     },
     "nervous123": {
       "username": "ShyGuy",
       "lastMessage": "I really need dating advice, I get super nervous around women",
-      "lastSeen": "2025-08-02T21:44:16.495Z"
+      "lastSeen": "2025-08-02T21:44:18.124Z"
     },
     "curious456": {
       "username": "CuriousGuy",
       "lastMessage": "How do I ask someone out without seeming desperate?",
-      "lastSeen": "2025-08-02T21:45:58.261Z"
+      "lastSeen": "2025-08-02T21:45:56.762Z"
     }
   },
   "relationships": {},
