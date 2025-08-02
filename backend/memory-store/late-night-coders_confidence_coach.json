@@ -1,0 +1,189 @@
+{
+  "conversations": [
+    {
+      "userId": "test123",
+      "message": "Hi anyone here?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:35:34.767Z"
+    },
+    {
+      "userId": "test456",
+      "message": "I need help with dating advice, feeling nervous about asking someone out",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:41:27.449Z"
+    },
+    {
+      "userId": "nervous123",
+      "message": "I really need dating advice, I get super nervous around women",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:44:18.125Z"
+    },
+    {
+      "userId": "curious456",
+      "message": "How do I ask someone out without seeming desperate?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:45:56.762Z"
+    },
+    {
+      "userId": "user_8c50m2upd",
+      "message": "Hey everyone! I'm max, just joined the community 👋",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:51:16.446Z"
+    },
+    {
+      "userId": "user_8c50m2upd",
+      "message": "Hey guys idk if this girl likes me? she asked me out to the movies but it could be platonic",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:52:00.848Z"
+    },
+    {
+      "userId": "user_8c50m2upd",
+      "message": "chat am i cooked?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:52:47.771Z"
+    },
+    {
+      "userId": "user_8c50m2upd",
+      "message": "she wants me to cook dinner at her place. and then go see a movie after. but that could just be platonic right?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:54:13.776Z"
+    },
+    {
+      "userId": "user_8c50m2upd",
+      "message": "chat can i cheat on my girlfriend to go on a date with this girl?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:55:10.681Z"
+    },
+    {
+      "userId": "user_f22rboqao",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:24:51.414Z"
+    },
+    {
+      "userId": "test123",
+      "message": "I need help asking someone out",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:36:54.364Z"
+    },
+    {
+      "userId": "test456",
+      "message": "How do I overcome social anxiety when dating?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:38:31.537Z"
+    },
+    {
+      "userId": "anxietytest",
+      "message": "I have severe dating anxiety, can someone help?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:39:29.491Z"
+    },
+    {
+      "userId": "directtest",
+      "message": "@anxiety_andy help me with anxiety please",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:41:01.325Z"
+    },
+    {
+      "userId": "user_a6nh6lhz7",
+      "message": "Hi! I'm bill, excited to be here!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:45:30.058Z"
+    },
+    {
+      "userId": "user_a6nh6lhz7",
+      "message": "Chat there's a girl that I'm talking to, she invited me to watch the movies with her and cook dinner at her place. But is she into me or are we cooked?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:46:38.670Z"
+    },
+    {
+      "userId": "user_a6nh6lhz7",
+      "message": "ok you guys are all gasing me up, but how do I know she likes me? I'm kinda scared of getting rejected guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:48:42.077Z"
+    }
+  ],
+  "userProfiles": {
+    "test123": {
+      "username": "TestUser",
+      "lastMessage": "I need help asking someone out",
+      "lastSeen": "2025-08-02T22:36:54.364Z"
+    },
+    "test456": {
+      "username": "TestUser2",
+      "lastMessage": "How do I overcome social anxiety when dating?",
+      "lastSeen": "2025-08-02T22:38:31.537Z"
+    },
+    "nervous123": {
+      "username": "ShyGuy",
+      "lastMessage": "I really need dating advice, I get super nervous around women",
+      "lastSeen": "2025-08-02T21:44:18.124Z"
+    },
+    "curious456": {
+      "username": "CuriousGuy",
+      "lastMessage": "How do I ask someone out without seeming desperate?",
+      "lastSeen": "2025-08-02T21:45:56.762Z"
+    },
+    "user_8c50m2upd": {
+      "username": "max",
+      "lastMessage": "chat can i cheat on my girlfriend to go on a date with this girl?",
+      "lastSeen": "2025-08-02T21:55:10.681Z"
+    },
+    "user_f22rboqao": {
+      "username": "max",
+      "lastMessage": "hey guys",
+      "lastSeen": "2025-08-02T22:24:51.413Z"
+    },
+    "anxietytest": {
+      "username": "AnxietyTester",
+      "lastMessage": "I have severe dating anxiety, can someone help?",
+      "lastSeen": "2025-08-02T22:39:29.491Z"
+    },
+    "directtest": {
+      "username": "DirectTester",
+      "lastMessage": "@anxiety_andy help me with anxiety please",
+      "lastSeen": "2025-08-02T22:41:01.324Z"
+    },
+    "user_a6nh6lhz7": {
+      "username": "bill",
+      "lastMessage": "ok you guys are all gasing me up, but how do I know she likes me? I'm kinda scared of getting rejected guys",
+      "lastSeen": "2025-08-02T22:48:42.077Z"
+    }
+  },
+  "relationships": {},
+  "lastMessages": []
+}

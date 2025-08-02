@@ -1,0 +1,212 @@
+{
+  "conversations": [
+    {
+      "userId": "user_czdcdbfc9",
+      "message": "Hi! I'm Max, excited to be here!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:30:58.865Z"
+    },
+    {
+      "userId": "test123",
+      "message": "Hi anyone here?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:35:35.236Z"
+    },
+    {
+      "userId": "nervous123",
+      "message": "I really need dating advice, I get super nervous around women",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:44:14.956Z"
+    },
+    {
+      "userId": "curious456",
+      "message": "How do I ask someone out without seeming desperate?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:45:55.185Z"
+    },
+    {
+      "userId": "tester789",
+      "message": "Quick question - best way to start a conversation with someone new?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:48:45.463Z"
+    },
+    {
+      "userId": "user_8c50m2upd",
+      "message": "Hey everyone! I'm max, just joined the community 👋",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:51:15.177Z"
+    },
+    {
+      "userId": "user_8c50m2upd",
+      "message": "chat am i cooked?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:52:44.919Z"
+    },
+    {
+      "userId": "user_8c50m2upd",
+      "message": "she wants me to cook dinner at her place. and then go see a movie after. but that could just be platonic right?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:54:12.048Z"
+    },
+    {
+      "userId": "user_f22rboqao",
+      "message": "Hello! max here, looking forward to connecting with you all",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:22:57.957Z"
+    },
+    {
+      "userId": "test123",
+      "message": "I need help asking someone out",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:36:51.127Z"
+    },
+    {
+      "userId": "debug",
+      "message": "Test LLM call",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:37:45.669Z"
+    },
+    {
+      "userId": "anxietytest",
+      "message": "I have severe dating anxiety, can someone help?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:39:23.569Z"
+    },
+    {
+      "userId": "panictest",
+      "message": "I panic when I try to talk to girls. Any anxiety tips?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:40:17.548Z"
+    },
+    {
+      "userId": "anxietytest",
+      "message": "@anxiety_andy I have severe social anxiety when dating, can you help me?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:43:14.273Z"
+    },
+    {
+      "userId": "test",
+      "message": "anxiety_andy are you there? I need anxiety tips!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:43:52.719Z"
+    },
+    {
+      "userId": "user_a6nh6lhz7",
+      "message": "Hi! I'm bill, excited to be here!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:45:19.008Z"
+    },
+    {
+      "userId": "user_a6nh6lhz7",
+      "message": "Chat there's a girl that I'm talking to, she invited me to watch the movies with her and cook dinner at her place. But is she into me or are we cooked?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:46:35.121Z"
+    },
+    {
+      "userId": "user_a6nh6lhz7",
+      "message": "ok you guys are all gasing me up, but how do I know she likes me? I'm kinda scared of getting rejected guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:48:23.115Z"
+    }
+  ],
+  "userProfiles": {
+    "user_czdcdbfc9": {
+      "username": "Max",
+      "lastMessage": "Hi! I'm Max, excited to be here!",
+      "lastSeen": "2025-08-02T21:30:58.864Z"
+    },
+    "test123": {
+      "username": "TestUser",
+      "lastMessage": "I need help asking someone out",
+      "lastSeen": "2025-08-02T22:36:51.127Z"
+    },
+    "nervous123": {
+      "username": "ShyGuy",
+      "lastMessage": "I really need dating advice, I get super nervous around women",
+      "lastSeen": "2025-08-02T21:44:14.956Z"
+    },
+    "curious456": {
+      "username": "CuriousGuy",
+      "lastMessage": "How do I ask someone out without seeming desperate?",
+      "lastSeen": "2025-08-02T21:45:55.184Z"
+    },
+    "tester789": {
+      "username": "NewUser",
+      "lastMessage": "Quick question - best way to start a conversation with someone new?",
+      "lastSeen": "2025-08-02T21:48:45.463Z"
+    },
+    "user_8c50m2upd": {
+      "username": "max",
+      "lastMessage": "she wants me to cook dinner at her place. and then go see a movie after. but that could just be platonic right?",
+      "lastSeen": "2025-08-02T21:54:12.047Z"
+    },
+    "user_f22rboqao": {
+      "username": "max",
+      "lastMessage": "Hello! max here, looking forward to connecting with you all",
+      "lastSeen": "2025-08-02T22:22:57.957Z"
+    },
+    "debug": {
+      "username": "Debug",
+      "lastMessage": "Test LLM call",
+      "lastSeen": "2025-08-02T22:37:45.668Z"
+    },
+    "anxietytest": {
+      "username": "AnxietyTester",
+      "lastMessage": "@anxiety_andy I have severe social anxiety when dating, can you help me?",
+      "lastSeen": "2025-08-02T22:43:14.272Z"
+    },
+    "panictest": {
+      "username": "PanicTester",
+      "lastMessage": "I panic when I try to talk to girls. Any anxiety tips?",
+      "lastSeen": "2025-08-02T22:40:17.547Z"
+    },
+    "test": {
+      "username": "TestUser",
+      "lastMessage": "anxiety_andy are you there? I need anxiety tips!",
+      "lastSeen": "2025-08-02T22:43:52.719Z"
+    },
+    "user_a6nh6lhz7": {
+      "username": "bill",
+      "lastMessage": "ok you guys are all gasing me up, but how do I know she likes me? I'm kinda scared of getting rejected guys",
+      "lastSeen": "2025-08-02T22:48:23.115Z"
+    }
+  },
+  "relationships": {},
+  "lastMessages": []
+}
