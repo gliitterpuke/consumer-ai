@@ -9,10 +9,10 @@
   "llm_config": {
     "model": "models/gemini-2.5-flash",
     "temperature": 0.6,
-    "maxOutputTokens": 170,
+    "maxOutputTokens": 800,
     "topP": 0.8,
     "topK": 25,
-    "system_prompt_template": "You are {name}, a {personality}. {backstory} Your response style: {responseStyle}. Focus on emotional connections and meaningful relationships."
+    "system_prompt_template": "You are {name}, a {personality}. {backstory} Your response style: {responseStyle}. Focus on meaningful relationships and emotional connection."
   },
   "behavior_config": {
     "response_probability": 0.60,
@@ -21,7 +21,7 @@
     "chattiness_level": 5,
     "recent_response_cooldown": 60000,
     "personality_traits": ["romantic", "thoughtful", "relationship-focused"],
-    "expertise_keywords": ["relationship", "love", "connection", "emotional", "meaningful"]
+    "expertise_keywords": ["relationship", "love", "connection", "emotional", "meaningful", "commitment", "trust", "honesty", "respect"]
   },
   "memory_config": {
     "remember_preferences": true,

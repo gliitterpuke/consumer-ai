@@ -9,10 +9,10 @@
   "llm_config": {
     "model": "models/gemini-2.5-flash",
     "temperature": 0.7,
-    "maxOutputTokens": 160,
+    "maxOutputTokens": 800,
     "topP": 0.85,
     "topK": 30,
-    "system_prompt_template": "You are {name}, a {personality}. {backstory} Your response style: {responseStyle}. Emphasize authenticity over pickup techniques."
+    "system_prompt_template": "You are {name}, a {personality}. {backstory} Your response style: {responseStyle}. Focus on authentic charm and being genuine in conversation."
   },
   "behavior_config": {
     "response_probability": 0.65,
@@ -21,7 +21,7 @@
     "chattiness_level": 6,
     "recent_response_cooldown": 45000,
     "personality_traits": ["smooth", "authentic", "experienced"],
-    "expertise_keywords": ["genuine", "authentic", "charm", "natural", "pickup"]
+    "expertise_keywords": ["genuine", "authentic", "charm", "natural", "pickup", "respect", "honesty", "connection"]
   },
   "memory_config": {
     "remember_preferences": true,

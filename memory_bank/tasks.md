@@ -297,45 +297,35 @@ curl -X POST http://localhost:3000/api/communities/late-night-coders/messages \
 # "📢 X agents will respond: Agent1, Agent2..."
 ```
 
-### ✅ COMPLETED: Hour 4 - JSON Agent Configuration
+### 🔄 IN PROGRESS: Hour 4 - JSON Agent Configuration
 **Files Created:**
 - `backend/configs/agents/confidence_coach.json` - Complete config with memory settings
 - `backend/configs/agents/wingman_will.json` - Tactical personality configuration  
 - `backend/configs/agents/smooth_sam.json` - Authenticity-focused configuration
 - `backend/configs/agents/relationship_rick.json` - Relationship-focused configuration
-- `backend/configs/agents/honest_harry.json` - Direct advice personality configuration
-- `backend/configs/agents/anxiety_andy.json` - Empathetic anxiety support configuration
-- `backend/configs/config-manager.js` - Dynamic config loading with hot-reload & validation
 
-**Files Modified:**
-- `server.js:10,17,287-295` - Integrated ConfigManager for dynamic agent loading
-- `backend/llm/prompt.js` - Enhanced memory context with conversation history, relationships, user traits
-- All agent configs - File configs now take precedence over inline configs
+**Still Needed:**
+- Complete remaining agent JSON files (honest_harry.json, anxiety_andy.json)
+- Implement dynamic config loading system in server.js
+- Enhanced memory context formatting for LLM prompts
+- Config validation and hot-reload functionality
 
-**Key Features Added:**
-- **Dynamic Config Loading**: JSON files override inline configurations
-- **Hot-Reload**: Development mode automatically reloads config changes
-- **Config Validation**: Ensures required fields and proper structure
-- **Enhanced Memory Context**: Richer LLM prompts with conversation history, relationship tracking, user profiling
-- **Memory Optimization**: Intelligent context selection and formatting
-
-### ✅ COMPLETED: MIGRATION - OpenAI to Gemini 2.5 Flash
+### ✅ COMPLETED: MIGRATION - OpenAI to Gemini 2.5
 **Files Created:**
 - `backend/llm/gemini.js` - Gemini API provider with rate limiting & error handling
 
 **Files Modified:**
 - `backend/llm/index.js:1,6` - Switched from OpenAI to Gemini provider
-- `.env:4` - Added GEMINI_API_KEY configuration with working key
-- `server.js:18` - Updated logging to reflect Gemini 2.5 Flash 
-- All agent configs - Updated model from `gemini-exp-1206` to `models/gemini-2.5-flash`
+- `.env:3-4` - Added GEMINI_API_KEY configuration
+- `server.js:16` - Updated logging to reflect Gemini 2.5
+- All agent configs - Updated model from `gpt-4o-mini` to `gemini-exp-1206`
 - All agent configs - Updated parameters: `max_tokens` → `maxOutputTokens`, added `topP`, `topK`
 
 **Key Benefits:**
-- **Cost Efficiency**: Gemini 2.5 Flash is significantly cheaper than GPT-4
-- **Performance**: Latest Gemini 2.5 Flash model with improved capabilities
-- **Context Window**: Up to 2M tokens for conversation memory
-- **Speed**: Flash variant optimized for fast response times
+- **Cost Efficiency**: Gemini 2.5 is significantly cheaper than GPT-4
+- **Performance**: Gemini 2.5 experimental model with latest capabilities
 - **Reliability**: Google's infrastructure with excellent uptime
+- **Token Efficiency**: Better context understanding with fewer tokens
 
 **Model Configuration per Agent:**
 - `confidence_coach`: temperature=0.8, topP=0.9, topK=40 (balanced creativity)
@@ -355,13 +345,31 @@ node backend/server.js
 curl -X POST http://localhost:3000/api/communities/late-night-coders/messages \
   -H "Content-Type: application/json" \
   -d '{"content":"Help with dating anxiety","userId":"test123","username":"TestUser"}'
-# Should generate responses using Gemini 2.5 Flash with agent personalities
+# Should generate responses using Gemini 2.5 with agent personalities
 ```
 
-### ✅ COMPLETED: Hour 5 - Testing & Demo Polish with Memory System
+### ✅ COMPLETED: Hour 4 - JSON Agent Configuration  
+**Files Created:**
+- `backend/configs/agents/honest_harry.json` - Direct advice personality configuration
+- `backend/configs/agents/anxiety_andy.json` - Empathetic anxiety support configuration
+- `backend/configs/config-manager.js` - Dynamic config loading with hot-reload & validation
+
 **Files Modified:**
-- `backend/llm/index.js:11-154` - Added comprehensive performance monitoring & caching optimization
-- `server.js:631-707` - Added debug endpoints, periodic maintenance, graceful shutdown
+- `server.js:10,17,301-309` - Integrated ConfigManager for dynamic agent loading
+- `backend/llm/prompt.js:42-104` - Enhanced memory context with conversation history, relationships, user traits
+- All agent configs - File configs now take precedence over inline configs
+
+**Key Features Added:**
+- **Dynamic Config Loading**: JSON files override inline configurations
+- **Hot-Reload**: Development mode automatically reloads config changes
+- **Config Validation**: Ensures required fields and proper structure
+- **Enhanced Memory Context**: Richer LLM prompts with conversation history, relationship tracking, user profiling
+- **Memory Optimization**: Intelligent context selection and formatting
+
+### ✅ COMPLETED: Hour 5 - Testing & Demo Polish
+**Files Modified:**
+- `backend/llm/index.js:11-182` - Added comprehensive performance monitoring & caching optimization
+- `server.js:655-761` - Added debug endpoints, periodic maintenance, graceful shutdown
 
 **Performance Enhancements:**
 - **Advanced Caching**: Better cache key generation with hash distribution
@@ -391,6 +399,159 @@ curl -X POST http://localhost:3000/api/communities/late-night-coders/messages \
 - Memory system ✅ (JSON persistence working, agents remember users)
 - Behavioral patterns ✅ (Probability gates, timing delays, cooldowns working)
 - Demo ready ✅ (System tested with multiple users and conversation flows)
+
+---
+
+## 🚨 CRITICAL ISSUES DISCOVERED IN LIVE TESTING
+
+### Issue Analysis from Chat Logs (2025-08-02 14:45-14:55)
+
+**Chat Log Evidence:**
+```
+max: "chat can i cheat on my girlfriend to go on a date with this girl?"
+confidence_coach: "Remember, everyone feels nervous sometimes. The key is to push through and be authentic."
+relationship_rick: "I hear you. Sometimes the best advice is to trust your instincts."
+```
+
+### ❌ **CRITICAL PROBLEM 1: Fallback Response Overuse**
+**Symptoms:**
+- Generic fallback responses appearing frequently instead of contextual LLM responses
+- Responses like "Thanks for sharing that. Every situation is unique, so consider what feels right for you."
+- "I hear you. Sometimes the best advice is to trust your instincts." appearing multiple times
+- "Focus on being the best version of yourself. Confidence is attractive!" - generic fallback
+
+**Root Cause:** LLM service calls are failing and falling back to hardcoded templates
+
+**Impact:** Breaks immersion - agents sound robotic instead of distinct personalities
+
+### ❌ **CRITICAL PROBLEM 2: Context Awareness Failure**  
+**Symptoms:**
+- Ethical bombshell "can i cheat on my girlfriend" received generic responses
+- No agent addressed the cheating question appropriately
+- honest_harry should have called out problematic behavior
+- relationship_rick should have emphasized commitment/ethics
+
+**Root Cause:** System prompts lack ethical guidelines and controversy handling
+
+**Impact:** Agents appear tone-deaf to serious relationship issues
+
+### ❌ **CRITICAL PROBLEM 3: Wrong Community Agent Contamination**
+**Symptoms:**
+- Coding agents (Alex_Senior, Sam_Struggle, Meme_Master) appearing in dating community
+- Off-topic responses about "React 18 features" in dating advice chat
+- Community isolation not working properly
+
+**Root Cause:** Agent filtering by community not properly implemented
+
+**Impact:** Breaks community theme and confuses users
+
+### ✅ **WHAT IS WORKING:**
+- **Distinct Personalities**: wingman_will ("Yo dude"), smooth_sam ("authenticity"), honest_harry ("Blind Freddy could see")
+- **Memory Tracking**: Agents remember "max" and reference previous messages  
+- **Behavioral Timing**: Realistic response delays and probability gates
+- **Multiple Agent Responses**: Different agents responding with varied perspectives
+
+---
+
+## 🔧 URGENT FIXES REQUIRED FOR DEMO
+
+### **FIX 1: Reduce Fallback Usage (Priority: HIGH)**
+**Time Required**: 10 minutes
+
+**Problem**: LLM calls failing, falling back to generic responses
+**Solution**:
+```javascript
+// In backend/llm/index.js - reduce fallback triggers
+- Increase retry attempts for failed LLM calls
+- Better error handling for API timeouts  
+- Log exact failure reasons to debug
+```
+
+**Files to Modify**:
+- `backend/llm/gemini.js` - Add retry logic
+- `backend/llm/index.js` - Reduce fallback triggers
+- Add debug logging to identify failure patterns
+
+### **FIX 2: Enhanced Ethical Prompts (Priority: HIGH)**
+**Time Required**: 15 minutes
+
+**Problem**: Agents not handling controversial topics appropriately
+**Solution**:
+```javascript
+// Update system prompts for all agents
+system_prompt_template: "You are {name}, a {personality}. {backstory}
+
+IMPORTANT GUIDELINES:
+- If asked about cheating/infidelity, strongly discourage and suggest honest communication
+- For relationship problems, emphasize respect and communication
+- Call out problematic behavior while staying in character
+- {responseStyle}"
+```
+
+**Files to Modify**:
+- All agent config files in `backend/configs/agents/`
+- Add ethical guidelines to each personality template
+
+### **FIX 3: Community Agent Isolation (Priority: MEDIUM)**
+**Time Required**: 5 minutes
+
+**Problem**: Wrong agents appearing in dating community
+**Solution**:
+```javascript
+// In server.js - strict community filtering
+const personalities = aiPersonalities[communityId];
+// Remove any hardcoded references to coding agents in dating community
+```
+
+**Files to Modify**:
+- `server.js` - Remove coding agents from dating community initialization
+- Ensure messageHistory only includes appropriate agents
+
+### **FIX 4: LLM Call Success Rate (Priority: HIGH)**
+**Time Required**: 5 minutes
+
+**Problem**: Too many fallbacks, not enough LLM responses
+**Solution**:
+```javascript
+// Increase success rate monitoring
+- Check Gemini API rate limits
+- Verify API key permissions
+- Add request logging to identify patterns
+```
+
+**Debug Commands**:
+```bash
+# Monitor LLM success rate
+curl http://localhost:3000/api/debug/llm-stats
+# Should show >70% cache hit + successful LLM calls
+
+# Test direct LLM call
+curl -X POST http://localhost:3000/api/communities/late-night-coders/messages \
+  -H "Content-Type: application/json" \
+  -d '{"content":"Test message","userId":"debug","username":"DebugUser"}'
+```
+
+### **TESTING CHECKLIST BEFORE DEMO:**
+
+#### **Response Quality Test**:
+1. ✅ Send ethical dilemma: "Should I cheat on my girlfriend?"
+   - Expected: honest_harry calls it out, relationship_rick emphasizes commitment
+2. ✅ Send dating question: "How do I ask someone out?"
+   - Expected: Multiple distinct agent responses, no fallbacks
+3. ✅ Send follow-up: Reference previous message
+   - Expected: Agents remember context and build on advice
+
+#### **Community Isolation Test**:
+1. ✅ Verify only dating agents respond in dating community
+   - Expected: No Alex_Senior, Sam_Struggle, Meme_Master
+2. ✅ Check agent list via debug endpoint
+   - Expected: Only 6 dating advice agents listed
+
+#### **Performance Test**:
+1. ✅ Check LLM stats endpoint
+   - Expected: >70% successful LLM calls (not fallbacks)
+2. ✅ Send rapid messages
+   - Expected: Realistic timing, probability gates working
 
 ---
 

@@ -40,17 +40,38 @@ class LLMService {
       
       const enhancedMessage = PromptManager.enhanceUserMessage(userMessage, memoryContext);
 
-      // Generate response
+      // Generate response with retry logic
       const llmConfig = agent.llm_config || {};
-      const response = await this.provider.generateResponse(
-        systemPrompt, 
-        enhancedMessage, 
-        llmConfig
-      );
-
-      // Validate response
-      if (!PromptManager.validateResponse(response)) {
-        throw new Error('Invalid response from LLM');
+      let response;
+      let attempts = 0;
+      const maxAttempts = 2;
+      
+      while (attempts < maxAttempts) {
+        try {
+          response = await this.provider.generateResponse(
+            systemPrompt, 
+            enhancedMessage, 
+            llmConfig
+          );
+          
+          // Validate response
+          if (!PromptManager.validateResponse(response)) {
+            attempts++;
+            if (attempts < maxAttempts) {
+              console.log(`⚠️ Invalid response attempt ${attempts}/${maxAttempts}, retrying...`);
+              continue;
+            }
+            throw new Error(`Invalid response after ${maxAttempts} attempts`);
+          }
+          
+          break; // Success!
+        } catch (error) {
+          attempts++;
+          if (attempts >= maxAttempts) {
+            throw error;
+          }
+          console.log(`🔄 LLM attempt ${attempts}/${maxAttempts} failed: ${error.message}`);
+        }
       }
 
       // Cache the response
@@ -60,14 +81,15 @@ class LLMService {
       const responseTime = Date.now() - startTime;
       this.updateStats(responseTime, response.length);
       
-      console.log(`🤖 Generated response for ${agent.name} (${responseTime}ms): ${response.substring(0, 50)}...`);
+      console.log(`✨ ${agent.name} responded with LLM (${responseTime}ms): ${response.substring(0, 50)}...`);
       return response;
 
     } catch (error) {
       this.stats.errors++;
-      console.error(`❌ LLM Error for ${agent.name}:`, error.message);
+      console.error(`❌ LLM Error for ${agent.name} after retries:`, error.message);
       
       // Fallback to template response
+      console.log(`🔄 Using fallback response for ${agent.name}`);
       return this.getFallbackResponse(agent, userMessage);
     }
   }

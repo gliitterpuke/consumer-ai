@@ -15,6 +15,46 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-02T21:44:19.609Z"
+    },
+    {
+      "userId": "user_8c50m2upd",
+      "message": "Hey guys idk if this girl likes me? she asked me out to the movies but it could be platonic",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:52:02.509Z"
+    },
+    {
+      "userId": "user_8c50m2upd",
+      "message": "chat can i cheat on my girlfriend to go on a date with this girl?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:55:12.347Z"
+    },
+    {
+      "userId": "user_5lce770u5",
+      "message": "Hello! bill here, looking forward to connecting with you all",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:20:17.750Z"
+    },
+    {
+      "userId": "debug",
+      "message": "Test LLM call",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:38:04.837Z"
+    },
+    {
+      "userId": "test",
+      "message": "anxiety_andy are you there? I need anxiety tips!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:44:06.648Z"
     }
   ],
   "userProfiles": {
@@ -27,6 +67,26 @@
       "username": "ShyGuy",
       "lastMessage": "I really need dating advice, I get super nervous around women",
       "lastSeen": "2025-08-02T21:44:19.608Z"
+    },
+    "user_8c50m2upd": {
+      "username": "max",
+      "lastMessage": "chat can i cheat on my girlfriend to go on a date with this girl?",
+      "lastSeen": "2025-08-02T21:55:12.346Z"
+    },
+    "user_5lce770u5": {
+      "username": "bill",
+      "lastMessage": "Hello! bill here, looking forward to connecting with you all",
+      "lastSeen": "2025-08-02T22:20:17.749Z"
+    },
+    "debug": {
+      "username": "Debug",
+      "lastMessage": "Test LLM call",
+      "lastSeen": "2025-08-02T22:38:04.836Z"
+    },
+    "test": {
+      "username": "TestUser",
+      "lastMessage": "anxiety_andy are you there? I need anxiety tips!",
+      "lastSeen": "2025-08-02T22:44:06.648Z"
     }
   },
   "relationships": {},

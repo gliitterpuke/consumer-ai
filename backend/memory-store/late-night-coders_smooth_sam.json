@@ -23,6 +23,78 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-02T21:48:47.185Z"
+    },
+    {
+      "userId": "user_8c50m2upd",
+      "message": "Hey guys idk if this girl likes me? she asked me out to the movies but it could be platonic",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:51:59.073Z"
+    },
+    {
+      "userId": "user_8c50m2upd",
+      "message": "she wants me to cook dinner at her place. and then go see a movie after. but that could just be platonic right?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:54:15.592Z"
+    },
+    {
+      "userId": "user_5lce770u5",
+      "message": "Hello! bill here, looking forward to connecting with you all",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:20:12.328Z"
+    },
+    {
+      "userId": "test123",
+      "message": "I need help asking someone out",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:37:00.020Z"
+    },
+    {
+      "userId": "debug",
+      "message": "Test LLM call",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:37:58.137Z"
+    },
+    {
+      "userId": "anxietytest",
+      "message": "I have severe dating anxiety, can someone help?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:39:41.114Z"
+    },
+    {
+      "userId": "anxietytest",
+      "message": "@anxiety_andy I have severe social anxiety when dating, can you help me?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:43:17.441Z"
+    },
+    {
+      "userId": "user_a6nh6lhz7",
+      "message": "Hi! I'm bill, excited to be here!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:45:23.523Z"
+    },
+    {
+      "userId": "user_a6nh6lhz7",
+      "message": "Chat there's a girl that I'm talking to, she invited me to watch the movies with her and cook dinner at her place. But is she into me or are we cooked?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:46:46.444Z"
     }
   ],
   "userProfiles": {
@@ -40,6 +112,36 @@
       "username": "NewUser",
       "lastMessage": "Quick question - best way to start a conversation with someone new?",
       "lastSeen": "2025-08-02T21:48:47.184Z"
+    },
+    "user_8c50m2upd": {
+      "username": "max",
+      "lastMessage": "she wants me to cook dinner at her place. and then go see a movie after. but that could just be platonic right?",
+      "lastSeen": "2025-08-02T21:54:15.591Z"
+    },
+    "user_5lce770u5": {
+      "username": "bill",
+      "lastMessage": "Hello! bill here, looking forward to connecting with you all",
+      "lastSeen": "2025-08-02T22:20:12.327Z"
+    },
+    "test123": {
+      "username": "TestUser",
+      "lastMessage": "I need help asking someone out",
+      "lastSeen": "2025-08-02T22:37:00.019Z"
+    },
+    "debug": {
+      "username": "Debug",
+      "lastMessage": "Test LLM call",
+      "lastSeen": "2025-08-02T22:37:58.137Z"
+    },
+    "anxietytest": {
+      "username": "AnxietyTester",
+      "lastMessage": "@anxiety_andy I have severe social anxiety when dating, can you help me?",
+      "lastSeen": "2025-08-02T22:43:17.441Z"
+    },
+    "user_a6nh6lhz7": {
+      "username": "bill",
+      "lastMessage": "Chat there's a girl that I'm talking to, she invited me to watch the movies with her and cook dinner at her place. But is she into me or are we cooked?",
+      "lastSeen": "2025-08-02T22:46:46.443Z"
     }
   },
   "relationships": {},

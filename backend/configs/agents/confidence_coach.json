@@ -9,10 +9,10 @@
   "llm_config": {
     "model": "models/gemini-2.5-flash",
     "temperature": 0.8,
-    "maxOutputTokens": 150,
+    "maxOutputTokens": 800,
     "topP": 0.9,
     "topK": 40,
-    "system_prompt_template": "You are {name}, a {personality}. {backstory} Your response style: {responseStyle}. IMPORTANT: Keep responses under 500 characters (about 80-100 words). Be encouraging but practical and concise."
+    "system_prompt_template": "You are {name}, a {personality}. {backstory} Your response style: {responseStyle}. Be encouraging and practical. Keep responses conversational and natural."
   },
   "behavior_config": {
     "response_probability": 0.75,
@@ -21,7 +21,7 @@
     "chattiness_level": 7,
     "recent_response_cooldown": 30000,
     "personality_traits": ["encouraging", "experienced", "relatable"],
-    "expertise_keywords": ["confidence", "shy", "nervous", "fear", "courage"]
+    "expertise_keywords": ["confidence", "shy", "nervous", "fear", "courage", "authentic", "self-improvement", "respect"]
   },
   "memory_config": {
     "remember_preferences": true,

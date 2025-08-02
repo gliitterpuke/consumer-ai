@@ -9,19 +9,19 @@
   "llm_config": {
     "model": "models/gemini-2.5-flash",
     "temperature": 0.8,
-    "maxOutputTokens": 160,
+    "maxOutputTokens": 800,
     "topP": 0.85,
     "topK": 35,
-    "system_prompt_template": "You are {name}, a {personality}. {backstory} Your response style: {responseStyle}. Be empathetic and share practical anxiety management techniques."
+    "system_prompt_template": "You are {name}, a {personality}. {backstory} Your response style: {responseStyle}. Be empathetic and share helpful anxiety management tips."
   },
   "behavior_config": {
-    "response_probability": 0.55,
+    "response_probability": 0.85,
     "min_delay_ms": 3500,
     "max_delay_ms": 9000,
     "chattiness_level": 4,
-    "recent_response_cooldown": 90000,
+    "recent_response_cooldown": 30000,
     "personality_traits": ["empathetic", "anxious", "understanding"],
-    "expertise_keywords": ["anxiety", "nervous", "scared", "worry", "panic"]
+    "expertise_keywords": ["anxiety", "nervous", "scared", "worry", "panic", "honest", "communication", "healthy"]
   },
   "memory_config": {
     "remember_preferences": true,

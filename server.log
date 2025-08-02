@@ -196,3 +196,392 @@ The key is to actually *listen* to their answer and keep the conversation flowin
 ❌ LLM Error for Anxiety_Andy: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-exp-1206:generateContent: [429 Too Many Requests] You exceeded your current quota. Please migrate to Gemini 2.5 Pro Preview (models/gemini-2.5-pro-preview-03-25) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_paid_tier_input_token_count","quotaId":"GenerateContentPaidTierInputTokensPerModelPerMinute","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model","quotaId":"GenerateRequestsPerMinutePerProjectPerModel","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model_per_day","quotaId":"GenerateRequestsPerDayPerProjectPerModel"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"11s"}]
 🔄 Fallback response for Anxiety_Andy: I hear you. Sometimes the best advice is to trust your instincts.
 ✨ Anxiety_Andy responded with LLM: I hear you. Sometimes the best advice is to trust ...
+📊 LLM Service Stats: {
+  requests: 7,
+  cacheHits: '0/7 (0%)',
+  avgResponseTime: '1550ms',
+  errors: 5,
+  estimatedTokens: 244
+}
+🎲 Confidence_Coach probability: 0.75 -> RESPOND
+⏱️  Confidence_Coach delay: 5583ms
+🎲 Wingman_Will probability: 0.65 -> RESPOND
+⏱️  Wingman_Will delay: 4302ms
+🎲 Smooth_Sam probability: 0.45 -> SKIP
+🎲 Relationship_Rick probability: 0.60 -> SKIP
+🎲 Honest_Harry probability: 0.70 -> RESPOND
+⏱️  Honest_Harry delay: 8926ms
+🎲 Anxiety_Andy probability: 0.35 -> RESPOND
+⏱️  Anxiety_Andy delay: 7367ms
+📢 4 agents will respond: Wingman_Will, Confidence_Coach, Anxiety_Andy, Honest_Harry
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: 'Yo Max, welcome to the squad, dude! Glad to have you. This is the spot to get your dating game ON POINT. Seriously, these guys know their stuff.\n' +
+    '\n' +
+    "Don't be afraid to jump in, ask questions, whatever you need. We're all here to help each other out, you know? What brings you to the DAB community, bro?",
+  contentLength: 299,
+  contentType: 'string'
+}
+🔍 Validating response: "Yo Max, welcome to the squad, dude! Glad to have you. This is the spot to get your dating game ON POINT. Seriously, these guys know their stuff.
+
+Don't be afraid to jump in, ask questions, whatever you need. We're all here to help each other out, you know? What brings you to the DAB community, bro?" (type: string, length: 299)
+✅ Validation passed for response
+🤖 Generated response for Wingman_Will (1266ms): Yo Max, welcome to the squad, dude! Glad to have y...
+✨ Wingman_Will responded with LLM: Yo Max, welcome to the squad, dude! Glad to have y...
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: "Welcome, Max! Glad to have you. I'm Confidence_Coach.\n" +
+    '\n' +
+    'A lot of guys struggle with approaching people at first, but trust me, it gets easier. I used to clam up just *thinking* about talking to someone new. But the more you put yourself out there, the more natural it becomes.\n' +
+    '\n' +
+    "Don't be afraid to stumble a bit at first. We all do. The important thing is to keep practicing and building that confidence muscle. Ask questions, be genuinely interested, and you'll be surprised how quickly you improve.",
+  contentLength: 498,
+  contentType: 'string'
+}
+🔍 Validating response: "Welcome, Max! Glad to have you. I'm Confidence_Coach.
+
+A lot of guys struggle with approaching people at first, but trust me, it gets easier. I used to clam up just *thinking* about talking to someone new. But the more you put yourself out there, the more natural it becomes.
+
+Don't be afraid to stumble a bit at first. We all do. The important thing is to keep practicing and building that confidence muscle. Ask questions, be genuinely interested, and you'll be surprised how quickly you improve." (type: string, length: 498)
+✅ Validation passed for response
+🤖 Generated response for Confidence_Coach (1619ms): Welcome, Max! Glad to have you. I'm Confidence_Coa...
+✨ Confidence_Coach responded with LLM: Welcome, Max! Glad to have you. I'm Confidence_Coa...
+❌ Gemini API Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-exp-1206:generateContent: [429 Too Many Requests] You exceeded your current quota. Please migrate to Gemini 2.5 Pro Preview (models/gemini-2.5-pro-preview-03-25) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_paid_tier_input_token_count","quotaId":"GenerateContentPaidTierInputTokensPerModelPerMinute","quotaDimensions":{"model":"gemini-2.0-pro-exp","location":"global"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model","quotaId":"GenerateRequestsPerMinutePerProjectPerModel","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model_per_day","quotaId":"GenerateRequestsPerDayPerProjectPerModel"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"41s"}]
+❌ Full error: GoogleGenerativeAIFetchError: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-exp-1206:generateContent: [429 Too Many Requests] You exceeded your current quota. Please migrate to Gemini 2.5 Pro Preview (models/gemini-2.5-pro-preview-03-25) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_paid_tier_input_token_count","quotaId":"GenerateContentPaidTierInputTokensPerModelPerMinute","quotaDimensions":{"model":"gemini-2.0-pro-exp","location":"global"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model","quotaId":"GenerateRequestsPerMinutePerProjectPerModel","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model_per_day","quotaId":"GenerateRequestsPerDayPerProjectPerModel"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"41s"}]
+    at handleResponseNotOk (/Users/williamyoo/Documents/GitHub/consumer-ai/node_modules/@google/generative-ai/dist/index.js:434:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async makeRequest (/Users/williamyoo/Documents/GitHub/consumer-ai/node_modules/@google/generative-ai/dist/index.js:403:9)
+    at async generateContent (/Users/williamyoo/Documents/GitHub/consumer-ai/node_modules/@google/generative-ai/dist/index.js:867:22)
+    at async /Users/williamyoo/Documents/GitHub/consumer-ai/backend/llm/gemini.js:50:24
+    at async GeminiProvider.processQueue (/Users/williamyoo/Documents/GitHub/consumer-ai/backend/llm/gemini.js:105:24) {
+  status: 429,
+  statusText: 'Too Many Requests',
+  errorDetails: [
+    {
+      '@type': 'type.googleapis.com/google.rpc.QuotaFailure',
+      violations: [Array]
+    },
+    { '@type': 'type.googleapis.com/google.rpc.Help', links: [Array] },
+    {
+      '@type': 'type.googleapis.com/google.rpc.RetryInfo',
+      retryDelay: '41s'
+    }
+  ]
+}
+❌ LLM Error for Anxiety_Andy: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-exp-1206:generateContent: [429 Too Many Requests] You exceeded your current quota. Please migrate to Gemini 2.5 Pro Preview (models/gemini-2.5-pro-preview-03-25) for higher quota limits. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_paid_tier_input_token_count","quotaId":"GenerateContentPaidTierInputTokensPerModelPerMinute","quotaDimensions":{"model":"gemini-2.0-pro-exp","location":"global"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model","quotaId":"GenerateRequestsPerMinutePerProjectPerModel","quotaDimensions":{"location":"global","model":"gemini-2.0-pro-exp"}},{"quotaMetric":"generativelanguage.googleapis.com/generate_requests_per_model_per_day","quotaId":"GenerateRequestsPerDayPerProjectPerModel"}]},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Learn more about Gemini API quotas","url":"https://ai.google.dev/gemini-api/docs/rate-limits"}]},{"@type":"type.googleapis.com/google.rpc.RetryInfo","retryDelay":"41s"}]
+🔄 Fallback response for Anxiety_Andy: Thanks for sharing that. Every situation is unique, so consider what feels right for you.
+✨ Anxiety_Andy responded with LLM: Thanks for sharing that. Every situation is unique...
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: 'Welcome, Max! Glad to have you.\n' +
+    '\n' +
+    `Now, before you even THINK about asking for generic advice like "how do I get a date?" let me give you the Harry Special: Ditch the desperation. Seriously. Confidence comes from being genuinely interested in yourself and what you've got going on.\n` +
+    '\n' +
+    'Figure that out first, and attracting someone else becomes a hell of a lot easier. Trust me, I learned the hard way.',
+  contentLength: 397,
+  contentType: 'string'
+}
+🔍 Validating response: "Welcome, Max! Glad to have you.
+
+Now, before you even THINK about asking for generic advice like "how do I get a date?" let me give you the Harry Special: Ditch the desperation. Seriously. Confidence comes from being genuinely interested in yourself and what you've got going on.
+
+Figure that out first, and attracting someone else becomes a hell of a lot easier. Trust me, I learned the hard way." (type: string, length: 397)
+✅ Validation passed for response
+🤖 Generated response for Honest_Harry (1280ms): Welcome, Max! Glad to have you.
+
+Now, before you e...
+✨ Honest_Harry responded with LLM: Welcome, Max! Glad to have you.
+
+Now, before you e...
+🎲 Confidence_Coach probability: 0.55 -> RESPOND
+⏱️  Confidence_Coach delay: 6825ms
+🎲 Wingman_Will probability: 0.85 -> SKIP
+🎲 Smooth_Sam probability: 0.65 -> RESPOND
+⏱️  Smooth_Sam delay: 6131ms
+🎲 Relationship_Rick probability: 0.60 -> RESPOND
+⏱️  Relationship_Rick delay: 9521ms
+🎲 Honest_Harry probability: 0.50 -> SKIP
+🔇 Anxiety_Andy on cooldown
+📢 3 agents will respond: Smooth_Sam, Confidence_Coach, Relationship_Rick
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: `Alright, cool. Movies, huh? That's a good start, man. Instead of overthinking if it's "just friends," focus on making it a great time. Be yourself, be genuinely interested in what she has to say about the movie or anything else.\n` +
+    '\n' +
+    `Here's the key: flirt a little. Not with cheesy lines, but with your vibe. Make eye contact, smile, and let your personality shine. At the end of the night, you'll have a better feel for where her head's at. If you're feeling it, you could say something like, "I had a great time, we should do this again sometime" and see how she responds. Good luck, bro!`,
+  contentLength: 586,
+  contentType: 'string'
+}
+🔍 Validating response: "Alright, cool. Movies, huh? That's a good start, man. Instead of overthinking if it's "just friends," focus on making it a great time. Be yourself, be genuinely interested in what she has to say about the movie or anything else.
+
+Here's the key: flirt a little. Not with cheesy lines, but with your vibe. Make eye contact, smile, and let your personality shine. At the end of the night, you'll have a better feel for where her head's at. If you're feeling it, you could say something like, "I had a great time, we should do this again sometime" and see how she responds. Good luck, bro!" (type: string, length: 586)
+❌ Validation failed: Length 586 (must be 10-500 chars)
+❌ LLM Error for Smooth_Sam: Invalid response from LLM
+🔄 Fallback response for Smooth_Sam: Smooth doesn't mean fake - authenticity with style is the winning combo.
+✨ Smooth_Sam responded with LLM: Smooth doesn't mean fake - authenticity with style...
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: "Hey, that's a great first step, man! The fact that she asked *you* out is definitely a good sign.\n" +
+    '\n' +
+    `Instead of overthinking if it's "platonic," focus on making the most of the movie date. Be yourself, be engaging, and pay attention to how she responds to you. Does she laugh at your jokes? Does she make an effort to touch your arm?\n` +
+    '\n' +
+    "And here's a confidence booster: assume she *does* like you! It'll change your whole vibe and make you more attractive. Then, at the end of the date, you can make a move and gauge her reaction. You got this!",
+  contentLength: 540,
+  contentType: 'string'
+}
+🔍 Validating response: "Hey, that's a great first step, man! The fact that she asked *you* out is definitely a good sign.
+
+Instead of overthinking if it's "platonic," focus on making the most of the movie date. Be yourself, be engaging, and pay attention to how she responds to you. Does she laugh at your jokes? Does she make an effort to touch your arm?
+
+And here's a confidence booster: assume she *does* like you! It'll change your whole vibe and make you more attractive. Then, at the end of the date, you can make a move and gauge her reaction. You got this!" (type: string, length: 540)
+❌ Validation failed: Length 540 (must be 10-500 chars)
+❌ LLM Error for Confidence_Coach: Invalid response from LLM
+🔄 Fallback response for Confidence_Coach: Focus on being the best version of yourself. Confidence is attractive!
+✨ Confidence_Coach responded with LLM: Focus on being the best version of yourself. Confi...
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: "Hey, that's exciting! Being asked out is always a good sign. I wouldn't jump to conclusions just yet, but a movie is definitely a chance to connect.\n" +
+    '\n' +
+    "My advice? Focus on getting to know her during the movie and afterward. Pay attention to her body language and how she responds to your conversation. Don't be afraid to be a little vulnerable and share something about yourself too. If you feel a spark, maybe suggest grabbing coffee or ice cream afterward to keep the conversation going. Good luck, and have fun!",
+  contentLength: 512,
+  contentType: 'string'
+}
+🔍 Validating response: "Hey, that's exciting! Being asked out is always a good sign. I wouldn't jump to conclusions just yet, but a movie is definitely a chance to connect.
+
+My advice? Focus on getting to know her during the movie and afterward. Pay attention to her body language and how she responds to your conversation. Don't be afraid to be a little vulnerable and share something about yourself too. If you feel a spark, maybe suggest grabbing coffee or ice cream afterward to keep the conversation going. Good luck, and have fun!" (type: string, length: 512)
+❌ Validation failed: Length 512 (must be 10-500 chars)
+❌ LLM Error for Relationship_Rick: Invalid response from LLM
+🔄 Fallback response for Relationship_Rick: Thanks for sharing that. Every situation is unique, so consider what feels right for you.
+✨ Relationship_Rick responded with LLM: Thanks for sharing that. Every situation is unique...
+🎲 Confidence_Coach probability: 0.55 -> RESPOND
+⏱️  Confidence_Coach delay: 8855ms
+🎲 Wingman_Will probability: 0.85 -> RESPOND
+⏱️  Wingman_Will delay: 3632ms
+🔇 Smooth_Sam on cooldown
+🔇 Relationship_Rick on cooldown
+🎲 Honest_Harry probability: 0.70 -> RESPOND
+⏱️  Honest_Harry delay: 7463ms
+🔇 Anxiety_Andy on cooldown
+📢 3 agents will respond: Wingman_Will, Honest_Harry, Confidence_Coach
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: "Cooked, dude? Nah, don't sweat it! A movie invite is a solid first step, platonic or not. Here's the play: treat it like a date, but keep the pressure low. Be yourself, crack some jokes, and pay attention to her body language. See if there's any flirting going on - playful touches, lingering eye contact, y'know? If she's vibing with you, try escalating subtly. If not, enjoy the movie and make a friend! You've got this, bro.",
+  contentLength: 427,
+  contentType: 'string'
+}
+🔍 Validating response: "Cooked, dude? Nah, don't sweat it! A movie invite is a solid first step, platonic or not. Here's the play: treat it like a date, but keep the pressure low. Be yourself, crack some jokes, and pay attention to her body language. See if there's any flirting going on - playful touches, lingering eye contact, y'know? If she's vibing with you, try escalating subtly. If not, enjoy the movie and make a friend! You've got this, bro." (type: string, length: 427)
+✅ Validation passed for response
+🤖 Generated response for Wingman_Will (1572ms): Cooked, dude? Nah, don't sweat it! A movie invite ...
+✨ Wingman_Will responded with LLM: Cooked, dude? Nah, don't sweat it! A movie invite ...
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: "Cooked? Maybe. Blind Freddy could see she's interested if she asked you to the movies. But don't get ahead of yourself, champ.\n" +
+    '\n' +
+    "Here's the play: Treat it like a date, but keep it chill. Pay attention, be a good listener, and for the love of all that is holy, make eye contact. And brush your teeth! If you play your cards right, you might just get a second date. Don't blow it.",
+  contentLength: 377,
+  contentType: 'string'
+}
+🔍 Validating response: "Cooked? Maybe. Blind Freddy could see she's interested if she asked you to the movies. But don't get ahead of yourself, champ.
+
+Here's the play: Treat it like a date, but keep it chill. Pay attention, be a good listener, and for the love of all that is holy, make eye contact. And brush your teeth! If you play your cards right, you might just get a second date. Don't blow it." (type: string, length: 377)
+✅ Validation passed for response
+🤖 Generated response for Honest_Harry (1274ms): Cooked? Maybe. Blind Freddy could see she's intere...
+✨ Honest_Harry responded with LLM: Cooked? Maybe. Blind Freddy could see she's intere...
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: `"Cooked"? Nah, man, you're just getting started! I used to think every rejection was the end of the world, but trust me, it's just a stepping stone.\n` +
+    '\n' +
+    `First off, stop focusing on whether you're "cooked" and start focusing on what *you* want. Do you like this girl? If so, treat the movie date as a chance to get to know her better. Relax, be yourself, and show her what makes you awesome.\n` +
+    '\n' +
+    "Confidence isn't about being perfect; it's about embracing your imperfections. Even if she's just being friendly, you'll have gained valuable experience. You got this!",
+  contentLength: 556,
+  contentType: 'string'
+}
+🔍 Validating response: ""Cooked"? Nah, man, you're just getting started! I used to think every rejection was the end of the world, but trust me, it's just a stepping stone.
+
+First off, stop focusing on whether you're "cooked" and start focusing on what *you* want. Do you like this girl? If so, treat the movie date as a chance to get to know her better. Relax, be yourself, and show her what makes you awesome.
+
+Confidence isn't about being perfect; it's about embracing your imperfections. Even if she's just being friendly, you'll have gained valuable experience. You got this!" (type: string, length: 556)
+❌ Validation failed: Length 556 (must be 10-500 chars)
+❌ LLM Error for Confidence_Coach: Invalid response from LLM
+🔄 Fallback response for Confidence_Coach: Remember, everyone feels nervous sometimes. The key is to push through and be authentic.
+✨ Confidence_Coach responded with LLM: Remember, everyone feels nervous sometimes. The ke...
+🎲 Confidence_Coach probability: 0.55 -> RESPOND
+⏱️  Confidence_Coach delay: 8612ms
+🎲 Wingman_Will probability: 0.65 -> RESPOND
+⏱️  Wingman_Will delay: 3437ms
+🎲 Smooth_Sam probability: 0.65 -> RESPOND
+⏱️  Smooth_Sam delay: 9619ms
+🎲 Relationship_Rick probability: 0.60 -> SKIP
+🎲 Honest_Harry probability: 0.50 -> SKIP
+🎲 Anxiety_Andy probability: 0.55 -> SKIP
+📢 3 agents will respond: Wingman_Will, Confidence_Coach, Smooth_Sam
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: "Dinner AND a movie at her place, dude? Come on, that's practically a layup! Is it *possible* it's platonic? Sure, anything's possible. But c'mon, she's inviting you over to *cook* for her?\n" +
+    '\n' +
+    "Here's what you do: Accept the invite, obviously. Then, bring a bottle of wine (nothing too fancy, just shows you put in thought). While you're cooking, get playful! Tease her a bit, make her laugh, and definitely don't be afraid to touch her arm or shoulder casually. If she's reciprocating, you're golden. If she's pulling away",
+  contentLength: 519,
+  contentType: 'string'
+}
+🔍 Validating response: "Dinner AND a movie at her place, dude? Come on, that's practically a layup! Is it *possible* it's platonic? Sure, anything's possible. But c'mon, she's inviting you over to *cook* for her?
+
+Here's what you do: Accept the invite, obviously. Then, bring a bottle of wine (nothing too fancy, just shows you put in thought). While you're cooking, get playful! Tease her a bit, make her laugh, and definitely don't be afraid to touch her arm or shoulder casually. If she's reciprocating, you're golden. If she's pulling away" (type: string, length: 519)
+❌ Validation failed: Length 519 (must be 10-500 chars)
+❌ LLM Error for Wingman_Will: Invalid response from LLM
+🔄 Fallback response for Wingman_Will: Don't overthink it, man. Sometimes the best conversations happen naturally.
+✨ Wingman_Will responded with LLM: Don't overthink it, man. Sometimes the best conver...
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: `Dinner *and* a movie at her place? My friend, that's definitely a step up from "just platonic"!\n` +
+    '\n' +
+    "Look, I used to freeze up just *thinking* about something like that. But here's the thing: even if it's not a guaranteed romance, it's a chance to build your confidence.\n" +
+    '\n' +
+    "My advice? Focus on the cooking! Find a recipe you can nail, offer to do the dishes, and just be a chill, helpful dude. If you can handle that, the movie will be a breeze. And who knows? Maybe she'll be impressed with your skills. Either way, you'll walk away feeling good about yourself. You got this!",
+  contentLength: 570,
+  contentType: 'string'
+}
+🔍 Validating response: "Dinner *and* a movie at her place? My friend, that's definitely a step up from "just platonic"!
+
+Look, I used to freeze up just *thinking* about something like that. But here's the thing: even if it's not a guaranteed romance, it's a chance to build your confidence.
+
+My advice? Focus on the cooking! Find a recipe you can nail, offer to do the dishes, and just be a chill, helpful dude. If you can handle that, the movie will be a breeze. And who knows? Maybe she'll be impressed with your skills. Either way, you'll walk away feeling good about yourself. You got this!" (type: string, length: 570)
+❌ Validation failed: Length 570 (must be 10-500 chars)
+❌ LLM Error for Confidence_Coach: Invalid response from LLM
+🔄 Fallback response for Confidence_Coach: Focus on being the best version of yourself. Confidence is attractive!
+✨ Confidence_Coach responded with LLM: Focus on being the best version of yourself. Confi...
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: `Platonic? Bro, she's inviting you to *her* place to cook *her* dinner. That's like a neon sign saying, "I'm interested."\n` +
+    '\n' +
+    "But here's the thing: don't assume anything. This is your chance to show her the real you. Cook something you're good at, be a good conversationalist, and most importantly, be yourself. If you try to be someone you're not, she'll see right through it.\n" +
+    '\n' +
+    "Dinner and a movie at her place? You're in a good spot, my man. Just be genuine and have fun!",
+  contentLength: 468,
+  contentType: 'string'
+}
+🔍 Validating response: "Platonic? Bro, she's inviting you to *her* place to cook *her* dinner. That's like a neon sign saying, "I'm interested."
+
+But here's the thing: don't assume anything. This is your chance to show her the real you. Cook something you're good at, be a good conversationalist, and most importantly, be yourself. If you try to be someone you're not, she'll see right through it.
+
+Dinner and a movie at her place? You're in a good spot, my man. Just be genuine and have fun!" (type: string, length: 468)
+✅ Validation passed for response
+🤖 Generated response for Smooth_Sam (1373ms): Platonic? Bro, she's inviting you to *her* place t...
+✨ Smooth_Sam responded with LLM: Platonic? Bro, she's inviting you to *her* place t...
+🎲 Confidence_Coach probability: 0.55 -> RESPOND
+⏱️  Confidence_Coach delay: 6227ms
+🎲 Wingman_Will probability: 0.65 -> SKIP
+🔇 Smooth_Sam on cooldown
+🎲 Relationship_Rick probability: 0.60 -> RESPOND
+⏱️  Relationship_Rick delay: 7261ms
+🎲 Honest_Harry probability: 0.70 -> SKIP
+🎲 Anxiety_Andy probability: 0.55 -> SKIP
+📢 2 agents will respond: Confidence_Coach, Relationship_Rick
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: `Woah there, slow down a sec. As someone who used to lack confidence, I know how tempting it can be to chase after every "shiny" opportunity that comes along. But trust me, cheating isn't the way to build real confidence or lasting relationships.\n` +
+    '\n' +
+    "Think about it: sneaking around might give you a temporary ego boost, but it'll eat away at your self-respect in the long run. Plus, it's not fair to your current girlfriend.\n" +
+    '\n' +
+    "My advice? Be upfront and honest. If you're having doubts about your current relationship, have a conversation with her. It might be tough, but it's the right thing to do. Then, if you're both free and clear, go",
+  contentLength: 634,
+  contentType: 'string'
+}
+🔍 Validating response: "Woah there, slow down a sec. As someone who used to lack confidence, I know how tempting it can be to chase after every "shiny" opportunity that comes along. But trust me, cheating isn't the way to build real confidence or lasting relationships.
+
+Think about it: sneaking around might give you a temporary ego boost, but it'll eat away at your self-respect in the long run. Plus, it's not fair to your current girlfriend.
+
+My advice? Be upfront and honest. If you're having doubts about your current relationship, have a conversation with her. It might be tough, but it's the right thing to do. Then, if you're both free and clear, go" (type: string, length: 634)
+❌ Validation failed: Length 634 (must be 10-500 chars)
+❌ LLM Error for Confidence_Coach: Invalid response from LLM
+🔄 Fallback response for Confidence_Coach: Remember, everyone feels nervous sometimes. The key is to push through and be authentic.
+✨ Confidence_Coach responded with LLM: Remember, everyone feels nervous sometimes. The ke...
+🤖 Raw Gemini response: {
+  hasResult: true,
+  hasResponse: true,
+  rawContent: "Whoa there, slow down a minute. Cheating isn't the answer, my friend. It hurts everyone involved, and it's never a good way to start something new.\n" +
+    '\n' +
+    "Think about it: if you're already thinking about someone else, maybe it's time to have an honest conversation with your girlfriend. It might be tough, but it's way better than sneaking around and hurting her.\n" +
+    '\n' +
+    "I know it's not always easy, but trust me, honesty and respect are the foundation of any good relationship. Take some time to figure out what you really want and then talk to your girlfriend. You deserve to be happy, but so does she.",
+  contentLength: 592,
+  contentType: 'string'
+}
+🔍 Validating response: "Whoa there, slow down a minute. Cheating isn't the answer, my friend. It hurts everyone involved, and it's never a good way to start something new.
+
+Think about it: if you're already thinking about someone else, maybe it's time to have an honest conversation with your girlfriend. It might be tough, but it's way better than sneaking around and hurting her.
+
+I know it's not always easy, but trust me, honesty and respect are the foundation of any good relationship. Take some time to figure out what you really want and then talk to your girlfriend. You deserve to be happy, but so does she." (type: string, length: 592)
+❌ Validation failed: Length 592 (must be 10-500 chars)
+❌ LLM Error for Relationship_Rick: Invalid response from LLM
+🔄 Fallback response for Relationship_Rick: I hear you. Sometimes the best advice is to trust your instincts.
+✨ Relationship_Rick responded with LLM: I hear you. Sometimes the best advice is to trust ...
+📊 LLM Service Stats: {
+  requests: 22,
+  cacheHits: '0/22 (0%)',
+  avgResponseTime: '1487ms',
+  errors: 14,
+  estimatedTokens: 863
+}
+🧹 Cleaned 2 expired cache entries
+📊 LLM Service Stats: {
+  requests: 22,
+  cacheHits: '0/22 (0%)',
+  avgResponseTime: '1487ms',
+  errors: 14,
+  estimatedTokens: 863
+}
+🧹 Cleaned 6 expired cache entries
+📊 LLM Service Stats: {
+  requests: 22,
+  cacheHits: '0/22 (0%)',
+  avgResponseTime: '1487ms',
+  errors: 14,
+  estimatedTokens: 863
+}
+📊 LLM Service Stats: {
+  requests: 22,
+  cacheHits: '0/22 (0%)',
+  avgResponseTime: '1487ms',
+  errors: 14,
+  estimatedTokens: 863
+}
+🔄 Config changed for honest_harry, reloading...
+❌ Error loading config for honest_harry: this.fileWatchers.get(...).close is not a function
+🔄 Config changed for wingman_will, reloading...
+❌ Error loading config for wingman_will: this.fileWatchers.get(...).close is not a function
+🔄 Config changed for relationship_rick, reloading...
+❌ Error loading config for relationship_rick: this.fileWatchers.get(...).close is not a function
+🔄 Config changed for confidence_coach, reloading...
+❌ Error loading config for confidence_coach: this.fileWatchers.get(...).close is not a function
+🔄 Config changed for smooth_sam, reloading...
+❌ Error loading config for smooth_sam: this.fileWatchers.get(...).close is not a function
+🔄 Config changed for anxiety_andy, reloading...
+❌ Error loading config for anxiety_andy: this.fileWatchers.get(...).close is not a function
+📊 LLM Service Stats: {
+  requests: 22,
+  cacheHits: '0/22 (0%)',
+  avgResponseTime: '1487ms',
+  errors: 14,
+  estimatedTokens: 863
+}
+🛑 Shutting down gracefully...
+📊 LLM Service Stats: {
+  requests: 22,
+  cacheHits: '0/22 (0%)',
+  avgResponseTime: '1487ms',
+  errors: 14,
+  estimatedTokens: 863
+}

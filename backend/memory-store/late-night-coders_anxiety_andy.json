@@ -15,6 +15,54 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-02T21:48:48.603Z"
+    },
+    {
+      "userId": "user_8c50m2upd",
+      "message": "Hey everyone! I'm max, just joined the community 👋",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:51:18.067Z"
+    },
+    {
+      "userId": "user_5lce770u5",
+      "message": "Hello! bill here, looking forward to connecting with you all",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:20:15.122Z"
+    },
+    {
+      "userId": "user_f22rboqao",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:24:48.371Z"
+    },
+    {
+      "userId": "test123",
+      "message": "I need help asking someone out",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:36:57.171Z"
+    },
+    {
+      "userId": "test456",
+      "message": "How do I overcome social anxiety when dating?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:38:37.800Z"
+    },
+    {
+      "userId": "test",
+      "message": "anxiety_andy are you there? I need anxiety tips!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T22:44:02.401Z"
     }
   ],
   "userProfiles": {
@@ -27,6 +75,36 @@
       "username": "NewUser",
       "lastMessage": "Quick question - best way to start a conversation with someone new?",
       "lastSeen": "2025-08-02T21:48:48.603Z"
+    },
+    "user_8c50m2upd": {
+      "username": "max",
+      "lastMessage": "Hey everyone! I'm max, just joined the community 👋",
+      "lastSeen": "2025-08-02T21:51:18.067Z"
+    },
+    "user_5lce770u5": {
+      "username": "bill",
+      "lastMessage": "Hello! bill here, looking forward to connecting with you all",
+      "lastSeen": "2025-08-02T22:20:15.121Z"
+    },
+    "user_f22rboqao": {
+      "username": "max",
+      "lastMessage": "hey guys",
+      "lastSeen": "2025-08-02T22:24:48.370Z"
+    },
+    "test123": {
+      "username": "TestUser",
+      "lastMessage": "I need help asking someone out",
+      "lastSeen": "2025-08-02T22:36:57.170Z"
+    },
+    "test456": {
+      "username": "TestUser2",
+      "lastMessage": "How do I overcome social anxiety when dating?",
+      "lastSeen": "2025-08-02T22:38:37.799Z"
+    },
+    "test": {
+      "username": "TestUser",
+      "lastMessage": "anxiety_andy are you there? I need anxiety tips!",
+      "lastSeen": "2025-08-02T22:44:02.400Z"
     }
   },
   "relationships": {},
