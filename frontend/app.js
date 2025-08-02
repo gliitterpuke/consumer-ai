@@ -7,6 +7,8 @@ class AICommunities {
         this.messages = [];
         this.typingUsers = new Set();
         this.lastMessageTime = 0;
+        this.currentDMUser = null;
+        this.dmMessages = {};
         
         this.initializeApp();
     }
@@ -67,6 +69,9 @@ class AICommunities {
                 this.switchCommunity(communityId);
             });
         });
+
+        // Profile and DM functionality
+        this.initializeProfileAndDM();
     }
 
     showUsernameModal() {
@@ -362,6 +367,358 @@ class AICommunities {
             timestamp: new Date().toISOString(),
             type: 'system'
         });
+    }
+
+    initializeProfileAndDM() {
+        // Make member items clickable
+        document.querySelectorAll('.member-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const memberId = item.dataset.member;
+                if (memberId) {
+                    this.showProfile(memberId);
+                }
+            });
+        });
+
+        // Make message author names clickable
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('message-author') && e.target.classList.contains('ai')) {
+                const authorName = e.target.textContent;
+                const memberId = this.getAIMemberIdFromName(authorName);
+                if (memberId) {
+                    this.showProfile(memberId);
+                }
+            }
+        });
+
+        // Profile modal events
+        document.getElementById('close-profile').addEventListener('click', () => {
+            this.hideProfile();
+        });
+
+        document.getElementById('dm-button').addEventListener('click', () => {
+            this.openDM(this.currentProfileUser);
+        });
+
+        // DM events
+        document.getElementById('close-dm').addEventListener('click', () => {
+            this.closeDM();
+        });
+
+        document.getElementById('dm-send-button').addEventListener('click', () => {
+            this.sendDM();
+        });
+
+        document.getElementById('dm-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                this.sendDM();
+            }
+        });
+
+        // Close modals when clicking outside
+        document.getElementById('profile-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'profile-modal') {
+                this.hideProfile();
+            }
+        });
+
+        document.getElementById('dm-overlay').addEventListener('click', (e) => {
+            if (e.target.id === 'dm-overlay') {
+                this.closeDM();
+            }
+        });
+    }
+
+    getAIMemberIdFromName(name) {
+        const nameToId = {
+            'Confidence_Coach': 'confidence_coach',
+            'Wingman_Will': 'wingman_will',
+            'Smooth_Sam': 'smooth_sam',
+            'Relationship_Rick': 'relationship_rick',
+            'Honest_Harry': 'honest_harry',
+            'Anxiety_Andy': 'anxiety_andy'
+        };
+        return nameToId[name];
+    }
+
+    showProfile(memberId) {
+        const profiles = {
+            'confidence_coach': {
+                name: 'Confidence_Coach',
+                avatar: '💪',
+                personality: 'Former shy guy who learned confidence through practice. Gives practical advice on building self-esteem.',
+                backstory: 'Used to be terrified of talking to girls. Now married with great social skills. Remembers the struggle.',
+                responseStyle: 'Encouraging, shares transformation stories, focuses on building confidence step by step'
+            },
+            'wingman_will': {
+                name: 'Wingman_Will',
+                avatar: '😎',
+                personality: 'Natural social butterfly who loves helping friends succeed with dating. Great at reading situations.',
+                backstory: 'Always been the guy who helps his friends get dates. Genuinely wants everyone to find love.',
+                responseStyle: 'Casual, bro-like but supportive, gives tactical advice, uses "dude" a lot'
+            },
+            'smooth_sam': {
+                name: 'Smooth_Sam',
+                avatar: '😏',
+                personality: 'Charming guy who knows how to talk to women. Focuses on being genuine rather than pickup lines.',
+                backstory: 'Learned that authenticity beats tricks. Had to unlearn a lot of bad dating advice.',
+                responseStyle: 'Smooth but genuine, anti-pickup artist, emphasizes being yourself'
+            },
+            'relationship_rick': {
+                name: 'Relationship_Rick',
+                avatar: '❤️',
+                personality: 'Focuses on building meaningful connections. Married his college sweetheart after asking her out nervously.',
+                backstory: 'Believes in taking things slow and building real relationships. Very romantic at heart.',
+                responseStyle: 'Thoughtful, romantic, focuses on emotional connection over tactics'
+            },
+            'honest_harry': {
+                name: 'Honest_Harry',
+                avatar: '🤔',
+                personality: 'Gives brutally honest but caring advice. Calls out bad ideas but always offers better alternatives.',
+                backstory: 'Learned from many dating mistakes. Now gives the advice he wishes he had gotten.',
+                responseStyle: 'Direct, honest, sometimes tough love, but always constructive'
+            },
+            'anxiety_andy': {
+                name: 'Anxiety_Andy',
+                avatar: '😰',
+                personality: 'Deals with social anxiety but has learned coping strategies. Very empathetic to nervousness.',
+                backstory: 'Struggled with anxiety for years. Found ways to manage it and still date successfully.',
+                responseStyle: 'Understanding, shares anxiety management tips, very relatable to nervous guys'
+            }
+        };
+
+        const profile = profiles[memberId];
+        if (!profile) return;
+
+        this.currentProfileUser = memberId;
+
+        // Update profile modal content
+        document.getElementById('profile-avatar').textContent = profile.avatar;
+        document.getElementById('profile-name').textContent = profile.name;
+        document.getElementById('profile-personality').textContent = profile.personality;
+        document.getElementById('profile-backstory').textContent = profile.backstory;
+        document.getElementById('profile-style').textContent = profile.responseStyle;
+
+        // Show modal
+        document.getElementById('profile-modal').style.display = 'flex';
+    }
+
+    hideProfile() {
+        document.getElementById('profile-modal').style.display = 'none';
+        this.currentProfileUser = null;
+    }
+
+    openDM(memberId) {
+        this.hideProfile();
+        this.currentDMUser = memberId;
+
+        const profiles = {
+            'confidence_coach': { name: 'Confidence_Coach', avatar: '💪' },
+            'wingman_will': { name: 'Wingman_Will', avatar: '😎' },
+            'smooth_sam': { name: 'Smooth_Sam', avatar: '😏' },
+            'relationship_rick': { name: 'Relationship_Rick', avatar: '❤️' },
+            'honest_harry': { name: 'Honest_Harry', avatar: '🤔' },
+            'anxiety_andy': { name: 'Anxiety_Andy', avatar: '😰' }
+        };
+
+        const profile = profiles[memberId];
+        if (!profile) return;
+
+        // Update DM interface
+        document.getElementById('dm-avatar').textContent = profile.avatar;
+        document.getElementById('dm-name').textContent = profile.name;
+        document.getElementById('dm-welcome-avatar').textContent = profile.avatar;
+        document.getElementById('dm-welcome-name').textContent = profile.name;
+        document.getElementById('dm-input').placeholder = `Message ${profile.name}...`;
+
+        // Load existing DM messages
+        this.loadDMMessages(memberId);
+
+        // Show DM interface
+        document.getElementById('dm-overlay').style.display = 'flex';
+        document.getElementById('dm-input').focus();
+    }
+
+    closeDM() {
+        document.getElementById('dm-overlay').style.display = 'none';
+        this.currentDMUser = null;
+    }
+
+    loadDMMessages(memberId) {
+        const messagesContainer = document.getElementById('dm-messages');
+        const welcomeMsg = messagesContainer.querySelector('.dm-welcome');
+        
+        // Clear existing messages but keep welcome
+        messagesContainer.innerHTML = '';
+        messagesContainer.appendChild(welcomeMsg);
+
+        // Load existing DM messages for this user
+        const userDMs = this.dmMessages[memberId] || [];
+        userDMs.forEach(message => {
+            this.addDMMessageToUI(message);
+        });
+
+        this.scrollDMToBottom();
+    }
+
+    async sendDM() {
+        const input = document.getElementById('dm-input');
+        const content = input.value.trim();
+        
+        if (!content || !this.currentDMUser) return;
+
+        // Clear input immediately
+        input.value = '';
+
+        // Add user message to UI
+        const userMessage = {
+            id: Date.now(),
+            author: this.username,
+            content: content,
+            timestamp: new Date().toISOString(),
+            type: 'user'
+        };
+
+        this.addDMMessageToUI(userMessage);
+        this.saveDMMessage(this.currentDMUser, userMessage);
+
+        // Show typing indicator
+        this.showDMTyping();
+
+        // Generate AI response
+        setTimeout(() => {
+            this.hideDMTyping();
+            const aiResponse = this.generateDMResponse(this.currentDMUser, content);
+            const aiMessage = {
+                id: Date.now() + 1,
+                author: this.getProfileName(this.currentDMUser),
+                content: aiResponse,
+                timestamp: new Date().toISOString(),
+                type: 'ai'
+            };
+            this.addDMMessageToUI(aiMessage);
+            this.saveDMMessage(this.currentDMUser, aiMessage);
+        }, 1500 + Math.random() * 2000);
+    }
+
+    addDMMessageToUI(message) {
+        const messagesContainer = document.getElementById('dm-messages');
+        
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'dm-message';
+        
+        const isAI = message.type === 'ai';
+        const avatar = isAI ? this.getAvatarForUser(message.author, true) : '👤';
+        
+        messageDiv.innerHTML = `
+            <div class="dm-message-avatar">${avatar}</div>
+            <div class="dm-message-content">
+                <div class="dm-message-header">
+                    <span class="dm-message-author ${isAI ? '' : 'user'}">${message.author}</span>
+                    <span class="dm-message-timestamp">${this.formatTimestamp(message.timestamp)}</span>
+                </div>
+                <div class="dm-message-text">${this.formatMessageContent(message.content)}</div>
+            </div>
+        `;
+        
+        messagesContainer.appendChild(messageDiv);
+        this.scrollDMToBottom();
+    }
+
+    showDMTyping() {
+        const messagesContainer = document.getElementById('dm-messages');
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'dm-message';
+        typingDiv.id = 'dm-typing-indicator';
+        
+        const avatar = this.getAvatarForUser(this.getProfileName(this.currentDMUser), true);
+        
+        typingDiv.innerHTML = `
+            <div class="dm-message-avatar">${avatar}</div>
+            <div class="dm-message-content">
+                <div class="dm-message-text" style="font-style: italic; color: #72767d;">
+                    ${this.getProfileName(this.currentDMUser)} is typing
+                    <div class="typing-dots" style="display: inline-flex; margin-left: 8px;">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        messagesContainer.appendChild(typingDiv);
+        this.scrollDMToBottom();
+    }
+
+    hideDMTyping() {
+        const typingIndicator = document.getElementById('dm-typing-indicator');
+        if (typingIndicator) {
+            typingIndicator.remove();
+        }
+    }
+
+    scrollDMToBottom() {
+        const messagesContainer = document.getElementById('dm-messages');
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    saveDMMessage(memberId, message) {
+        if (!this.dmMessages[memberId]) {
+            this.dmMessages[memberId] = [];
+        }
+        this.dmMessages[memberId].push(message);
+    }
+
+    getProfileName(memberId) {
+        const names = {
+            'confidence_coach': 'Confidence_Coach',
+            'wingman_will': 'Wingman_Will',
+            'smooth_sam': 'Smooth_Sam',
+            'relationship_rick': 'Relationship_Rick',
+            'honest_harry': 'Honest_Harry',
+            'anxiety_andy': 'Anxiety_Andy'
+        };
+        return names[memberId] || 'AI';
+    }
+
+    generateDMResponse(memberId, userMessage) {
+        const responses = {
+            'confidence_coach': [
+                "I hear you, and I want you to know that what you're feeling is completely normal. When I was in your shoes, I felt the exact same way.",
+                "You know what? The fact that you're reaching out shows you're already taking the first step. That takes courage, even if it doesn't feel like it.",
+                "Let me share something with you - confidence isn't about never feeling scared. It's about feeling scared and doing it anyway. What's one small thing you could try today?"
+            ],
+            'wingman_will': [
+                "Yo, I'm glad you came to me with this! That's what I'm here for, dude. Let's figure this out together.",
+                "Bro, you're being way too hard on yourself. I've seen guys with way less going for them than you succeed. What's really holding you back?",
+                "Dude, here's the thing - every girl is different, but they all appreciate genuine interest and respect. Tell me more about the situation."
+            ],
+            'smooth_sam': [
+                "I appreciate you being real with me. Authenticity is already putting you ahead of 90% of guys out there.",
+                "You know what's actually smooth? Being honest about your feelings. Vulnerability is attractive when it comes from a place of strength.",
+                "Let me tell you something - the best conversations I've had with women started with me just being myself. What's your natural personality like?"
+            ],
+            'relationship_rick': [
+                "Thank you for sharing that with me. Building real connections takes time, and it sounds like you're looking for something meaningful.",
+                "I remember feeling exactly like that before I met my wife. The right person will appreciate your genuine approach. What kind of relationship are you hoping for?",
+                "You know, the best relationships start with friendship and mutual respect. Focus on getting to know her as a person first. What draws you to her?"
+            ],
+            'honest_harry': [
+                "Alright, I'm going to give it to you straight because that's what you need right now. But I'm saying this because I care.",
+                "Look, I've been where you are, and I made every mistake in the book. The good news? You're asking for help, which means you're already smarter than I was.",
+                "Here's the truth - rejection is part of the process. The sooner you accept that, the sooner you can focus on becoming the best version of yourself. What are you working on personally?"
+            ],
+            'anxiety_andy': [
+                "Oh man, I totally get it. My anxiety used to be so bad that I'd rehearse conversations for hours and still mess them up.",
+                "You're not alone in feeling this way. Social anxiety around dating is super common, and there are definitely ways to manage it.",
+                "I've found that taking deep breaths and reminding myself that the other person is probably nervous too really helps. What specific situations make you most anxious?"
+            ]
+        };
+
+        const memberResponses = responses[memberId] || responses['confidence_coach'];
+        return memberResponses[Math.floor(Math.random() * memberResponses.length)];
     }
 }
 

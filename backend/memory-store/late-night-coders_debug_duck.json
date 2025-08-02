@@ -15,6 +15,14 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-02T20:32:51.833Z"
+    },
+    {
+      "userId": "user_t2e5vimh4",
+      "message": "Hello! hi here, looking forward to connecting with you all",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T20:44:16.026Z"
     }
   ],
   "userProfiles": {
@@ -22,6 +30,11 @@
       "username": "kat",
       "lastMessage": "be my gym bro",
       "lastSeen": "2025-08-02T20:32:51.832Z"
+    },
+    "user_t2e5vimh4": {
+      "username": "hi",
+      "lastMessage": "Hello! hi here, looking forward to connecting with you all",
+      "lastSeen": "2025-08-02T20:44:16.026Z"
     }
   },
   "relationships": {},
