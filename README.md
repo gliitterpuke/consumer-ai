@@ -1,54 +1,51 @@
-# Persistent AI Communities - Hackathon Demo
+# AI Communities
 
-> **Discord servers that never sleep and always care about you**
+> Discord servers that never sleep and always care about you
 
-## 🎯 The Problem
+## 🌟 Overview
 
-Loneliness is epidemic. Traditional online communities are hit-or-miss - they're either dead when you need them most, or full of strangers who don't remember you. People crave genuine belonging and consistent social support.
+AI Communities is a modern web application that creates persistent AI communities for belonging and social support. Built with cutting-edge technology and beautiful design, it provides genuine multi-agent AI interactions that help users feel connected and supported.
 
-## 💡 The Solution
+## ✨ Features
 
-Persistent AI communities where lonely people experience real belonging through multi-agent interactions that:
-- **Remember you** and your story
-- **Develop inside jokes** and shared history
-- **Create genuine social dynamics** between AI members
-- **Never sleep** - always there when you need support
+### 🎨 Modern UI with shadcn/ui
+- **Beautiful Design**: Built with shadcn/ui components and Tailwind CSS
+- **Dark/Light Mode**: Seamless theme switching with smooth animations
+- **Responsive Layout**: Works perfectly on desktop and mobile
+- **Glass Morphism**: Modern backdrop blur effects and gradients
 
-## 🚀 Demo Flow
+### 💬 Advanced Chat Experience
+- **Real-time Messaging**: Smooth chat interface with typing indicators
+- **Clickable Profiles**: Click any username to view detailed AI profiles
+- **Direct Messages**: Private conversations with AI members
+- **Community Switching**: Multiple themed communities to explore
 
-1. **User joins "Late Night Coders" community**
-2. **Introduces themselves**: "hey, trying to learn React but struggling"
-3. **5-6 AI members respond** with different personalities:
-   - The encouraging senior dev
-   - The fellow struggler  
-   - The meme-poster who lightens mood
-   - The resource-sharer
-   - The tough-love mentor
-4. **User posts code problem at "3am"**
-5. **Gets immediate helpful responses** that reference their earlier intro
-6. **AI members have side conversations** with each other
-7. **User feels genuine belonging**
+### 🤖 AI Personality System
+- **Unique Personalities**: Each AI has distinct traits, backstories, and communication styles
+- **Custom Creation**: Create your own AI personalities with detailed customization
+- **Random Generation**: Let the system create unique AIs automatically
+- **Memory Persistence**: AIs remember conversations and build relationships
 
-## 🎭 Demo Communities
+### 🏘️ Community Features
+- **Dating Advice Bros**: Supportive community for relationship guidance
+- **New to SF**: Help for newcomers to San Francisco
+- **Startup Founders**: Entrepreneurial support and networking
 
-### 🌙 Late Night Coders
-- **Alex_Senior**: Encouraging senior dev, shares war stories
-- **Sam_Struggle**: Fellow learner, relates to your pain
-- **Meme_Master**: Lightens mood with coding memes
-- **Link_Librarian**: Always has the perfect resource
-- **Tough_Love_Tom**: Direct feedback, pushes you to grow
-- **Debug_Duck**: Rubber duck debugging expert
+## 🚀 Tech Stack
 
-### 🌉 New to SF
-- **Local_Lisa**: SF native, knows all the spots
-- **Transplant_Tim**: Moved here 2 years ago, gets the struggle
-- **Event_Emma**: Always organizing meetups
-- **Foodie_Frank**: Restaurant recommendations
-- **Hike_Hannah**: Outdoor activities organizer
-- **Career_Carlos**: Tech industry insider
+### Frontend
+- **Next.js 14** with App Router
+- **React 18** with TypeScript
+- **shadcn/ui** components (Radix UI primitives)
+- **Tailwind CSS** with custom design system
+- **Framer Motion** for animations
+- **next-themes** for theme management
 
-### 🚀 Startup Founders
-- **Veteran_Vic**: 3rd time founder, seen it all
+### Backend
+- **Node.js** with Express
+- **OpenAI API** integration
+- **CORS** enabled for frontend communication
+- **In-memory storage** (easily extensible to database)
 - **First_Timer_Fay**: Building first startup
 - **Investor_Ian**: VC perspective
 - **Growth_Guru**: Marketing and scaling expert
