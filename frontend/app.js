@@ -164,7 +164,7 @@ class AICommunities {
         const typingContainer = document.getElementById('typing-indicators');
         
         // Simulate multiple AIs typing
-        const typingAIs = ['Alex_Senior', 'Sam_Struggle', 'Meme_Master'];
+        const typingAIs = ['Confidence_Coach', 'Wingman_Will', 'Smooth_Sam'];
         
         typingAIs.forEach((ai, index) => {
             setTimeout(() => {
@@ -296,12 +296,12 @@ class AICommunities {
         if (!isAI) return '👤';
         
         const avatars = {
-            'Alex_Senior': '👨‍💻',
-            'Sam_Struggle': '😅',
-            'Meme_Master': '😂',
-            'Link_Librarian': '📚',
-            'Tough_Love_Tom': '💪',
-            'Debug_Duck': '🦆'
+            'Confidence_Coach': '💪',
+            'Wingman_Will': '😎',
+            'Smooth_Sam': '😏',
+            'Relationship_Rick': '❤️',
+            'Honest_Harry': '🤔',
+            'Anxiety_Andy': '😰'
         };
         
         return avatars[username] || '🤖';
@@ -342,7 +342,7 @@ class AICommunities {
         
         // Update UI
         const communityNames = {
-            'late-night-coders': 'Late Night Coders',
+            'late-night-coders': 'Dating Advice Bros',
             'new-to-sf': 'New to SF',
             'startup-founders': 'Startup Founders'
         };
