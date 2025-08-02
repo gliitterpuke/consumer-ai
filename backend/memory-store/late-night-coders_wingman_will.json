@@ -1,0 +1,21 @@
+{
+  "conversations": [
+    {
+      "userId": "user_czdcdbfc9",
+      "message": "Hi! I'm Max, excited to be here!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:30:58.865Z"
+    }
+  ],
+  "userProfiles": {
+    "user_czdcdbfc9": {
+      "username": "Max",
+      "lastMessage": "Hi! I'm Max, excited to be here!",
+      "lastSeen": "2025-08-02T21:30:58.864Z"
+    }
+  },
+  "relationships": {},
+  "lastMessages": []
+}

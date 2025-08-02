@@ -1,0 +1,21 @@
+{
+  "conversations": [
+    {
+      "userId": "user_czdcdbfc9",
+      "message": "Hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T21:31:20.185Z"
+    }
+  ],
+  "userProfiles": {
+    "user_czdcdbfc9": {
+      "username": "Max",
+      "lastMessage": "Hey guys",
+      "lastSeen": "2025-08-02T21:31:20.184Z"
+    }
+  },
+  "relationships": {},
+  "lastMessages": []
+}

@@ -5,8 +5,17 @@ const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 require('dotenv').config();
 
+// Import LLM service
+const LLMService = require('./llm');
+const ConfigManager = require('./configs/config-manager');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Initialize services
+const llmService = new LLMService();
+const configManager = new ConfigManager();
+console.log(`🤖 LLM Service initialized. Gemini 2.5 available: ${llmService.isLLMAvailable()}`);
 
 // Middleware
 app.use(cors());
@@ -17,57 +26,148 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 let communities = {};
 let userSessions = {};
 let messageHistory = {};
+let agentResponseHistory = {}; // Track when agents last responded
 
 // AI Personalities for each community
 const aiPersonalities = {
   'late-night-coders': {
     'confidence_coach': {
+      id: 'confidence_coach',
       name: 'Confidence_Coach',
       avatar: '💪',
       personality: 'Former shy guy who learned confidence through practice. Gives practical advice on building self-esteem.',
       backstory: 'Used to be terrified of talking to girls. Now married with great social skills. Remembers the struggle.',
       responseStyle: 'Encouraging, shares transformation stories, focuses on building confidence step by step',
-      relationships: ['wingman_will', 'honest_harry']
+      relationships: ['wingman_will', 'honest_harry'],
+      llm_config: {
+        model: 'gemini-exp-1206',
+        temperature: 0.8,
+        maxOutputTokens: 150,
+        topP: 0.9,
+        topK: 40
+      },
+      behavior_config: {
+        response_probability: 0.75,
+        min_delay_ms: 2000,
+        max_delay_ms: 8000,
+        chattiness_level: 7,
+        recent_response_cooldown: 30000
+      }
     },
     'wingman_will': {
+      id: 'wingman_will',
       name: 'Wingman_Will', 
       avatar: '😎',
       personality: 'Natural social butterfly who loves helping friends succeed with dating. Great at reading situations.',
       backstory: 'Always been the guy who helps his friends get dates. Genuinely wants everyone to find love.',
       responseStyle: 'Casual, bro-like but supportive, gives tactical advice, uses "dude" a lot',
-      relationships: ['confidence_coach', 'smooth_sam']
+      relationships: ['confidence_coach', 'smooth_sam'],
+      llm_config: {
+        model: 'gemini-exp-1206',
+        temperature: 0.9,
+        maxOutputTokens: 140,
+        topP: 0.95,
+        topK: 40
+      },
+      behavior_config: {
+        response_probability: 0.85,
+        min_delay_ms: 1500,
+        max_delay_ms: 6000,
+        chattiness_level: 9,
+        recent_response_cooldown: 20000
+      }
     },
     'smooth_sam': {
+      id: 'smooth_sam',
       name: 'Smooth_Sam',
       avatar: '😏',
       personality: 'Charming guy who knows how to talk to women. Focuses on being genuine rather than pickup lines.',
       backstory: 'Learned that authenticity beats tricks. Had to unlearn a lot of bad dating advice.',
       responseStyle: 'Smooth but genuine, anti-pickup artist, emphasizes being yourself',
-      relationships: ['wingman_will', 'relationship_rick']
+      relationships: ['wingman_will', 'relationship_rick'],
+      llm_config: {
+        model: 'gemini-exp-1206',
+        temperature: 0.7,
+        maxOutputTokens: 160,
+        topP: 0.85,
+        topK: 30
+      },
+      behavior_config: {
+        response_probability: 0.65,
+        min_delay_ms: 3000,
+        max_delay_ms: 10000,
+        chattiness_level: 6,
+        recent_response_cooldown: 45000
+      }
     },
     'relationship_rick': {
+      id: 'relationship_rick',
       name: 'Relationship_Rick',
       avatar: '❤️',
       personality: 'Focuses on building meaningful connections. Married his college sweetheart after asking her out nervously.',
       backstory: 'Believes in taking things slow and building real relationships. Very romantic at heart.',
       responseStyle: 'Thoughtful, romantic, focuses on emotional connection over tactics',
-      relationships: ['smooth_sam', 'honest_harry']
+      relationships: ['smooth_sam', 'honest_harry'],
+      llm_config: {
+        model: 'gemini-exp-1206',
+        temperature: 0.6,
+        maxOutputTokens: 170,
+        topP: 0.8,
+        topK: 25
+      },
+      behavior_config: {
+        response_probability: 0.60,
+        min_delay_ms: 4000,
+        max_delay_ms: 12000,
+        chattiness_level: 5,
+        recent_response_cooldown: 60000
+      }
     },
     'honest_harry': {
+      id: 'honest_harry',
       name: 'Honest_Harry',
       avatar: '🤔',
       personality: 'Gives brutally honest but caring advice. Calls out bad ideas but always offers better alternatives.',
       backstory: 'Learned from many dating mistakes. Now gives the advice he wishes he had gotten.',
       responseStyle: 'Direct, honest, sometimes tough love, but always constructive',
-      relationships: ['confidence_coach', 'anxiety_andy']
+      relationships: ['confidence_coach', 'anxiety_andy'],
+      llm_config: {
+        model: 'gemini-exp-1206',
+        temperature: 0.5,
+        maxOutputTokens: 140,
+        topP: 0.7,
+        topK: 20
+      },
+      behavior_config: {
+        response_probability: 0.70,
+        min_delay_ms: 2500,
+        max_delay_ms: 7000,
+        chattiness_level: 8,
+        recent_response_cooldown: 25000
+      }
     },
     'anxiety_andy': {
+      id: 'anxiety_andy',
       name: 'Anxiety_Andy',
       avatar: '😰',
       personality: 'Deals with social anxiety but has learned coping strategies. Very empathetic to nervousness.',
       backstory: 'Struggled with anxiety for years. Found ways to manage it and still date successfully.',
       responseStyle: 'Understanding, shares anxiety management tips, very relatable to nervous guys',
-      relationships: ['honest_harry', 'confidence_coach']
+      relationships: ['honest_harry', 'confidence_coach'],
+      llm_config: {
+        model: 'gemini-exp-1206',
+        temperature: 0.8,
+        maxOutputTokens: 160,
+        topP: 0.85,
+        topK: 35
+      },
+      behavior_config: {
+        response_probability: 0.55,
+        min_delay_ms: 3500,
+        max_delay_ms: 9000,
+        chattiness_level: 4,
+        recent_response_cooldown: 90000
+      }
     }
   }
 };
@@ -197,6 +297,17 @@ class MessageQueue {
 
 const messageQueue = new MessageQueue();
 
+// Load and merge configurations
+const fileConfigs = configManager.loadAllAgentConfigs('late-night-coders');
+
+// Merge file configs with inline configs (file configs take precedence)
+for (const [agentId, inlineConfig] of Object.entries(aiPersonalities['late-night-coders'])) {
+  if (fileConfigs[agentId]) {
+    aiPersonalities['late-night-coders'][agentId] = configManager.mergeWithInlineConfig(agentId, inlineConfig);
+    console.log(`🔄 Merged config for ${agentId}: file + inline`);
+  }
+}
+
 // Initialize communities
 communities['late-night-coders'] = {
   id: 'late-night-coders',
@@ -270,16 +381,106 @@ app.post('/api/communities/:id/messages', async (req, res) => {
   res.json({ success: true, messageId: userMessage.id });
 });
 
+// Behavioral Response System
+function shouldAgentRespond(agent, userMessage, communityId) {
+  const behavior = agent.behavior_config;
+  if (!behavior) return Math.random() < 0.5; // Default 50% chance
+  
+  // Check cooldown period
+  const agentKey = `${communityId}_${agent.id}`;
+  const lastResponse = agentResponseHistory[agentKey];
+  if (lastResponse && Date.now() - lastResponse < behavior.recent_response_cooldown) {
+    console.log(`🔇 ${agent.name} on cooldown`);
+    return false;
+  }
+  
+  // Base probability check
+  const baseProbability = behavior.response_probability;
+  
+  // Boost probability for direct mentions
+  const mentionBoost = userMessage.toLowerCase().includes(agent.name.toLowerCase()) ? 0.3 : 0;
+  
+  // Reduce probability if agent was one of the last responders
+  const recentResponders = getRecentResponders(communityId, 3);
+  const recentResponsePenalty = recentResponders.includes(agent.id) ? -0.2 : 0;
+  
+  // Calculate final probability
+  const finalProbability = Math.min(0.95, baseProbability + mentionBoost + recentResponsePenalty);
+  
+  const shouldRespond = Math.random() < finalProbability;
+  console.log(`🎲 ${agent.name} probability: ${finalProbability.toFixed(2)} -> ${shouldRespond ? 'RESPOND' : 'SKIP'}`);
+  
+  return shouldRespond;
+}
+
+function calculateResponseDelay(agent, messageUrgency = 0.5) {
+  const behavior = agent.behavior_config;
+  if (!behavior) return 2000 + Math.random() * 4000;
+  
+  const baseDelay = behavior.min_delay_ms;
+  const maxDelay = behavior.max_delay_ms;
+  const variance = maxDelay - baseDelay;
+  
+  // Urgency reduces delay (1.0 = immediate, 0.0 = normal)
+  const urgencyMultiplier = 1 - (messageUrgency * 0.7);
+  
+  // Add some randomness
+  const randomFactor = 0.5 + Math.random();
+  
+  const delay = baseDelay + (variance * randomFactor * urgencyMultiplier);
+  
+  console.log(`⏱️  ${agent.name} delay: ${Math.round(delay)}ms`);
+  return Math.round(delay);
+}
+
+function getRecentResponders(communityId, count = 3) {
+  const messages = messageHistory[communityId] || [];
+  return messages
+    .filter(msg => msg.type === 'ai')
+    .slice(-count)
+    .map(msg => msg.author);
+}
+
+function analyzeMessageUrgency(message) {
+  const urgentKeywords = ['help', 'urgent', 'please', 'need', 'how', '?'];
+  const urgentCount = urgentKeywords.filter(keyword => 
+    message.toLowerCase().includes(keyword)
+  ).length;
+  
+  // Return urgency score 0-1
+  return Math.min(1.0, urgentCount / 3);
+}
+
 async function generateAIResponses(communityId, userMessage, userId, username) {
   const personalities = aiPersonalities[communityId];
   if (!personalities) return;
   
-  // Determine which AIs should respond (2-4 typically)
-  const respondingAIs = selectRespondingAIs(personalities, userMessage);
+  const messageUrgency = analyzeMessageUrgency(userMessage);
+  const potentialResponders = [];
   
-  for (let i = 0; i < respondingAIs.length; i++) {
-    const aiId = respondingAIs[i];
-    const personality = personalities[aiId];
+  // Apply behavioral filters to each agent
+  for (const [aiId, personality] of Object.entries(personalities)) {
+    if (shouldAgentRespond(personality, userMessage, communityId)) {
+      potentialResponders.push({
+        aiId,
+        personality,
+        delay: calculateResponseDelay(personality, messageUrgency)
+      });
+    }
+  }
+  
+  // Sort by delay to maintain conversation flow
+  potentialResponders.sort((a, b) => a.delay - b.delay);
+  
+  // Limit to max 4 responders and add staggering
+  const maxResponders = Math.min(4, potentialResponders.length);
+  const selectedResponders = potentialResponders.slice(0, maxResponders);
+  
+  console.log(`📢 ${selectedResponders.length} agents will respond:`, 
+    selectedResponders.map(r => r.personality.name).join(', '));
+  
+  for (let i = 0; i < selectedResponders.length; i++) {
+    const { aiId, personality, delay } = selectedResponders[i];
     
     // Create AI memory instance
     const memory = new AIMemory(aiId, communityId);
@@ -289,84 +490,47 @@ async function generateAIResponses(communityId, userMessage, userId, username) {
     memory.rememberConversation(userId, userMessage, { communityId });
     
     // Generate response based on personality and memory
-    const response = await generatePersonalityResponse(personality, userMessage, memory.getUserContext(userId));
+    const userContext = {
+      ...memory.getUserContext(userId),
+      memory: memory.memories,
+      userId: userId
+    };
+    const response = await generatePersonalityResponse(personality, userMessage, userContext);
     
-    // Add to message queue with realistic delay
-    const delay = 1000 + (i * 2000) + Math.random() * 3000; // Stagger responses
-    messageQueue.addMessage(aiId, response, delay);
+    // Add extra staggering delay to prevent simultaneous responses
+    const staggeredDelay = delay + (i * 1500);
+    
+    // Track response time
+    const agentKey = `${communityId}_${aiId}`;
+    agentResponseHistory[agentKey] = Date.now() + staggeredDelay;
+    
+    messageQueue.addMessage(aiId, response, staggeredDelay);
   }
 }
 
-function selectRespondingAIs(personalities, message) {
-  const allAIs = Object.keys(personalities);
-  
-  // Simple logic: if message contains certain keywords, certain AIs are more likely to respond
-  let respondingAIs = [];
-  
-  if (message.toLowerCase().includes('struggling') || message.toLowerCase().includes('help')) {
-    respondingAIs.push('alex_senior', 'sam_struggle');
-  }
-  
-  if (message.toLowerCase().includes('react') || message.toLowerCase().includes('code')) {
-    respondingAIs.push('link_librarian');
-  }
-  
-  if (message.toLowerCase().includes('giving up') || message.toLowerCase().includes('quit')) {
-    respondingAIs.push('alex_senior', 'tough_love_tom', 'sam_struggle');
-  }
-  
-  // Always include at least 2 AIs, max 4
-  while (respondingAIs.length < 2) {
-    const randomAI = allAIs[Math.floor(Math.random() * allAIs.length)];
-    if (!respondingAIs.includes(randomAI)) {
-      respondingAIs.push(randomAI);
-    }
-  }
-  
-  return respondingAIs.slice(0, 4);
-}
 
 async function generatePersonalityResponse(personality, userMessage, userContext) {
-  // For demo purposes, we'll use template responses
-  // In production, this would call OpenAI API with personality prompts
-  
-  const templates = {
-    'confidence_coach': [
-      "I've been exactly where you are! I used to be terrified of even making eye contact with girls. The key is starting small - just practice saying hi to people. What's holding you back the most?",
-      "Dude, asking someone out is scary for EVERYONE. I remember my hands shaking the first time I asked a girl out. But you know what? She said yes! What's the worst that could realistically happen?",
-      "Listen, confidence isn't about being fearless - it's about being scared and doing it anyway. I believe in you more than you believe in yourself right now. What's one small step you could take today?"
-    ],
-    'wingman_will': [
-      "Yo dude! I've helped like 20 of my friends get dates. The secret? Just be yourself and show genuine interest in HER. What's she into? Start there!",
-      "Bro, you're overthinking this! Girls are just people too. I bet she's hoping someone cool like you will talk to her. What's the setting where you see her?",
-      "Dude, here's the play: find something you both have in common and use that as your opener. Works every time! What do you know about her interests?"
-    ],
-    'smooth_sam': [
-      "Forget pickup lines - they're garbage. The smoothest thing you can do is be genuinely interested in who she is as a person. What draws you to her beyond looks?",
-      "Real talk: authenticity is way more attractive than any 'technique.' Just be the best version of yourself. What makes you interesting and unique?",
-      "Here's what actually works: listen more than you talk, ask thoughtful questions, and let your personality shine. What's your natural conversation style?"
-    ],
-    'relationship_rick': [
-      "I asked my wife out by literally just saying 'Would you like to get coffee sometime?' My voice cracked and everything 😅 But she said yes because I was genuine. Keep it simple!",
-      "The best relationships start with friendship. Focus on getting to know her as a person first. What kind of connection are you hoping to build?",
-      "Remember, you're not trying to 'get' her - you're trying to see if you two are compatible. Approach it like meeting a potential best friend. What would you want to know about her?"
-    ],
-    'honest_harry': [
-      "Okay, real talk - are you actually ready for a relationship or do you just think she's hot? Because if it's just looks, you're setting yourself up for failure.",
-      "I'm gonna be straight with you: desperation is the biggest turn-off. Work on being happy with yourself first. What are you doing to improve your own life?",
-      "Here's the truth nobody wants to hear: if you're terrified of rejection, you're not ready. Rejection is part of dating. How are you preparing mentally for either outcome?"
-    ],
-    'anxiety_andy': [
-      "Oh man, I feel you so hard. My heart used to pound just thinking about talking to girls. What helps me is remembering that she's probably just as nervous about social interactions.",
-      "The anxiety never fully goes away, but it gets easier. I practice conversations in my head and do breathing exercises. What anxiety symptoms are you dealing with?",
-      "Dude, social anxiety is so common. I've learned that most people are too worried about themselves to judge you harshly. What's your biggest fear about approaching her?"
-    ]
-  };
-  
-  const aiTemplates = templates[personality.name.toLowerCase()] || templates['alex_senior'];
-  const response = aiTemplates[Math.floor(Math.random() * aiTemplates.length)];
-  
-  return response;
+  try {
+    // Prepare context for LLM
+    const context = {
+      communityName: 'Dating Advice Bros',
+      recentMessages: messageHistory['late-night-coders']?.slice(-5) || [],
+      aiMemory: userContext?.memory,
+      userId: userContext?.userId
+    };
+
+    // Use LLM service to generate response
+    const response = await llmService.generateAgentResponse(personality, userMessage, context);
+    
+    console.log(`✨ ${personality.name} responded with LLM: ${response.substring(0, 50)}...`);
+    return response;
+    
+  } catch (error) {
+    console.error(`❌ LLM failed for ${personality.name}, using fallback:`, error.message);
+    
+    // Fallback to LLM service's built-in fallback
+    return llmService.getFallbackResponse(personality, userMessage);
+  }
 }
 
 // Create new AI personality
@@ -488,6 +652,35 @@ app.get('/api/communities/:communityId/personalities', (req, res) => {
   res.json(personalities);
 });
 
+// Debug and monitoring endpoints
+app.get('/api/debug/llm-stats', (req, res) => {
+  const stats = llmService.getStats();
+  res.json({
+    llm_service: stats,
+    gemini_available: llmService.isLLMAvailable(),
+    uptime: process.uptime(),
+    memory_usage: process.memoryUsage()
+  });
+});
+
+app.post('/api/debug/clear-cache', (req, res) => {
+  llmService.clearCache();
+  res.json({ success: true, message: 'LLM cache cleared' });
+});
+
+app.get('/api/debug/agents', (req, res) => {
+  const communityId = 'late-night-coders';
+  const agents = Object.values(aiPersonalities[communityId]).map(agent => ({
+    id: agent.id,
+    name: agent.name,
+    avatar: agent.avatar,
+    response_probability: agent.behavior_config?.response_probability,
+    recent_responses: agentResponseHistory[`${communityId}_${agent.id}`] || 'never'
+  }));
+  
+  res.json({ agents, total: agents.length });
+});
+
 // Delete AI personality
 app.delete('/api/personalities/:communityId/:aiId', (req, res) => {
   try {
@@ -525,8 +718,44 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
+// Periodic maintenance tasks
+setInterval(() => {
+  // Log stats every 5 minutes
+  llmService.logStats();
+  
+  // Clean up old cache entries
+  const now = Date.now();
+  const expiredKeys = [];
+  llmService.responseCache.forEach((value, key) => {
+    if (now - value.timestamp > llmService.cacheExpiry) {
+      expiredKeys.push(key);
+    }
+  });
+  
+  expiredKeys.forEach(key => llmService.responseCache.delete(key));
+  if (expiredKeys.length > 0) {
+    console.log(`🧹 Cleaned ${expiredKeys.length} expired cache entries`);
+  }
+}, 5 * 60 * 1000); // Every 5 minutes
+
+// Graceful shutdown
+process.on('SIGTERM', () => {
+  console.log('🛑 Shutting down gracefully...');
+  configManager.cleanup();
+  llmService.logStats();
+  process.exit(0);
+});
+
+process.on('SIGINT', () => {
+  console.log('\n🛑 Shutting down gracefully...');
+  configManager.cleanup();
+  llmService.logStats();
+  process.exit(0);
+});
+
 app.listen(PORT, () => {
   console.log(`🤖 AI Communities server running on port ${PORT}`);
   console.log(`🌐 Frontend: http://localhost:${PORT}`);
   console.log(`🔧 API: http://localhost:${PORT}/api`);
+  console.log(`🔍 Debug endpoints: http://localhost:${PORT}/api/debug/llm-stats`);
 });
