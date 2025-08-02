@@ -24,10 +24,18 @@ class AICommunities {
     }
     initializeEventListeners() {
         // Username modal
-        const usernameForm = document.getElementById('username-form');
-        usernameForm?.addEventListener('submit', (e) => {
+        const joinButton = document.getElementById('join-button');
+        joinButton?.addEventListener('click', (e) => {
             e.preventDefault();
             this.setUsername();
+        });
+        // Also handle Enter key in username input
+        const usernameInput = document.getElementById('username-input');
+        usernameInput?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                this.setUsername();
+            }
         });
         // Message form
         const messageForm = document.getElementById('message-form');
