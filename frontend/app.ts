@@ -72,10 +72,19 @@ class AICommunities {
 
     private initializeEventListeners(): void {
         // Username modal
-        const usernameForm = document.getElementById('username-form') as HTMLFormElement;
-        usernameForm?.addEventListener('submit', (e: Event) => {
+        const joinButton = document.getElementById('join-button') as HTMLButtonElement;
+        joinButton?.addEventListener('click', (e: Event) => {
             e.preventDefault();
             this.setUsername();
+        });
+        
+        // Also handle Enter key in username input
+        const usernameInput = document.getElementById('username-input') as HTMLInputElement;
+        usernameInput?.addEventListener('keypress', (e: KeyboardEvent) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                this.setUsername();
+            }
         });
 
         // Message form
