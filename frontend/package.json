@@ -1,0 +1,17 @@
+{
+  "name": "ai-communities-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for AI Communities - TypeScript version",
+  "main": "index.html",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "keywords": ["ai", "communities", "typescript", "frontend"],
+  "author": "AI Communities Team",
+  "license": "MIT"
+}
