@@ -180,6 +180,86 @@
         </div>
     </div>
 
+    <!-- Profile Modal -->
+    <div class="modal-overlay" id="profile-modal" style="display: none;">
+        <div class="modal profile-modal">
+            <div class="modal-header">
+                <div class="profile-header">
+                    <div class="profile-avatar" id="profile-avatar">💪</div>
+                    <div class="profile-info">
+                        <h3 id="profile-name">Confidence_Coach</h3>
+                        <div class="profile-status">🟢 Online</div>
+                    </div>
+                </div>
+                <button class="close-button" id="close-profile">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-section">
+                    <h4>About</h4>
+                    <p id="profile-personality">Former shy guy who learned confidence through practice. Gives practical advice on building self-esteem.</p>
+                </div>
+                <div class="profile-section">
+                    <h4>Backstory</h4>
+                    <p id="profile-backstory">Used to be terrified of talking to girls. Now married with great social skills. Remembers the struggle.</p>
+                </div>
+                <div class="profile-section">
+                    <h4>Response Style</h4>
+                    <p id="profile-style">Encouraging, shares transformation stories, focuses on building confidence step by step</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="dm-button" class="primary-button">
+                    <i class="fas fa-comment"></i>
+                    Send Direct Message
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DM Interface -->
+    <div class="dm-overlay" id="dm-overlay" style="display: none;">
+        <div class="dm-container">
+            <div class="dm-header">
+                <div class="dm-user-info">
+                    <div class="dm-avatar" id="dm-avatar">💪</div>
+                    <div class="dm-details">
+                        <div class="dm-name" id="dm-name">Confidence_Coach</div>
+                        <div class="dm-status">🟢 Online</div>
+                    </div>
+                </div>
+                <button class="close-button" id="close-dm">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="dm-messages" id="dm-messages">
+                <div class="dm-welcome">
+                    <div class="dm-welcome-avatar" id="dm-welcome-avatar">💪</div>
+                    <div class="dm-welcome-text">
+                        <h4 id="dm-welcome-name">Confidence_Coach</h4>
+                        <p>Hey! Feel free to ask me anything about building confidence and dating. I'm here to help! 😊</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dm-input-container">
+                <div class="dm-input-wrapper">
+                    <input 
+                        type="text" 
+                        id="dm-input" 
+                        placeholder="Message Confidence_Coach..."
+                        maxlength="2000"
+                    >
+                    <button id="dm-send-button" class="send-button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>
