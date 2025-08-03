@@ -1,70 +1,6 @@
 {
   "conversations": [
     {
-      "userId": "indicator-test",
-      "message": "Testing the new named typing indicators! Should show agent names now.",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T23:58:07.770Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "hi",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T23:58:11.533Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "i wanna ask a girl out guys",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T00:00:40.094Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "she's sort of",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T00:00:44.304Z"
-    },
-    {
-      "userId": "layout-test",
-      "message": "Testing the new message layout! My messages should be on the right in blue/purple, AI messages on the left in white.",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T00:01:12.273Z"
-    },
-    {
-      "userId": "ui-success",
-      "message": "Perfect! Now my messages are on the right in blue gradient, and AI messages are on the left in white cards.",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T00:02:23.031Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "i wanna ask a girl out",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T00:04:23.363Z"
-    },
-    {
-      "userId": "stress-test",
-      "message": "Stress test: Can all 6 agents respond with long detailed advice without any timeouts or token limits? This is for a demo where the conversation must never stop no matter what!",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T00:05:30.749Z"
-    },
-    {
       "userId": "user_eung3get4",
       "message": "she invited me to the movies?",
       "context": {
@@ -399,6 +335,70 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T01:38:02.484Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "Hey guys!! I'm max",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:58:57.418Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "Hey guys I'm max!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:59:11.005Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "Hey guys I'm max!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:59:14.345Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:00:04.865Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:00:06.139Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:00:08.299Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "Hey!!!! I'm Max!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:00:57.321Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "Hey!!!! I'm Max!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:01:00.721Z"
     }
   ],
   "userProfiles": {
@@ -498,9 +498,9 @@
       "lastSeen": "2025-08-02T23:58:07.768Z"
     },
     "user_eung3get4": {
-      "username": "max",
-      "lastMessage": "or are we cooked",
-      "lastSeen": "2025-08-03T01:00:43.222Z"
+      "username": "Max",
+      "lastMessage": "Hey!!!! I'm Max!!",
+      "lastSeen": "2025-08-03T02:01:00.720Z"
     },
     "layout-test": {
       "username": "LayoutTester",

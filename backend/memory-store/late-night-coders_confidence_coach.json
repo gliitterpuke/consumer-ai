@@ -1,46 +1,6 @@
 {
   "conversations": [
     {
-      "userId": "user_8c50m2upd",
-      "message": "she wants me to cook dinner at her place. and then go see a movie after. but that could just be platonic right?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T21:54:13.776Z"
-    },
-    {
-      "userId": "user_8c50m2upd",
-      "message": "chat can i cheat on my girlfriend to go on a date with this girl?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T21:55:10.681Z"
-    },
-    {
-      "userId": "user_f22rboqao",
-      "message": "hey guys",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:24:51.414Z"
-    },
-    {
-      "userId": "test123",
-      "message": "I need help asking someone out",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:36:54.364Z"
-    },
-    {
-      "userId": "test456",
-      "message": "How do I overcome social anxiety when dating?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:38:31.537Z"
-    },
-    {
       "userId": "anxietytest",
       "message": "I have severe dating anxiety, can someone help?",
       "context": {
@@ -399,6 +359,46 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T01:38:11.343Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "Hey guys I'm max!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:59:12.193Z"
+    },
+    {
+      "userId": "max",
+      "message": "hey dude help me out",
+      "context": {
+        "isDM": true
+      },
+      "timestamp": "2025-08-03T01:59:39.871Z"
+    },
+    {
+      "userId": "max",
+      "message": "hey dude help me out",
+      "context": {
+        "isDM": true
+      },
+      "timestamp": "2025-08-03T01:59:41.022Z"
+    },
+    {
+      "userId": "max",
+      "message": "hey dude help me out",
+      "context": {
+        "isDM": true
+      },
+      "timestamp": "2025-08-03T01:59:43.181Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "Hey!!!! I'm Max!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:00:58.567Z"
     }
   ],
   "userProfiles": {
@@ -453,9 +453,9 @@
       "lastSeen": "2025-08-02T23:07:51.815Z"
     },
     "user_eung3get4": {
-      "username": "max",
-      "lastMessage": "@Anxiety_Andy you especially",
-      "lastSeen": "2025-08-03T01:01:29.950Z"
+      "username": "Max",
+      "lastMessage": "Hey!!!! I'm Max!!",
+      "lastSeen": "2025-08-03T02:00:58.567Z"
     },
     "test-user": {
       "username": "TokenTester",
@@ -561,6 +561,11 @@
       "username": "UIDesigner",
       "lastMessage": "🎨 NEW UI FEATURES DEPLOYED! ✨\n\n✅ **Editable Group Chat Name**: Click \"Dating Advice Bros\" to rename your community!\n✅ **Kick Button**: Added \"Kick from Chat\" button in user profiles (demo UI)\n✅ **Smooth Edit Experience**: Enter to save, Escape to cancel, click away to cancel\n✅ **Visual Feedback**: Hover effects and edit icons for better UX\n\nTry clicking the chat title to rename it! 🚀",
       "lastSeen": "2025-08-03T01:36:59.979Z"
+    },
+    "max": {
+      "username": "max",
+      "lastMessage": "hey dude help me out",
+      "lastSeen": "2025-08-03T01:59:43.180Z"
     }
   },
   "relationships": {},
