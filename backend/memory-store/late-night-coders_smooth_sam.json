@@ -199,6 +199,30 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T00:33:02.117Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "YOOOO guys I just got a new job offer!! I could def use some advice about the terms but still",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:36:53.603Z"
+    },
+    {
+      "userId": "mention-highlight-test",
+      "message": "Hey @Wingman_Will and @Confidence_Coach, what do you think about this new mention feature? This should highlight your names!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:38:39.609Z"
+    },
+    {
+      "userId": "build-fix-celebration",
+      "message": "🎉 Build fixed! The @ mention feature is now working perfectly. Try typing @ in the chat to see the dropdown with @Anxiety_Andy, @Wingman_Will, and all the other agents!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:43:08.496Z"
     }
   ],
   "userProfiles": {
@@ -273,9 +297,9 @@
       "lastSeen": "2025-08-02T23:56:20.022Z"
     },
     "user_eung3get4": {
-      "username": "max",
-      "lastMessage": "but i don't know where to start?",
-      "lastSeen": "2025-08-03T00:12:14.317Z"
+      "username": "mqx",
+      "lastMessage": "YOOOO guys I just got a new job offer!! I could def use some advice about the terms but still",
+      "lastSeen": "2025-08-03T00:36:53.602Z"
     },
     "resilience-test": {
       "username": "ResilienceTest",
@@ -291,6 +315,16 @@
       "username": "TypingTester",
       "lastMessage": "Testing typing indicator avatars! Can everyone respond so I can see the profile pictures in the typing indicator?",
       "lastSeen": "2025-08-03T00:33:02.115Z"
+    },
+    "mention-highlight-test": {
+      "username": "HighlightTester",
+      "lastMessage": "Hey @Wingman_Will and @Confidence_Coach, what do you think about this new mention feature? This should highlight your names!",
+      "lastSeen": "2025-08-03T00:38:39.608Z"
+    },
+    "build-fix-celebration": {
+      "username": "BuildMaster",
+      "lastMessage": "🎉 Build fixed! The @ mention feature is now working perfectly. Try typing @ in the chat to see the dropdown with @Anxiety_Andy, @Wingman_Will, and all the other agents!",
+      "lastSeen": "2025-08-03T00:43:08.495Z"
     }
   },
   "relationships": {},

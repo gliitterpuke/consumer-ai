@@ -119,6 +119,22 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T00:31:23.787Z"
+    },
+    {
+      "userId": "mention-highlight-test",
+      "message": "Hey @Wingman_Will and @Confidence_Coach, what do you think about this new mention feature? This should highlight your names!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:38:42.482Z"
+    },
+    {
+      "userId": "final-mention-test",
+      "message": "Final test: @Confidence_Coach and @Smooth_Sam should appear highlighted in blue when this message shows up in the chat! 🔥",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:43:17.057Z"
     }
   ],
   "userProfiles": {
@@ -176,6 +192,16 @@
       "username": "AvatarFixTester",
       "lastMessage": "Testing the fixed avatar system! Can you all respond so I can see your profile pictures?",
       "lastSeen": "2025-08-03T00:31:23.786Z"
+    },
+    "mention-highlight-test": {
+      "username": "HighlightTester",
+      "lastMessage": "Hey @Wingman_Will and @Confidence_Coach, what do you think about this new mention feature? This should highlight your names!",
+      "lastSeen": "2025-08-03T00:38:42.481Z"
+    },
+    "final-mention-test": {
+      "username": "TestPilot",
+      "lastMessage": "Final test: @Confidence_Coach and @Smooth_Sam should appear highlighted in blue when this message shows up in the chat! 🔥",
+      "lastSeen": "2025-08-03T00:43:17.057Z"
     }
   },
   "relationships": {},

@@ -10,6 +10,8 @@ import { formatTime } from '@/lib/utils'
 import { useMessages } from '@/hooks/useMessages'
 import { useAgentActivity } from '@/hooks/useAgentActivity'
 import { AI_AGENTS } from '@/lib/agents'
+import { MentionDropdown } from '@/components/mention-dropdown'
+import { highlightMentions } from '@/lib/mention-utils'
 
 interface Message {
   id: string
@@ -33,11 +35,20 @@ interface ChatInterfaceProps {
   username: string
   onShowProfile: (user: any) => void
   onStartDM: (userName: string) => void
+  aiAgents: typeof AI_AGENTS
+  humanUsers: any[]
 }
 
-export function ChatInterface({ community, username, onShowProfile, onStartDM }: ChatInterfaceProps) {
+export function ChatInterface({ community, username, onShowProfile, onStartDM, aiAgents, humanUsers }: ChatInterfaceProps) {
   const [inputValue, setInputValue] = useState('')
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
+  
+  // Mention dropdown state
+  const [showMentions, setShowMentions] = useState(false)
+  const [mentionQuery, setMentionQuery] = useState('')
+  const [mentionPosition, setMentionPosition] = useState({ top: 0, left: 0 })
+  const [mentionStartIndex, setMentionStartIndex] = useState(-1)
 
   // Real backend integration
   const { 
@@ -66,6 +77,73 @@ export function ChatInterface({ community, username, onShowProfile, onStartDM }:
     scrollToBottom()
   }, [messages])
 
+  // Handle mention detection
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    const cursorPosition = e.target.selectionStart || 0
+    
+    setInputValue(value)
+    
+    // Check for @ mention
+    const beforeCursor = value.slice(0, cursorPosition)
+    const lastAtIndex = beforeCursor.lastIndexOf('@')
+    
+    if (lastAtIndex !== -1) {
+      const textAfterAt = beforeCursor.slice(lastAtIndex + 1)
+      
+      // Show mentions if @ is the start or preceded by whitespace, and no space after @
+      const isAtStart = lastAtIndex === 0 || /\s/.test(beforeCursor[lastAtIndex - 1])
+      const hasSpace = textAfterAt.includes(' ')
+      
+      if (isAtStart && !hasSpace) {
+        setMentionQuery(textAfterAt)
+        setMentionStartIndex(lastAtIndex)
+        setShowMentions(true)
+        
+        // Calculate dropdown position
+        if (inputRef.current) {
+          const rect = inputRef.current.getBoundingClientRect()
+          setMentionPosition({
+            top: rect.top - 200, // Position above input
+            left: rect.left
+          })
+        }
+      } else {
+        setShowMentions(false)
+      }
+    } else {
+      setShowMentions(false)
+    }
+  }
+
+  // Handle mention selection
+  const handleMentionSelect = (member: any) => {
+    if (mentionStartIndex === -1) return
+    
+    const beforeMention = inputValue.slice(0, mentionStartIndex)
+    const afterMention = inputValue.slice(mentionStartIndex + 1 + mentionQuery.length)
+    const newValue = `${beforeMention}@${member.name} ${afterMention}`
+    
+    setInputValue(newValue)
+    setShowMentions(false)
+    setMentionQuery('')
+    setMentionStartIndex(-1)
+    
+    // Focus back on input
+    setTimeout(() => {
+      inputRef.current?.focus()
+      const newCursorPos = beforeMention.length + member.name.length + 2
+      inputRef.current?.setSelectionRange(newCursorPos, newCursorPos)
+    }, 0)
+  }
+
+  // Close mentions dropdown
+  const closeMentions = () => {
+    setShowMentions(false)
+    setMentionQuery('')
+    setMentionStartIndex(-1)
+  }
+
   const handleSendMessage = async () => {
     if (!inputValue.trim()) return
 
@@ -81,6 +159,17 @@ export function ChatInterface({ community, username, onShowProfile, onStartDM }:
   }
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
+    // If mentions dropdown is open, let it handle navigation
+    if (showMentions) {
+      if (e.key === 'Escape') {
+        e.preventDefault()
+        closeMentions()
+      }
+      // Don't send message when mentions are open and Enter is pressed
+      // The MentionDropdown component will handle Enter for selection
+      return
+    }
+    
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
       handleSendMessage()
@@ -179,12 +268,12 @@ export function ChatInterface({ community, username, onShowProfile, onStartDM }:
                           {formatTime(message.timestamp)}
                         </span>
                       </div>
-                      <p className={cn(
+                      <div className={cn(
                         "text-sm leading-relaxed",
                         isMyMessage ? "text-white" : "text-foreground"
                       )}>
-                        {message.content}
-                      </p>
+                        {highlightMentions(message.content)}
+                      </div>
                     </div>
                     {isMyMessage && (
                       <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
@@ -277,13 +366,14 @@ export function ChatInterface({ community, username, onShowProfile, onStartDM }:
       </div>
 
       {/* Message Input */}
-      <div className="border-t bg-card/50 backdrop-blur-sm p-4">
+      <div className="border-t bg-card/50 backdrop-blur-sm p-4 relative">
         <div className="flex gap-2">
           <Input
+            ref={inputRef}
             value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={handleInputChange}
             onKeyPress={handleKeyPress}
-            placeholder={`Message ${community.name}...`}
+            placeholder={`Message ${community.name}... (Type @ to mention someone)`}
             className="flex-1"
           />
           <Button 
@@ -296,8 +386,19 @@ export function ChatInterface({ community, username, onShowProfile, onStartDM }:
           </Button>
         </div>
         <p className="text-xs text-muted-foreground mt-2 text-center">
-          Press Enter to send • Shift+Enter for new line
+          Press Enter to send • Shift+Enter for new line • Type @ to mention
         </p>
+        
+        {/* Mention Dropdown */}
+        <MentionDropdown
+          isOpen={showMentions}
+          query={mentionQuery}
+          aiAgents={aiAgents}
+          humanUsers={humanUsers}
+          onSelect={handleMentionSelect}
+          onClose={closeMentions}
+          position={mentionPosition}
+        />
       </div>
     </div>
   )

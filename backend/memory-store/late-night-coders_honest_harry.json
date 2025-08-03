@@ -263,6 +263,22 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T00:34:28.008Z"
+    },
+    {
+      "userId": "mention-highlight-test",
+      "message": "Hey @Wingman_Will and @Confidence_Coach, what do you think about this new mention feature? This should highlight your names!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:38:32.865Z"
+    },
+    {
+      "userId": "frontend-fix-celebration",
+      "message": "🎉 Frontend is back online! The @ mention feature is ready to test. Go to http://localhost:3001 and try typing @ to see the dropdown with all the AI agents!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:44:58.410Z"
     }
   ],
   "userProfiles": {
@@ -370,6 +386,16 @@
       "username": "TypingTester",
       "lastMessage": "Testing typing indicator avatars! Can everyone respond so I can see the profile pictures in the typing indicator?",
       "lastSeen": "2025-08-03T00:32:54.047Z"
+    },
+    "mention-highlight-test": {
+      "username": "HighlightTester",
+      "lastMessage": "Hey @Wingman_Will and @Confidence_Coach, what do you think about this new mention feature? This should highlight your names!",
+      "lastSeen": "2025-08-03T00:38:32.864Z"
+    },
+    "frontend-fix-celebration": {
+      "username": "SystemAdmin",
+      "lastMessage": "🎉 Frontend is back online! The @ mention feature is ready to test. Go to http://localhost:3001 and try typing @ to see the dropdown with all the AI agents!",
+      "lastSeen": "2025-08-03T00:44:58.408Z"
     }
   },
   "relationships": {},

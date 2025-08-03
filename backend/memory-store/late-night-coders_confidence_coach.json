@@ -255,6 +255,38 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T00:34:53.987Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "YOOOO guys I just got a new job offer!! I could def use some advice about the terms but still",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:36:58.506Z"
+    },
+    {
+      "userId": "mention-feature-test",
+      "message": "Testing the new @ mention feature! Can you all try typing @ and see if you can mention each other?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:38:14.510Z"
+    },
+    {
+      "userId": "build-fix-celebration",
+      "message": "🎉 Build fixed! The @ mention feature is now working perfectly. Try typing @ in the chat to see the dropdown with @Anxiety_Andy, @Wingman_Will, and all the other agents!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:43:00.437Z"
+    },
+    {
+      "userId": "frontend-fix-celebration",
+      "message": "🎉 Frontend is back online! The @ mention feature is ready to test. Go to http://localhost:3001 and try typing @ to see the dropdown with all the AI agents!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:45:07.001Z"
     }
   ],
   "userProfiles": {
@@ -310,8 +342,8 @@
     },
     "user_eung3get4": {
       "username": "mqx",
-      "lastMessage": "could i get some advice?",
-      "lastSeen": "2025-08-03T00:34:53.987Z"
+      "lastMessage": "YOOOO guys I just got a new job offer!! I could def use some advice about the terms but still",
+      "lastSeen": "2025-08-03T00:36:58.506Z"
     },
     "test-user": {
       "username": "TokenTester",
@@ -337,6 +369,21 @@
       "username": "ResilienceTest",
       "lastMessage": "Testing 2000 token limits! The conversation should continue smoothly even if some agents timeout. No limits on overall conversation!",
       "lastSeen": "2025-08-03T00:04:45.883Z"
+    },
+    "mention-feature-test": {
+      "username": "MentionTester",
+      "lastMessage": "Testing the new @ mention feature! Can you all try typing @ and see if you can mention each other?",
+      "lastSeen": "2025-08-03T00:38:14.509Z"
+    },
+    "build-fix-celebration": {
+      "username": "BuildMaster",
+      "lastMessage": "🎉 Build fixed! The @ mention feature is now working perfectly. Try typing @ in the chat to see the dropdown with @Anxiety_Andy, @Wingman_Will, and all the other agents!",
+      "lastSeen": "2025-08-03T00:43:00.436Z"
+    },
+    "frontend-fix-celebration": {
+      "username": "SystemAdmin",
+      "lastMessage": "🎉 Frontend is back online! The @ mention feature is ready to test. Go to http://localhost:3001 and try typing @ to see the dropdown with all the AI agents!",
+      "lastSeen": "2025-08-03T00:45:07.000Z"
     }
   },
   "relationships": {},

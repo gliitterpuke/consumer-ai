@@ -267,6 +267,8 @@ export default function Home() {
             username={username}
             onShowProfile={handleShowProfile}
             onStartDM={handleStartDM}
+            aiAgents={agents}
+            humanUsers={humanUsers}
           />
         ) : (
           <DMInterface 

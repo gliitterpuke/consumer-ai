@@ -3,7 +3,6 @@ import {
   SendMessageResponse, 
   MessagesResponse, 
   LLMStats, 
-  APIError, 
   SendMessagePayload 
 } from './types'
 import { API_CONFIG, API_ENDPOINTS, HTTP_STATUS } from './constants'
@@ -44,7 +43,7 @@ class APIClient {
       const response = await fetch(url, defaultOptions)
       
       if (!response.ok) {
-        throw new APIError({
+        throw new APIClientError({
           message: `HTTP ${response.status}: ${response.statusText}`,
           status: response.status
         })
@@ -79,20 +78,20 @@ class APIClient {
     )
   }
 
-  private handleError(error: any): APIError {
-    if (error instanceof APIError) {
+  private handleError(error: any): APIClientError {
+    if (error instanceof APIClientError) {
       return error
     }
 
     if (error.name === 'AbortError') {
-      return new APIError({ message: 'Request timeout' })
+      return new APIClientError({ message: 'Request timeout' })
     }
 
     if (error.name === 'TypeError') {
-      return new APIError({ message: 'Network error - backend may be offline' })
+      return new APIClientError({ message: 'Network error - backend may be offline' })
     }
 
-    return new APIError({ 
+    return new APIClientError({ 
       message: error.message || 'Unknown API error',
       status: error.status
     })
@@ -208,13 +207,13 @@ class APIClient {
 }
 
 // Custom error class
-class APIError extends Error {
+class APIClientError extends Error {
   status?: number
   code?: string
 
   constructor({ message, status, code }: { message: string; status?: number; code?: string }) {
     super(message)
-    this.name = 'APIError'
+    this.name = 'APIClientError'
     this.status = status
     this.code = code
   }
@@ -222,4 +221,4 @@ class APIError extends Error {
 
 // Export singleton instance
 export const apiClient = new APIClient()
-export { APIError }
+export { APIClientError }
