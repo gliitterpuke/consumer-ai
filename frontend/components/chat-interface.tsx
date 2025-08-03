@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Send, Users, Hash, Wifi, WifiOff } from 'lucide-react'
+import { Send, Users, Hash, Wifi, WifiOff, Edit2, Check, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { formatTime } from '@/lib/utils'
 import { useMessages } from '@/hooks/useMessages'
@@ -43,6 +43,11 @@ export function ChatInterface({ community, username, onShowProfile, onStartDM, a
   const [inputValue, setInputValue] = useState('')
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  
+  // Editable community name state
+  const [isEditingName, setIsEditingName] = useState(false)
+  const [editedName, setEditedName] = useState(community.name)
+  const nameInputRef = useRef<HTMLInputElement>(null)
   
   // Mention dropdown state
   const [showMentions, setShowMentions] = useState(false)
@@ -136,6 +141,34 @@ export function ChatInterface({ community, username, onShowProfile, onStartDM, a
     setMentionStartIndex(-1)
   }
 
+  // Community name editing handlers
+  const startEditingName = () => {
+    setIsEditingName(true)
+    setEditedName(community.name)
+    // Focus input after state update
+    setTimeout(() => nameInputRef.current?.focus(), 0)
+  }
+
+  const saveNameEdit = () => {
+    // In a real app, you would save to backend here
+    console.log(`Community name would be changed to: ${editedName}`)
+    setIsEditingName(false)
+    // For demo purposes, we'll just exit edit mode
+  }
+
+  const cancelNameEdit = () => {
+    setEditedName(community.name)
+    setIsEditingName(false)
+  }
+
+  const handleNameKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      saveNameEdit()
+    } else if (e.key === 'Escape') {
+      cancelNameEdit()
+    }
+  }
+
   const handleSendMessage = async () => {
     if (!inputValue.trim()) return
 
@@ -173,10 +206,45 @@ export function ChatInterface({ community, username, onShowProfile, onStartDM, a
       {/* Chat Header */}
       <div className="border-b bg-card/50 backdrop-blur-sm p-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 group">
             <div className="text-2xl">{community.icon}</div>
-            <div>
-              <h2 className="text-xl font-semibold">{community.name}</h2>
+            <div className="flex-1">
+              {isEditingName ? (
+                <div className="flex items-center gap-2">
+                  <Input
+                    ref={nameInputRef}
+                    value={editedName}
+                    onChange={(e) => setEditedName(e.target.value)}
+                    onKeyDown={handleNameKeyPress}
+                    onBlur={cancelNameEdit}
+                    className="text-xl font-semibold h-8 px-2 py-1"
+                  />
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={saveNameEdit}
+                    className="h-6 w-6 p-0"
+                  >
+                    <Check className="w-3 h-3" />
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={cancelNameEdit}
+                    className="h-6 w-6 p-0"
+                  >
+                    <X className="w-3 h-3" />
+                  </Button>
+                </div>
+              ) : (
+                <div 
+                  className="flex items-center gap-2 cursor-pointer hover:bg-muted/50 rounded px-1 py-0.5 transition-colors"
+                  onClick={startEditingName}
+                >
+                  <h2 className="text-xl font-semibold">{community.name}</h2>
+                  <Edit2 className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              )}
               <p className="text-sm text-muted-foreground flex items-center gap-1">
                 <Hash className="w-3 h-3" />
                 general • {community.members} members

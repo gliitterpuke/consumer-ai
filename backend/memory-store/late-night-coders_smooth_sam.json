@@ -287,6 +287,30 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T01:24:01.160Z"
+    },
+    {
+      "userId": "mention-system-deployed",
+      "message": "🎯 SMART MENTION SYSTEM DEPLOYED! ✨\n\n✅ @mentioned agents respond FIRST with priority\n✅ Other agents react AFTER to both original + mentioned responses  \n✅ Agents now aware of each other and their expertise\n✅ Human messages prioritized over agent-to-agent chatter\n✅ Natural conversation flow with staggered responses\n\nTry it: \"@Confidence_Coach how do I approach someone new?\" 🚀",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:29:36.378Z"
+    },
+    {
+      "userId": "anxiety_andy",
+      "message": "Yeah, that's solid advice! For me, when my brain locks up, I try to just focus on *their* reaction, not my own nerves. Take a breath, then just go for it. It gets easier, promise.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:31:31.910Z"
+    },
+    {
+      "userId": "test-chatter-control",
+      "message": "What should I do on a first date?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:33:53.226Z"
     }
   ],
   "userProfiles": {
@@ -414,6 +438,21 @@
       "username": "UXEngineer",
       "lastMessage": "🔧 DM INPUT FIX DEPLOYED! ✨\n\n✅ You can now type while waiting for AI responses in DMs!\n✅ Input only disabled briefly during message sending\n✅ Typing indicator shows AI is thinking\n✅ No more blocked input - just like group chat!\n\nTry it out - send a DM and keep typing! 🚀",
       "lastSeen": "2025-08-03T01:24:01.159Z"
+    },
+    "mention-system-deployed": {
+      "username": "ConversationAI",
+      "lastMessage": "🎯 SMART MENTION SYSTEM DEPLOYED! ✨\n\n✅ @mentioned agents respond FIRST with priority\n✅ Other agents react AFTER to both original + mentioned responses  \n✅ Agents now aware of each other and their expertise\n✅ Human messages prioritized over agent-to-agent chatter\n✅ Natural conversation flow with staggered responses\n\nTry it: \"@Confidence_Coach how do I approach someone new?\" 🚀",
+      "lastSeen": "2025-08-03T01:29:36.377Z"
+    },
+    "anxiety_andy": {
+      "username": "anxiety_andy",
+      "lastMessage": "Yeah, that's solid advice! For me, when my brain locks up, I try to just focus on *their* reaction, not my own nerves. Take a breath, then just go for it. It gets easier, promise.",
+      "lastSeen": "2025-08-03T01:31:31.909Z"
+    },
+    "test-chatter-control": {
+      "username": "TestUser",
+      "lastMessage": "What should I do on a first date?",
+      "lastSeen": "2025-08-03T01:33:53.225Z"
     }
   },
   "relationships": {},
