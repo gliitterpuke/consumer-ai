@@ -103,15 +103,15 @@ export default function Home() {
   }
 
   const handleStartDM = (userName: string) => {
+    // Find the actual agent data to get correct avatar and info
+    const agent = AI_AGENTS.find(a => a.name === userName)
+    
     const user = {
+      id: agent?.id || userName.toLowerCase().replace('_', ''),
       name: userName,
-      avatar: userName === 'Confidence_Coach' ? '💪' : 
-              userName === 'Wingman_Will' ? '😎' :
-              userName === 'Smooth_Sam' ? '🕺' :
-              userName === 'Relationship_Rick' ? '❤️' :
-              userName === 'Honest_Harry' ? '🤔' :
-              userName === 'Anxiety_Andy' ? '😰' : '🤖',
-      isAI: true
+      avatar: agent?.avatar || '/avatars/default-user.png',
+      isAI: true,
+      personality: agent?.personality || 'AI Assistant'
     }
     setDmPartner(user)
     setCurrentView('dm')
@@ -254,13 +254,20 @@ export default function Home() {
                     >
                       <CardContent className="p-3">
                         <div className="flex items-center gap-3">
-                          <div className="text-lg">
-                            {dmUser === 'Confidence_Coach' ? '💪' : 
-                             dmUser === 'Wingman_Will' ? '😎' :
-                             dmUser === 'Smooth_Sam' ? '🕺' :
-                             dmUser === 'Relationship_Rick' ? '❤️' :
-                             dmUser === 'Honest_Harry' ? '🤔' :
-                             dmUser === 'Anxiety_Andy' ? '😰' : '🤖'}
+                          <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                            {(() => {
+                              const agent = AI_AGENTS.find(a => a.name === dmUser)
+                              const avatar = agent?.avatar || '/avatars/default-user.png'
+                              return avatar.startsWith('/') ? (
+                                <img 
+                                  src={avatar} 
+                                  alt={dmUser}
+                                  className="w-8 h-8 rounded-full object-cover"
+                                />
+                              ) : (
+                                <div className="text-lg">{avatar}</div>
+                              )
+                            })()}
                           </div>
                           <div className="flex-1 min-w-0">
                             <p className="font-medium text-sm truncate">{dmUser}</p>

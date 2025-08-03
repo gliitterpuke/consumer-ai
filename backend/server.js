@@ -27,6 +27,7 @@ let communities = {};
 let userSessions = {};
 let messageHistory = {};
 let agentResponseHistory = {}; // Track when agents last responded
+let dmHistory = {}; // Structure: {userId_agentId: [messages]}
 
 // AI Personalities for each community
 const aiPersonalities = {
