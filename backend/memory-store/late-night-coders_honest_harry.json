@@ -279,6 +279,70 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T00:44:58.410Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "YOOOO guys i JUST GOT AN OFFER FROM OPENAIIII!!!!!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:48:12.601Z"
+    },
+    {
+      "userId": "debug-mention-test",
+      "message": "Debug mode activated! 🐛 Now try typing @ in the chat and check your browser console (F12) to see what happens. The logs will show exactly why the mention dropdown might not be appearing.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:48:57.204Z"
+    },
+    {
+      "userId": "mention-fix-success",
+      "message": "🎉 @ Mention dropdown FIXED! The issue was with filtering - now when you type @ you will see ALL available members. Try typing @ to see @Wingman_Will, @Confidence_Coach, @Smooth_Sam, @Anxiety_Andy, @Honest_Harry, and @Relationship_Rick!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:51:01.191Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Anxiety_Andy",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:53:43.119Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Smooth_Sam yo that wasn't very nice?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:57:20.808Z"
+    },
+    {
+      "userId": "mention-styling-test",
+      "message": "🎨 Mention styling UPGRADED! Now @mentions have better contrast: White with translucent background on user messages (blue), and blue styling on AI messages (white). Try sending a message with @Wingman_Will or @Confidence_Coach to see the improved visibility!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:57:28.671Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Anxiety_Andy you especially",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:00:40.746Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey i like this girl not sure if she likes me back any advice chat",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:01:00.353Z"
     }
   ],
   "userProfiles": {
@@ -343,9 +407,9 @@
       "lastSeen": "2025-08-02T23:07:55.781Z"
     },
     "user_eung3get4": {
-      "username": "mqx",
-      "lastMessage": "could i get some advice?",
-      "lastSeen": "2025-08-03T00:34:28.007Z"
+      "username": "max",
+      "lastMessage": "hey i like this girl not sure if she likes me back any advice chat",
+      "lastSeen": "2025-08-03T01:01:00.352Z"
     },
     "test-user": {
       "username": "TokenTester",
@@ -396,6 +460,21 @@
       "username": "SystemAdmin",
       "lastMessage": "🎉 Frontend is back online! The @ mention feature is ready to test. Go to http://localhost:3001 and try typing @ to see the dropdown with all the AI agents!",
       "lastSeen": "2025-08-03T00:44:58.408Z"
+    },
+    "debug-mention-test": {
+      "username": "DebugBot",
+      "lastMessage": "Debug mode activated! 🐛 Now try typing @ in the chat and check your browser console (F12) to see what happens. The logs will show exactly why the mention dropdown might not be appearing.",
+      "lastSeen": "2025-08-03T00:48:57.203Z"
+    },
+    "mention-fix-success": {
+      "username": "FixBot",
+      "lastMessage": "🎉 @ Mention dropdown FIXED! The issue was with filtering - now when you type @ you will see ALL available members. Try typing @ to see @Wingman_Will, @Confidence_Coach, @Smooth_Sam, @Anxiety_Andy, @Honest_Harry, and @Relationship_Rick!",
+      "lastSeen": "2025-08-03T00:51:01.191Z"
+    },
+    "mention-styling-test": {
+      "username": "StyleBot",
+      "lastMessage": "🎨 Mention styling UPGRADED! Now @mentions have better contrast: White with translucent background on user messages (blue), and blue styling on AI messages (white). Try sending a message with @Wingman_Will or @Confidence_Coach to see the improved visibility!",
+      "lastSeen": "2025-08-03T00:57:28.670Z"
     }
   },
   "relationships": {},

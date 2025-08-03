@@ -2,7 +2,7 @@ import React from 'react'
 
 // Utility functions for handling mentions
 
-export function highlightMentions(text: string): React.ReactNode {
+export function highlightMentions(text: string, isUserMessage: boolean = false): React.ReactNode {
   // Split text by @mentions and render them with highlighting
   const mentionRegex = /@(\w+)/g
   const parts = text.split(mentionRegex)
@@ -13,7 +13,11 @@ export function highlightMentions(text: string): React.ReactNode {
       return (
         <span 
           key={index}
-          className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-1 py-0.5 rounded text-sm font-medium"
+          className={
+            isUserMessage 
+              ? "bg-white/20 text-white px-2 py-0.5 rounded-md text-sm font-semibold shadow-sm backdrop-blur-sm border border-white/30"
+              : "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-md text-sm font-semibold"
+          }
         >
           @{part}
         </span>

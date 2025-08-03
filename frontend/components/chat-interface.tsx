@@ -47,7 +47,6 @@ export function ChatInterface({ community, username, onShowProfile, onStartDM, a
   // Mention dropdown state
   const [showMentions, setShowMentions] = useState(false)
   const [mentionQuery, setMentionQuery] = useState('')
-  const [mentionPosition, setMentionPosition] = useState({ top: 0, left: 0 })
   const [mentionStartIndex, setMentionStartIndex] = useState(-1)
 
   // Real backend integration
@@ -100,14 +99,7 @@ export function ChatInterface({ community, username, onShowProfile, onStartDM, a
         setMentionStartIndex(lastAtIndex)
         setShowMentions(true)
         
-        // Calculate dropdown position
-        if (inputRef.current) {
-          const rect = inputRef.current.getBoundingClientRect()
-          setMentionPosition({
-            top: rect.top - 200, // Position above input
-            left: rect.left
-          })
-        }
+        // Dropdown positioning is now handled by CSS
       } else {
         setShowMentions(false)
       }
@@ -272,7 +264,7 @@ export function ChatInterface({ community, username, onShowProfile, onStartDM, a
                         "text-sm leading-relaxed",
                         isMyMessage ? "text-white" : "text-foreground"
                       )}>
-                        {highlightMentions(message.content)}
+                        {highlightMentions(message.content, isMyMessage)}
                       </div>
                     </div>
                     {isMyMessage && (
@@ -397,7 +389,6 @@ export function ChatInterface({ community, username, onShowProfile, onStartDM, a
           humanUsers={humanUsers}
           onSelect={handleMentionSelect}
           onClose={closeMentions}
-          position={mentionPosition}
         />
       </div>
     </div>

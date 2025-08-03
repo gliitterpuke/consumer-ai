@@ -135,6 +135,14 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T00:43:17.057Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Anxiety_Andy you especially",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:01:04.653Z"
     }
   ],
   "userProfiles": {
@@ -175,8 +183,8 @@
     },
     "user_eung3get4": {
       "username": "max",
-      "lastMessage": "Can you guys tell me if a girl actually likes me.",
-      "lastSeen": "2025-08-03T00:07:37.973Z"
+      "lastMessage": "@Anxiety_Andy you especially",
+      "lastSeen": "2025-08-03T01:01:04.652Z"
     },
     "test-rapid": {
       "username": "RapidTester",

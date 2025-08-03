@@ -287,6 +287,62 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T00:45:07.001Z"
+    },
+    {
+      "userId": "debug-mention-test",
+      "message": "Debug mode activated! 🐛 Now try typing @ in the chat and check your browser console (F12) to see what happens. The logs will show exactly why the mention dropdown might not be appearing.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:49:11.007Z"
+    },
+    {
+      "userId": "mention-fix-success",
+      "message": "🎉 @ Mention dropdown FIXED! The issue was with filtering - now when you type @ you will see ALL available members. Try typing @ to see @Wingman_Will, @Confidence_Coach, @Smooth_Sam, @Anxiety_Andy, @Honest_Harry, and @Relationship_Rick!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:51:10.568Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Anxiety_Andy",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:54:10.175Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Smooth_Sam yo that wasn't very nice?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:57:16.705Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey i like this girl not sure if she likes me back any advice chat",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:00:47.386Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "or are we cooked",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:00:55.015Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Anxiety_Andy you especially",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:01:29.952Z"
     }
   ],
   "userProfiles": {
@@ -341,9 +397,9 @@
       "lastSeen": "2025-08-02T23:07:51.815Z"
     },
     "user_eung3get4": {
-      "username": "mqx",
-      "lastMessage": "YOOOO guys I just got a new job offer!! I could def use some advice about the terms but still",
-      "lastSeen": "2025-08-03T00:36:58.506Z"
+      "username": "max",
+      "lastMessage": "@Anxiety_Andy you especially",
+      "lastSeen": "2025-08-03T01:01:29.950Z"
     },
     "test-user": {
       "username": "TokenTester",
@@ -384,6 +440,16 @@
       "username": "SystemAdmin",
       "lastMessage": "🎉 Frontend is back online! The @ mention feature is ready to test. Go to http://localhost:3001 and try typing @ to see the dropdown with all the AI agents!",
       "lastSeen": "2025-08-03T00:45:07.000Z"
+    },
+    "debug-mention-test": {
+      "username": "DebugBot",
+      "lastMessage": "Debug mode activated! 🐛 Now try typing @ in the chat and check your browser console (F12) to see what happens. The logs will show exactly why the mention dropdown might not be appearing.",
+      "lastSeen": "2025-08-03T00:49:11.005Z"
+    },
+    "mention-fix-success": {
+      "username": "FixBot",
+      "lastMessage": "🎉 @ Mention dropdown FIXED! The issue was with filtering - now when you type @ you will see ALL available members. Try typing @ to see @Wingman_Will, @Confidence_Coach, @Smooth_Sam, @Anxiety_Andy, @Honest_Harry, and @Relationship_Rick!",
+      "lastSeen": "2025-08-03T00:51:10.567Z"
     }
   },
   "relationships": {},

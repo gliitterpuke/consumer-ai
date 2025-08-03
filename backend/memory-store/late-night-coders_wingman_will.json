@@ -1,14 +1,6 @@
 {
   "conversations": [
     {
-      "userId": "user_czdcdbfc9",
-      "message": "Hi! I'm Max, excited to be here!",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T21:30:58.865Z"
-    },
-    {
       "userId": "test123",
       "message": "Hi anyone here?",
       "context": {
@@ -351,6 +343,62 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T00:44:54.231Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "YOOOO guys i JUST GOT AN OFFER FROM OPENAIIII!!!!!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:48:17.120Z"
+    },
+    {
+      "userId": "debug-mention-test",
+      "message": "Debug mode activated! 🐛 Now try typing @ in the chat and check your browser console (F12) to see what happens. The logs will show exactly why the mention dropdown might not be appearing.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:48:51.674Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Anxiety_Andy",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:53:49.356Z"
+    },
+    {
+      "userId": "positioning-fix-test",
+      "message": "🎯 Dropdown positioning FIXED! Now using CSS-based positioning with bottom: 100% so it appears exactly above the text input. Try typing @ and it should appear right above the input box!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:53:53.179Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Smooth_Sam yo that wasn't very nice?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:57:12.275Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey i like this girl not sure if she likes me back any advice chat",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:00:33.020Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "or are we cooked",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:00:43.222Z"
     }
   ],
   "userProfiles": {
@@ -450,9 +498,9 @@
       "lastSeen": "2025-08-02T23:58:07.768Z"
     },
     "user_eung3get4": {
-      "username": "mqx",
-      "lastMessage": "YOOOO guys I just got a new job offer!! I could def use some advice about the terms but still",
-      "lastSeen": "2025-08-03T00:36:48.487Z"
+      "username": "max",
+      "lastMessage": "or are we cooked",
+      "lastSeen": "2025-08-03T01:00:43.222Z"
     },
     "layout-test": {
       "username": "LayoutTester",
@@ -498,6 +546,16 @@
       "username": "SystemAdmin",
       "lastMessage": "🎉 Frontend is back online! The @ mention feature is ready to test. Go to http://localhost:3001 and try typing @ to see the dropdown with all the AI agents!",
       "lastSeen": "2025-08-03T00:44:54.230Z"
+    },
+    "debug-mention-test": {
+      "username": "DebugBot",
+      "lastMessage": "Debug mode activated! 🐛 Now try typing @ in the chat and check your browser console (F12) to see what happens. The logs will show exactly why the mention dropdown might not be appearing.",
+      "lastSeen": "2025-08-03T00:48:51.673Z"
+    },
+    "positioning-fix-test": {
+      "username": "PositionBot",
+      "lastMessage": "🎯 Dropdown positioning FIXED! Now using CSS-based positioning with bottom: 100% so it appears exactly above the text input. Try typing @ and it should appear right above the input box!",
+      "lastSeen": "2025-08-03T00:53:53.179Z"
     }
   },
   "relationships": {},

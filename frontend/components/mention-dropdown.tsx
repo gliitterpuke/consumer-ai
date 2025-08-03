@@ -21,7 +21,6 @@ interface MentionDropdownProps {
   humanUsers: User[]
   onSelect: (member: Member) => void
   onClose: () => void
-  position: { top: number; left: number }
 }
 
 export function MentionDropdown({ 
@@ -30,8 +29,7 @@ export function MentionDropdown({
   aiAgents, 
   humanUsers, 
   onSelect, 
-  onClose,
-  position 
+  onClose
 }: MentionDropdownProps) {
   const [selectedIndex, setSelectedIndex] = useState(0)
 
@@ -53,9 +51,18 @@ export function MentionDropdown({
     }))
   ]
 
-  const filteredMembers = allMembers.filter(member =>
-    member.name.toLowerCase().includes(query.toLowerCase())
-  )
+  const filteredMembers = (() => {
+    if (query.trim() === '') {
+      return allMembers  // Show all members when no query
+    }
+    
+    const matches = allMembers.filter(member =>
+      member.name.toLowerCase().includes(query.toLowerCase())
+    )
+    
+    // If no matches found, show all members so user can see options
+    return matches.length > 0 ? matches : allMembers
+  })()
 
   // Reset selected index when filtered results change
   useEffect(() => {
@@ -105,13 +112,20 @@ export function MentionDropdown({
     <Card 
       className="absolute z-50 w-64 max-h-48 overflow-y-auto border shadow-lg"
       style={{
-        top: position.top,
-        left: position.left,
+        bottom: '100%',
+        left: 0,
+        marginBottom: '8px'
       }}
     >
       <CardContent className="p-2">
         <div className="text-xs text-muted-foreground mb-2 px-2">
-          Mention someone
+          {query.trim() === '' ? (
+            'Mention someone'
+          ) : allMembers.filter(m => m.name.toLowerCase().includes(query.toLowerCase())).length === 0 ? (
+            `No matches for "${query}" - showing all members`
+          ) : (
+            `Matches for "${query}"`
+          )}
         </div>
         {filteredMembers.map((member, index) => (
           <Button

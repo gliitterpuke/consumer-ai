@@ -223,6 +223,38 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T00:43:08.496Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "YOOOO guys i JUST GOT AN OFFER FROM OPENAIIII!!!!!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:48:20.727Z"
+    },
+    {
+      "userId": "mention-fix-success",
+      "message": "🎉 @ Mention dropdown FIXED! The issue was with filtering - now when you type @ you will see ALL available members. Try typing @ to see @Wingman_Will, @Confidence_Coach, @Smooth_Sam, @Anxiety_Andy, @Honest_Harry, and @Relationship_Rick!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:51:26.241Z"
+    },
+    {
+      "userId": "positioning-fix-test",
+      "message": "🎯 Dropdown positioning FIXED! Now using CSS-based positioning with bottom: 100% so it appears exactly above the text input. Try typing @ and it should appear right above the input box!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:54:16.523Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "or are we cooked",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:01:07.728Z"
     }
   ],
   "userProfiles": {
@@ -297,9 +329,9 @@
       "lastSeen": "2025-08-02T23:56:20.022Z"
     },
     "user_eung3get4": {
-      "username": "mqx",
-      "lastMessage": "YOOOO guys I just got a new job offer!! I could def use some advice about the terms but still",
-      "lastSeen": "2025-08-03T00:36:53.602Z"
+      "username": "max",
+      "lastMessage": "or are we cooked",
+      "lastSeen": "2025-08-03T01:01:07.726Z"
     },
     "resilience-test": {
       "username": "ResilienceTest",
@@ -325,6 +357,16 @@
       "username": "BuildMaster",
       "lastMessage": "🎉 Build fixed! The @ mention feature is now working perfectly. Try typing @ in the chat to see the dropdown with @Anxiety_Andy, @Wingman_Will, and all the other agents!",
       "lastSeen": "2025-08-03T00:43:08.495Z"
+    },
+    "mention-fix-success": {
+      "username": "FixBot",
+      "lastMessage": "🎉 @ Mention dropdown FIXED! The issue was with filtering - now when you type @ you will see ALL available members. Try typing @ to see @Wingman_Will, @Confidence_Coach, @Smooth_Sam, @Anxiety_Andy, @Honest_Harry, and @Relationship_Rick!",
+      "lastSeen": "2025-08-03T00:51:26.240Z"
+    },
+    "positioning-fix-test": {
+      "username": "PositionBot",
+      "lastMessage": "🎯 Dropdown positioning FIXED! Now using CSS-based positioning with bottom: 100% so it appears exactly above the text input. Try typing @ and it should appear right above the input box!",
+      "lastSeen": "2025-08-03T00:54:16.522Z"
     }
   },
   "relationships": {},
