@@ -365,15 +365,13 @@ function findMentionedAgents(message, personalities) {
   const mentionedAgents = [];
   const lowerMessage = message.toLowerCase();
   
-  // Look for @mentions and direct name mentions
+  // Look for @mentions only
   for (const [agentId, personality] of Object.entries(personalities)) {
     const agentName = personality.name.toLowerCase();
     const agentNameNoUnderscore = agentName.replace(/_/g, ' ');
     
     if (lowerMessage.includes(`@${agentName}`) || 
-        lowerMessage.includes(`@${agentNameNoUnderscore}`) ||
-        lowerMessage.includes(agentName) ||
-        lowerMessage.includes(agentNameNoUnderscore)) {
+        lowerMessage.includes(`@${agentNameNoUnderscore}`)) {
       mentionedAgents.push({ agentId, personality });
     }
   }
@@ -507,106 +505,56 @@ function analyzeMessageUrgency(message) {
 async function generateAIResponses(communityId, userMessage, userId, username, isHumanMessage = true) {
   const personalities = aiPersonalities[communityId];
   if (!personalities) return;
-  
+
   const messageUrgency = analyzeMessageUrgency(userMessage);
-  
-  // PHASE 1: Handle @mentions first (immediate priority)
   const mentionedAgents = findMentionedAgents(userMessage, personalities);
-  const mentionedResponders = [];
-  
+  const mentionedAgentIds = mentionedAgents.map(m => m.agentId);
+
+  // Immediately process and schedule mentioned agents
   if (mentionedAgents.length > 0) {
-    console.log(`🎯 Found ${mentionedAgents.length} mentioned agents:`, 
-      mentionedAgents.map(m => m.personality.name).join(', '));
-    
+    console.log(`🎯 Found ${mentionedAgents.length} mentioned agents:`, mentionedAgents.map(m => m.personality.name).join(', '));
     for (const { agentId, personality } of mentionedAgents) {
-      const context = { 
-        isMentioned: true, 
-        isHumanMessage,
-        isReactingToAgent: false 
-      };
-      
+      const context = { isMentioned: true, isHumanMessage, isReactingToAgent: false };
       if (shouldAgentRespond(personality, userMessage, communityId, context)) {
-        mentionedResponders.push({
-          aiId: agentId,
-          personality,
-          delay: Math.random() * 1000 + 500, // Quick response: 0.5-1.5s
-          phase: 'mention'
-        });
+        const delay = Math.random() * 1000 + 500; // Quick response
+        scheduleResponse(agentId, personality, delay, 'mention', communityId, userId, username, userMessage, personalities);
       }
     }
   }
-  
-  // PHASE 2: Other agents can react (but with lower priority if not human message)
-  const reactionResponders = [];
-  const mentionedAgentIds = mentionedAgents.map(m => m.agentId);
-  
-  for (const [aiId, personality] of Object.entries(personalities)) {
-    // Skip if already mentioned
-    if (mentionedAgentIds.includes(aiId)) continue;
-    
-    const context = { 
-      isMentioned: false, 
-      isHumanMessage,
-      isReactingToAgent: mentionedAgents.length > 0 
-    };
-    
-    if (shouldAgentRespond(personality, userMessage, communityId, context)) {
-      // Add delay so they respond after mentioned agents
-      const baseDelay = calculateResponseDelay(personality, messageUrgency);
-      const extraDelay = mentionedResponders.length > 0 ? 3000 + Math.random() * 2000 : 0;
-      
-      reactionResponders.push({
-        aiId,
-        personality,
-        delay: baseDelay + extraDelay,
-        phase: 'reaction'
-      });
+
+  // Process other agents with a delay
+  setTimeout(() => {
+    for (const [aiId, personality] of Object.entries(personalities)) {
+      if (mentionedAgentIds.includes(aiId)) continue; // Skip if already processed
+
+      const context = { isMentioned: false, isHumanMessage, isReactingToAgent: mentionedAgents.length > 0 };
+      if (shouldAgentRespond(personality, userMessage, communityId, context)) {
+        const baseDelay = calculateResponseDelay(personality, messageUrgency);
+        const extraDelay = mentionedAgents.length > 0 ? 3000 + Math.random() * 2000 : 0;
+        scheduleResponse(aiId, personality, baseDelay + extraDelay, 'reaction', communityId, userId, username, userMessage, personalities);
+      }
     }
-  }
-  
-  // Combine all responders
-  const allResponders = [...mentionedResponders, ...reactionResponders];
-  
-  // Sort by delay to maintain conversation flow
-  allResponders.sort((a, b) => a.delay - b.delay);
-  
-  // Limit total responders (prioritize mentions)
-  const maxResponders = Math.min(4, allResponders.length);
-  const selectedResponders = allResponders.slice(0, maxResponders);
-  
-  console.log(`📢 ${selectedResponders.length} agents will respond:`, 
-    selectedResponders.map(r => `${r.personality.name}(${r.phase})`).join(', '));
-  
-  for (let i = 0; i < selectedResponders.length; i++) {
-    const { aiId, personality, delay, phase } = selectedResponders[i];
-    
-    // Create AI memory instance
-    const memory = new AIMemory(aiId, communityId);
-    
-    // Remember this user interaction
-    memory.rememberUser(userId, { username, lastMessage: userMessage });
-    memory.rememberConversation(userId, userMessage, { communityId });
-    
-    // Generate response based on personality and memory
-    const userContext = {
-      ...memory.getUserContext(userId),
-      memory: memory.memories,
-      userId: userId,
-      communityMembers: getAgentAwarenessContext(personalities, aiId),
-      responsePhase: phase,
-      mentionedAgents: mentionedAgents.length > 0 ? mentionedAgents.map(m => m.personality.name) : null
-    };
-    const response = await generatePersonalityResponse(personality, userMessage, userContext);
-    
-    // Add extra staggering delay to prevent simultaneous responses
-    const staggeredDelay = delay + (i * 1500);
-    
-    // Track response time
-    const agentKey = `${communityId}_${aiId}`;
-    agentResponseHistory[agentKey] = Date.now() + staggeredDelay;
-    
-    messageQueue.addMessage(aiId, response, staggeredDelay);
-  }
+  }, 500); // Delay non-mentioned responses to ensure mentions go first
+}
+
+async function scheduleResponse(aiId, personality, delay, phase, communityId, userId, username, userMessage, personalities) {
+  const memory = new AIMemory(aiId, communityId);
+  memory.rememberUser(userId, { username, lastMessage: userMessage });
+  memory.rememberConversation(userId, userMessage, { communityId });
+
+  const userContext = {
+    ...memory.getUserContext(userId),
+    memory: memory.memories,
+    userId: userId,
+    communityMembers: getAgentAwarenessContext(personalities, aiId),
+    responsePhase: phase,
+    mentionedAgents: null // Simplified for now
+  };
+
+  const response = await generatePersonalityResponse(personality, userMessage, userContext);
+  const agentKey = `${communityId}_${aiId}`;
+  agentResponseHistory[agentKey] = Date.now() + delay;
+  messageQueue.addMessage(aiId, response, delay);
 }
 
 // DM Response Generation (Context-Aware)
