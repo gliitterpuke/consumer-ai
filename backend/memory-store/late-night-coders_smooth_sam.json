@@ -95,6 +95,110 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-02T22:46:46.444Z"
+    },
+    {
+      "userId": "demo123",
+      "message": "Hey everyone! New to dating and need some advice.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:02:45.280Z"
+    },
+    {
+      "userId": "user_76h0unc5v",
+      "message": "Hello! dsa here, looking forward to connecting with you all",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:07:59.880Z"
+    },
+    {
+      "userId": "frontend-test",
+      "message": "Testing the new frontend integration!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:50:07.670Z"
+    },
+    {
+      "userId": "test-user",
+      "message": "Hey everyone! Just fixed the token limits. Hope this works better now!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:54:29.979Z"
+    },
+    {
+      "userId": "test-user-2",
+      "message": "Testing the new typing indicators! Also can I type while agents are thinking?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:56:20.022Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hi",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:58:25.744Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "my type",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:01:01.932Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "she's sort of",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:01:11.367Z"
+    },
+    {
+      "userId": "resilience-test",
+      "message": "Testing 2000 token limits! The conversation should continue smoothly even if some agents timeout. No limits on overall conversation!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:04:40.448Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "Can you guys tell me if a girl actually likes me.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:07:16.637Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "but i don't know where to start?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:12:14.318Z"
+    },
+    {
+      "userId": "avatar-test",
+      "message": "Testing new profile pictures! Do you like the new avatar system?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:29:27.817Z"
+    },
+    {
+      "userId": "typing-test",
+      "message": "Testing typing indicator avatars! Can everyone respond so I can see the profile pictures in the typing indicator?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:33:02.117Z"
     }
   ],
   "userProfiles": {
@@ -142,6 +246,51 @@
       "username": "bill",
       "lastMessage": "Chat there's a girl that I'm talking to, she invited me to watch the movies with her and cook dinner at her place. But is she into me or are we cooked?",
       "lastSeen": "2025-08-02T22:46:46.443Z"
+    },
+    "demo123": {
+      "username": "DemoUser",
+      "lastMessage": "Hey everyone! New to dating and need some advice.",
+      "lastSeen": "2025-08-02T23:02:45.280Z"
+    },
+    "user_76h0unc5v": {
+      "username": "dsa",
+      "lastMessage": "Hello! dsa here, looking forward to connecting with you all",
+      "lastSeen": "2025-08-02T23:07:59.879Z"
+    },
+    "frontend-test": {
+      "username": "Frontend",
+      "lastMessage": "Testing the new frontend integration!",
+      "lastSeen": "2025-08-02T23:50:07.669Z"
+    },
+    "test-user": {
+      "username": "TokenTester",
+      "lastMessage": "Hey everyone! Just fixed the token limits. Hope this works better now!",
+      "lastSeen": "2025-08-02T23:54:29.978Z"
+    },
+    "test-user-2": {
+      "username": "UITester",
+      "lastMessage": "Testing the new typing indicators! Also can I type while agents are thinking?",
+      "lastSeen": "2025-08-02T23:56:20.022Z"
+    },
+    "user_eung3get4": {
+      "username": "max",
+      "lastMessage": "but i don't know where to start?",
+      "lastSeen": "2025-08-03T00:12:14.317Z"
+    },
+    "resilience-test": {
+      "username": "ResilienceTest",
+      "lastMessage": "Testing 2000 token limits! The conversation should continue smoothly even if some agents timeout. No limits on overall conversation!",
+      "lastSeen": "2025-08-03T00:04:40.447Z"
+    },
+    "avatar-test": {
+      "username": "AvatarTester",
+      "lastMessage": "Testing new profile pictures! Do you like the new avatar system?",
+      "lastSeen": "2025-08-03T00:29:27.816Z"
+    },
+    "typing-test": {
+      "username": "TypingTester",
+      "lastMessage": "Testing typing indicator avatars! Can everyone respond so I can see the profile pictures in the typing indicator?",
+      "lastSeen": "2025-08-03T00:33:02.115Z"
     }
   },
   "relationships": {},

@@ -12,6 +12,10 @@ import { PersonalityCreator } from '@/components/personality-creator'
 import { UsernameModal } from '@/components/username-modal'
 import { UserProfileModal } from '@/components/user-profile-modal'
 import { DMInterface } from '@/components/dm-interface'
+import { MembersSidebar } from '@/components/members-sidebar'
+import { AI_AGENTS, type Agent, type User } from '@/lib/agents'
+import { useMessages } from '@/hooks/useMessages'
+import { useAgentActivity } from '@/hooks/useAgentActivity'
 import { MessageSquare, Users, Plus, Settings, Heart } from 'lucide-react'
 
 export default function Home() {
@@ -24,6 +28,42 @@ export default function Home() {
   const [currentView, setCurrentView] = useState<'chat' | 'dm'>('chat')
   const [dmPartner, setDmPartner] = useState<any>(null)
   const [activeDMs, setActiveDMs] = useState<string[]>([])
+  const [agents, setAgents] = useState<Agent[]>(AI_AGENTS)
+  const [humanUsers, setHumanUsers] = useState<User[]>([])
+
+  // Messages and agent activity for current community
+  const { messages } = useMessages({
+    communityId: currentCommunity,
+    username,
+    enabled: !!username && currentView === 'chat'
+  })
+
+  const { agentActivities } = useAgentActivity({
+    messages,
+    agents: AI_AGENTS
+  })
+
+  // Update agents with real activity status
+  useEffect(() => {
+    const updatedAgents = AI_AGENTS.map(agent => ({
+      ...agent,
+      isResponding: agentActivities[agent.id]?.isResponding || false,
+      lastResponse: agentActivities[agent.id]?.lastSeen
+    }))
+    setAgents(updatedAgents)
+  }, [agentActivities])
+
+  // Initialize human users when username is set
+  useEffect(() => {
+    if (username) {
+      setHumanUsers([{
+        id: 'current-user',
+        name: username,
+        avatar: '/avatars/default-user.png',
+        isOnline: true
+      }])
+    }
+  }, [username])
 
   const communities = [
     {
@@ -80,6 +120,16 @@ export default function Home() {
   const handleBackToChat = () => {
     setCurrentView('chat')
     setDmPartner(null)
+  }
+
+  const handleMemberClick = (member: Agent | User) => {
+    if ('personality' in member) {
+      // It's an AI agent - start DM
+      handleStartDM(member.name)
+    } else {
+      // It's a human user - show profile
+      handleShowProfile(member)
+    }
   }
 
   if (showUsernameModal) {
@@ -226,6 +276,15 @@ export default function Home() {
           />
         )}
       </div>
+
+      {/* Members Sidebar */}
+      {currentView === 'chat' && (
+        <MembersSidebar 
+          aiAgents={agents}
+          humanUsers={humanUsers}
+          onMemberClick={handleMemberClick}
+        />
+      )}
 
       {/* Personality Creator Modal */}
       <Dialog open={showPersonalityCreator} onOpenChange={setShowPersonalityCreator}>

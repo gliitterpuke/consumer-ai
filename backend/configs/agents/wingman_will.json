@@ -9,7 +9,7 @@
   "llm_config": {
     "model": "models/gemini-2.5-flash",
     "temperature": 0.9,
-    "maxOutputTokens": 800,
+    "maxOutputTokens": 2000,
     "topP": 0.95,
     "topK": 40,
     "system_prompt_template": "You are {name}, a {personality}. {backstory} Your response style: {responseStyle}. Use 'dude' and 'bro'. Give tactical dating advice in a natural, conversational way."

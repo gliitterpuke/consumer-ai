@@ -4,9 +4,12 @@ import { useState, useEffect, useRef } from 'react'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Send, Users, Hash } from 'lucide-react'
+import { Send, Users, Hash, Wifi, WifiOff } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { formatTime } from '@/lib/utils'
+import { useMessages } from '@/hooks/useMessages'
+import { useAgentActivity } from '@/hooks/useAgentActivity'
+import { AI_AGENTS } from '@/lib/agents'
 
 interface Message {
   id: string
@@ -33,19 +36,27 @@ interface ChatInterfaceProps {
 }
 
 export function ChatInterface({ community, username, onShowProfile, onStartDM }: ChatInterfaceProps) {
-  const [messages, setMessages] = useState<Message[]>([])
   const [inputValue, setInputValue] = useState('')
-  const [isTyping, setIsTyping] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
-  const aiPersonalities = {
-    'confidence_coach': { name: 'Confidence_Coach', avatar: '💪' },
-    'wingman_will': { name: 'Wingman_Will', avatar: '😎' },
-    'smooth_sam': { name: 'Smooth_Sam', avatar: '🕺' },
-    'relationship_rick': { name: 'Relationship_Rick', avatar: '❤️' },
-    'honest_harry': { name: 'Honest_Harry', avatar: '🤔' },
-    'anxiety_andy': { name: 'Anxiety_Andy', avatar: '😰' }
-  }
+  // Real backend integration
+  const { 
+    messages, 
+    isLoading, 
+    error, 
+    sendMessage, 
+    connectionStatus 
+  } = useMessages({
+    communityId: community.id,
+    username,
+    enabled: true
+  })
+
+  // Agent activity tracking
+  const { respondingAgents } = useAgentActivity({
+    messages,
+    agents: AI_AGENTS
+  })
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -55,71 +66,18 @@ export function ChatInterface({ community, username, onShowProfile, onStartDM }:
     scrollToBottom()
   }, [messages])
 
-  useEffect(() => {
-    // Load initial messages for the community
-    const initialMessages: Message[] = [
-      {
-        id: '1',
-        content: "Hey everyone! Welcome to our supportive community. Feel free to share what's on your mind - we're all here to help each other out! 😊",
-        author: 'Confidence_Coach',
-        timestamp: new Date(Date.now() - 300000).toISOString(),
-        isAI: true,
-        avatar: '💪'
-      },
-      {
-        id: '2',
-        content: "Absolutely! This is a judgment-free zone where we can all learn and grow together. What's everyone up to today?",
-        author: 'Wingman_Will',
-        timestamp: new Date(Date.now() - 240000).toISOString(),
-        isAI: true,
-        avatar: '😎'
-      }
-    ]
-    setMessages(initialMessages)
-  }, [community.id])
-
   const handleSendMessage = async () => {
     if (!inputValue.trim()) return
 
-    const newMessage: Message = {
-      id: Date.now().toString(),
-      content: inputValue,
-      author: username,
-      timestamp: new Date().toISOString(),
-      isAI: false,
-      avatar: '👤'
-    }
-
-    setMessages(prev => [...prev, newMessage])
+    const messageContent = inputValue.trim()
     setInputValue('')
-    setIsTyping(true)
 
-    // Simulate AI responses
-    setTimeout(() => {
-      const aiPersonalityKeys = Object.keys(aiPersonalities)
-      const randomAI = aiPersonalityKeys[Math.floor(Math.random() * aiPersonalityKeys.length)]
-      const aiPersonality = aiPersonalities[randomAI as keyof typeof aiPersonalities]
-      
-      const responses = [
-        "I hear you, and I want you to know that what you're feeling is completely normal. I've been exactly where you are.",
-        "You know what? I used to think I'd never figure this out either. But here's what changed everything for me...",
-        "I'm really glad you came to me with this. Building confidence isn't about pretending - it's about being genuinely yourself.",
-        "That takes courage to share! I remember feeling the same way. Here's what helped me...",
-        "I appreciate you being real with us. That vulnerability is actually a strength, not a weakness."
-      ]
-
-      const aiResponse: Message = {
-        id: (Date.now() + 1).toString(),
-        content: responses[Math.floor(Math.random() * responses.length)],
-        author: aiPersonality.name,
-        timestamp: new Date().toISOString(),
-        isAI: true,
-        avatar: aiPersonality.avatar
-      }
-
-      setMessages(prev => [...prev, aiResponse])
-      setIsTyping(false)
-    }, 2000 + Math.random() * 3000)
+    try {
+      await sendMessage(messageContent)
+    } catch (err) {
+      console.error('Failed to send message:', err)
+      // Error handling is managed by useMessages hook
+    }
   }
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -133,69 +91,183 @@ export function ChatInterface({ community, username, onShowProfile, onStartDM }:
     <div className="flex flex-col h-full">
       {/* Chat Header */}
       <div className="border-b bg-card/50 backdrop-blur-sm p-4">
-        <div className="flex items-center gap-3">
-          <div className="text-2xl">{community.icon}</div>
-          <div>
-            <h2 className="text-xl font-semibold">{community.name}</h2>
-            <p className="text-sm text-muted-foreground flex items-center gap-1">
-              <Hash className="w-3 h-3" />
-              general • {community.members} members
-            </p>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="text-2xl">{community.icon}</div>
+            <div>
+              <h2 className="text-xl font-semibold">{community.name}</h2>
+              <p className="text-sm text-muted-foreground flex items-center gap-1">
+                <Hash className="w-3 h-3" />
+                general • {community.members} members
+              </p>
+            </div>
+          </div>
+          
+          {/* Connection Status */}
+          <div className="flex items-center gap-2">
+            {connectionStatus === 'connected' ? (
+              <div className="flex items-center gap-1 text-green-500">
+                <Wifi className="w-4 h-4" />
+                <span className="text-xs">Connected</span>
+              </div>
+            ) : connectionStatus === 'error' ? (
+              <div className="flex items-center gap-1 text-red-500">
+                <WifiOff className="w-4 h-4" />
+                <span className="text-xs">Disconnected</span>
+              </div>
+            ) : (
+              <div className="flex items-center gap-1 text-yellow-500">
+                <Wifi className="w-4 h-4" />
+                <span className="text-xs">Connecting...</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-4">
-        {messages.map((message) => (
-          <div key={message.id} className="message-enter">
-            <Card className={cn(
-              "max-w-[80%] transition-all",
-              message.isAI 
-                ? "mr-auto bg-card hover:shadow-md" 
-                : "ml-auto bg-primary text-primary-foreground"
-            )}>
-              <CardContent className="p-4">
-                <div className="flex items-start gap-3">
-                  <div className="text-lg flex-shrink-0">{message.avatar}</div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <button 
-                        onClick={() => onShowProfile({
-                          name: message.author,
-                          avatar: message.avatar,
-                          isAI: message.isAI,
-                          personality: message.isAI ? aiPersonalities[message.author.toLowerCase().replace('_', '_')]?.personality : undefined,
-                          backstory: message.isAI ? aiPersonalities[message.author.toLowerCase().replace('_', '_')]?.backstory : undefined,
-                          responseStyle: message.isAI ? aiPersonalities[message.author.toLowerCase().replace('_', '_')]?.responseStyle : undefined
-                        })}
-                        className="font-semibold text-sm hover:underline hover:text-primary transition-colors cursor-pointer"
-                      >
-                        {message.author}
-                      </button>
-                      <span className="text-xs opacity-70">
-                        {formatTime(message.timestamp)}
-                      </span>
+        {messages.map((message) => {
+          const isMyMessage = message.author === username
+          const isAIMessage = message.isAI || AI_AGENTS.some(agent => agent.name === message.author)
+          
+          return (
+            <div key={message.id} className="message-enter">
+              <Card className={cn(
+                "max-w-[80%] transition-all",
+                isMyMessage
+                  ? "ml-auto bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg" 
+                  : "mr-auto bg-card border hover:shadow-md"
+              )}>
+                <CardContent className="p-4">
+                  <div className="flex items-start gap-3">
+                    {!isMyMessage && (
+                      <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                        {message.avatar.startsWith('/') ? (
+                          <img 
+                            src={message.avatar} 
+                            alt={message.author}
+                            className="w-8 h-8 rounded-full object-cover"
+                          />
+                        ) : (
+                          <div className="text-lg">{message.avatar}</div>
+                        )}
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <button 
+                          onClick={() => onShowProfile({
+                            name: message.author,
+                            avatar: message.avatar,
+                            isAI: isAIMessage,
+                            personality: isAIMessage ? AI_AGENTS.find(a => a.name === message.author)?.personality : undefined
+                          })}
+                          className={cn(
+                            "font-semibold text-sm hover:underline transition-colors cursor-pointer",
+                            isMyMessage 
+                              ? "text-white/90 hover:text-white" 
+                              : "hover:text-primary"
+                          )}
+                        >
+                          {message.author}
+                        </button>
+                        <span className={cn(
+                          "text-xs",
+                          isMyMessage ? "text-white/70" : "text-muted-foreground"
+                        )}>
+                          {formatTime(message.timestamp)}
+                        </span>
+                      </div>
+                      <p className={cn(
+                        "text-sm leading-relaxed",
+                        isMyMessage ? "text-white" : "text-foreground"
+                      )}>
+                        {message.content}
+                      </p>
                     </div>
-                    <p className="text-sm leading-relaxed">{message.content}</p>
+                    {isMyMessage && (
+                      <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                        {message.avatar.startsWith('/') ? (
+                          <img 
+                            src={message.avatar} 
+                            alt={message.author}
+                            className="w-8 h-8 rounded-full object-cover"
+                          />
+                        ) : (
+                          <div className="text-lg">{message.avatar}</div>
+                        )}
+                      </div>
+                    )}
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        ))}
+                </CardContent>
+              </Card>
+            </div>
+          )
+        })}
 
-        {/* Typing Indicator */}
-        {isTyping && (
+        {/* Loading State */}
+        {isLoading && messages.length === 0 && (
           <Card className="max-w-[80%] mr-auto bg-card">
             <CardContent className="p-4">
               <div className="flex items-center gap-3">
-                <div className="text-lg">🤖</div>
-                <div className="flex gap-1">
-                  <div className="w-2 h-2 bg-muted-foreground/50 rounded-full typing-dot"></div>
-                  <div className="w-2 h-2 bg-muted-foreground/50 rounded-full typing-dot"></div>
-                  <div className="w-2 h-2 bg-muted-foreground/50 rounded-full typing-dot"></div>
+                <div className="text-lg">📥</div>
+                <div className="text-sm text-muted-foreground">Loading messages...</div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Agent Typing Indicators */}
+        {respondingAgents.length > 0 && (
+          <Card className="max-w-[80%] mr-auto bg-card">
+            <CardContent className="p-4">
+              <div className="flex items-center gap-3">
+                <div className="flex">
+                  {respondingAgents.slice(0, 3).map(agentId => {
+                    const agent = AI_AGENTS.find(a => a.id === agentId)
+                    return agent ? (
+                      <div key={agentId} className="w-6 h-6 mr-1 flex items-center justify-center">
+                        {agent.avatar.startsWith('/') ? (
+                          <img 
+                            src={agent.avatar} 
+                            alt={agent.name}
+                            className="w-6 h-6 rounded-full object-cover"
+                          />
+                        ) : (
+                          <div className="text-lg">{agent.avatar}</div>
+                        )}
+                      </div>
+                    ) : null
+                  })}
                 </div>
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1">
+                    <div className="w-2 h-2 bg-muted-foreground/50 rounded-full typing-dot"></div>
+                    <div className="w-2 h-2 bg-muted-foreground/50 rounded-full typing-dot"></div>
+                    <div className="w-2 h-2 bg-muted-foreground/50 rounded-full typing-dot"></div>
+                  </div>
+                  <span className="text-xs text-muted-foreground">
+                    {respondingAgents.length === 1 
+                      ? `${AI_AGENTS.find(a => a.id === respondingAgents[0])?.name} is typing...`
+                      : `${respondingAgents.slice(0, 3).map(agentId => 
+                          AI_AGENTS.find(a => a.id === agentId)?.name
+                        ).filter(Boolean).join(', ')}${respondingAgents.length > 3 ? ` +${respondingAgents.length - 3} more` : ''} are typing...`
+                    }
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Error State */}
+        {error && (
+          <Card className="max-w-[80%] mr-auto bg-destructive/10 border-destructive/20">
+            <CardContent className="p-4">
+              <div className="flex items-center gap-3">
+                <div className="text-lg">⚠️</div>
+                <div className="text-sm text-destructive">{error}</div>
               </div>
             </CardContent>
           </Card>

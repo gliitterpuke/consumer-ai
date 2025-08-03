@@ -55,6 +55,70 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-02T22:44:06.648Z"
+    },
+    {
+      "userId": "demo123",
+      "message": "Hey everyone! New to dating and need some advice.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:02:36.151Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:51:26.054Z"
+    },
+    {
+      "userId": "test-rapid",
+      "message": "First message while typing indicators are active",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:56:57.753Z"
+    },
+    {
+      "userId": "layout-test",
+      "message": "Testing the new message layout! My messages should be on the right in blue/purple, AI messages on the left in white.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:01:29.069Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "i wanna ask a girl out",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:04:31.913Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "she invited me to the movies?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:07:27.244Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "Can you guys tell me if a girl actually likes me.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:07:37.974Z"
+    },
+    {
+      "userId": "avatar-fix-test",
+      "message": "Testing the fixed avatar system! Can you all respond so I can see your profile pictures?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:31:23.787Z"
     }
   ],
   "userProfiles": {
@@ -87,6 +151,31 @@
       "username": "TestUser",
       "lastMessage": "anxiety_andy are you there? I need anxiety tips!",
       "lastSeen": "2025-08-02T22:44:06.648Z"
+    },
+    "demo123": {
+      "username": "DemoUser",
+      "lastMessage": "Hey everyone! New to dating and need some advice.",
+      "lastSeen": "2025-08-02T23:02:36.151Z"
+    },
+    "user_eung3get4": {
+      "username": "max",
+      "lastMessage": "Can you guys tell me if a girl actually likes me.",
+      "lastSeen": "2025-08-03T00:07:37.973Z"
+    },
+    "test-rapid": {
+      "username": "RapidTester",
+      "lastMessage": "First message while typing indicators are active",
+      "lastSeen": "2025-08-02T23:56:57.752Z"
+    },
+    "layout-test": {
+      "username": "LayoutTester",
+      "lastMessage": "Testing the new message layout! My messages should be on the right in blue/purple, AI messages on the left in white.",
+      "lastSeen": "2025-08-03T00:01:29.069Z"
+    },
+    "avatar-fix-test": {
+      "username": "AvatarFixTester",
+      "lastMessage": "Testing the fixed avatar system! Can you all respond so I can see your profile pictures?",
+      "lastSeen": "2025-08-03T00:31:23.786Z"
     }
   },
   "relationships": {},

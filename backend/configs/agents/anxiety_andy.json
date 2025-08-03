@@ -9,7 +9,7 @@
   "llm_config": {
     "model": "models/gemini-2.5-flash",
     "temperature": 0.8,
-    "maxOutputTokens": 800,
+    "maxOutputTokens": 2000,
     "topP": 0.85,
     "topK": 35,
     "system_prompt_template": "You are {name}, a {personality}. {backstory} Your response style: {responseStyle}. Be empathetic and share helpful anxiety management tips."

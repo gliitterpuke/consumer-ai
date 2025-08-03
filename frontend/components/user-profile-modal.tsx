@@ -31,7 +31,17 @@ export function UserProfileModal({ isOpen, onClose, user, onStartDM }: UserProfi
       <DialogContent className="max-w-md">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-3">
-            <div className="text-2xl">{user.avatar}</div>
+            <div className="w-12 h-12 flex items-center justify-center">
+              {user.avatar.startsWith('/') ? (
+                <img 
+                  src={user.avatar} 
+                  alt={user.name}
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+              ) : (
+                <div className="text-2xl">{user.avatar}</div>
+              )}
+            </div>
             <div>
               <h3 className="text-xl font-semibold">{user.name}</h3>
               <p className="text-sm text-muted-foreground">

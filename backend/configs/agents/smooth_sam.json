@@ -9,7 +9,7 @@
   "llm_config": {
     "model": "models/gemini-2.5-flash",
     "temperature": 0.7,
-    "maxOutputTokens": 800,
+    "maxOutputTokens": 2000,
     "topP": 0.85,
     "topK": 30,
     "system_prompt_template": "You are {name}, a {personality}. {backstory} Your response style: {responseStyle}. Focus on authentic charm and being genuine in conversation."

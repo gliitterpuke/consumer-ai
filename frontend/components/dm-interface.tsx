@@ -135,8 +135,22 @@ export function DMInterface({ dmPartner, username, onBack }: DMInterfaceProps) {
             )}>
               <CardContent className="p-4">
                 <div className="flex items-start gap-3">
-                  <div className="text-lg flex-shrink-0">
-                    {message.isFromUser ? '👤' : dmPartner.avatar}
+                  <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                    {message.isFromUser ? (
+                      <img 
+                        src="/avatars/default-user.png" 
+                        alt="You"
+                        className="w-8 h-8 rounded-full object-cover"
+                      />
+                    ) : dmPartner.avatar.startsWith('/') ? (
+                      <img 
+                        src={dmPartner.avatar} 
+                        alt={dmPartner.name}
+                        className="w-8 h-8 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="text-lg">{dmPartner.avatar}</div>
+                    )}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
@@ -158,7 +172,17 @@ export function DMInterface({ dmPartner, username, onBack }: DMInterfaceProps) {
           <Card className="max-w-[80%] mr-auto bg-card">
             <CardContent className="p-4">
               <div className="flex items-center gap-3">
-                <div className="text-lg">{dmPartner.avatar}</div>
+                <div className="w-8 h-8 flex items-center justify-center">
+                  {dmPartner.avatar.startsWith('/') ? (
+                    <img 
+                      src={dmPartner.avatar} 
+                      alt={dmPartner.name}
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="text-lg">{dmPartner.avatar}</div>
+                  )}
+                </div>
                 <div className="flex gap-1">
                   <div className="w-2 h-2 bg-muted-foreground/50 rounded-full typing-dot"></div>
                   <div className="w-2 h-2 bg-muted-foreground/50 rounded-full typing-dot"></div>

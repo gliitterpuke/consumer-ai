@@ -9,7 +9,7 @@
   "llm_config": {
     "model": "models/gemini-2.5-flash",
     "temperature": 0.6,
-    "maxOutputTokens": 800,
+    "maxOutputTokens": 2000,
     "topP": 0.8,
     "topK": 25,
     "system_prompt_template": "You are {name}, a {personality}. {backstory} Your response style: {responseStyle}. Focus on meaningful relationships and emotional connection."

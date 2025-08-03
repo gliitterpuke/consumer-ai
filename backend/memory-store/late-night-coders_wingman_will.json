@@ -143,6 +143,182 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-02T22:48:23.115Z"
+    },
+    {
+      "userId": "ui-test",
+      "message": "Hello new UI! Need dating advice.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:04:41.155Z"
+    },
+    {
+      "userId": "user_76h0unc5v",
+      "message": "Hello! dsa here, looking forward to connecting with you all",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:07:43.150Z"
+    },
+    {
+      "userId": "frontend-test",
+      "message": "Testing the new frontend integration!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:49:55.050Z"
+    },
+    {
+      "userId": "test-user",
+      "message": "Hey everyone! Just fixed the token limits. Hope this works better now!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:54:11.460Z"
+    },
+    {
+      "userId": "test-user-2",
+      "message": "Testing the new typing indicators! Also can I type while agents are thinking?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:56:09.962Z"
+    },
+    {
+      "userId": "test-rapid",
+      "message": "Second message right after",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:57:04.174Z"
+    },
+    {
+      "userId": "indicator-test",
+      "message": "Testing the new named typing indicators! Should show agent names now.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:58:07.770Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hi",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-02T23:58:11.533Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "i wanna ask a girl out guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:00:40.094Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "she's sort of",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:00:44.304Z"
+    },
+    {
+      "userId": "layout-test",
+      "message": "Testing the new message layout! My messages should be on the right in blue/purple, AI messages on the left in white.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:01:12.273Z"
+    },
+    {
+      "userId": "ui-success",
+      "message": "Perfect! Now my messages are on the right in blue gradient, and AI messages are on the left in white cards.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:02:23.031Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "i wanna ask a girl out",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:04:23.363Z"
+    },
+    {
+      "userId": "stress-test",
+      "message": "Stress test: Can all 6 agents respond with long detailed advice without any timeouts or token limits? This is for a demo where the conversation must never stop no matter what!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:05:30.749Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "she invited me to the movies?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:07:14.568Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "can i cheat on my girlfriend to go out with this girl?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:08:06.916Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys should i start hitting the gym? i don't feel that physcially confident",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:12:05.177Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "but i don't know where to start?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:12:08.723Z"
+    },
+    {
+      "userId": "avatar-test",
+      "message": "Testing new profile pictures! Do you like the new avatar system?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:29:15.805Z"
+    },
+    {
+      "userId": "avatar-fix-test",
+      "message": "Testing the fixed avatar system! Can you all respond so I can see your profile pictures?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:31:12.064Z"
+    },
+    {
+      "userId": "typing-test",
+      "message": "Testing typing indicator avatars! Can everyone respond so I can see the profile pictures in the typing indicator?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:32:45.556Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "could i get some advice?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T00:34:22.451Z"
     }
   ],
   "userProfiles": {
@@ -205,6 +381,76 @@
       "username": "bill",
       "lastMessage": "ok you guys are all gasing me up, but how do I know she likes me? I'm kinda scared of getting rejected guys",
       "lastSeen": "2025-08-02T22:48:23.115Z"
+    },
+    "ui-test": {
+      "username": "UITester",
+      "lastMessage": "Hello new UI! Need dating advice.",
+      "lastSeen": "2025-08-02T23:04:41.155Z"
+    },
+    "user_76h0unc5v": {
+      "username": "dsa",
+      "lastMessage": "Hello! dsa here, looking forward to connecting with you all",
+      "lastSeen": "2025-08-02T23:07:43.148Z"
+    },
+    "frontend-test": {
+      "username": "Frontend",
+      "lastMessage": "Testing the new frontend integration!",
+      "lastSeen": "2025-08-02T23:49:55.050Z"
+    },
+    "test-user": {
+      "username": "TokenTester",
+      "lastMessage": "Hey everyone! Just fixed the token limits. Hope this works better now!",
+      "lastSeen": "2025-08-02T23:54:11.460Z"
+    },
+    "test-user-2": {
+      "username": "UITester",
+      "lastMessage": "Testing the new typing indicators! Also can I type while agents are thinking?",
+      "lastSeen": "2025-08-02T23:56:09.962Z"
+    },
+    "test-rapid": {
+      "username": "RapidTester",
+      "lastMessage": "Second message right after",
+      "lastSeen": "2025-08-02T23:57:04.173Z"
+    },
+    "indicator-test": {
+      "username": "IndicatorTester",
+      "lastMessage": "Testing the new named typing indicators! Should show agent names now.",
+      "lastSeen": "2025-08-02T23:58:07.768Z"
+    },
+    "user_eung3get4": {
+      "username": "mqx",
+      "lastMessage": "could i get some advice?",
+      "lastSeen": "2025-08-03T00:34:22.449Z"
+    },
+    "layout-test": {
+      "username": "LayoutTester",
+      "lastMessage": "Testing the new message layout! My messages should be on the right in blue/purple, AI messages on the left in white.",
+      "lastSeen": "2025-08-03T00:01:12.273Z"
+    },
+    "ui-success": {
+      "username": "UISuccess",
+      "lastMessage": "Perfect! Now my messages are on the right in blue gradient, and AI messages are on the left in white cards.",
+      "lastSeen": "2025-08-03T00:02:23.031Z"
+    },
+    "stress-test": {
+      "username": "StressTest",
+      "lastMessage": "Stress test: Can all 6 agents respond with long detailed advice without any timeouts or token limits? This is for a demo where the conversation must never stop no matter what!",
+      "lastSeen": "2025-08-03T00:05:30.749Z"
+    },
+    "avatar-test": {
+      "username": "AvatarTester",
+      "lastMessage": "Testing new profile pictures! Do you like the new avatar system?",
+      "lastSeen": "2025-08-03T00:29:15.804Z"
+    },
+    "avatar-fix-test": {
+      "username": "AvatarFixTester",
+      "lastMessage": "Testing the fixed avatar system! Can you all respond so I can see your profile pictures?",
+      "lastSeen": "2025-08-03T00:31:12.063Z"
+    },
+    "typing-test": {
+      "username": "TypingTester",
+      "lastMessage": "Testing typing indicator avatars! Can everyone respond so I can see the profile pictures in the typing indicator?",
+      "lastSeen": "2025-08-03T00:32:45.556Z"
     }
   },
   "relationships": {},

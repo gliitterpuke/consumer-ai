@@ -40,6 +40,7 @@ class LLMService {
       
       const enhancedMessage = PromptManager.enhanceUserMessage(userMessage, memoryContext);
 
+
       // Generate response with retry logic
       const llmConfig = agent.llm_config || {};
       let response;
