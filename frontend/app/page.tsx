@@ -13,6 +13,7 @@ import { UsernameModal } from '@/components/username-modal'
 import { UserProfileModal } from '@/components/user-profile-modal'
 import { DMInterface } from '@/components/dm-interface'
 import { MembersSidebar } from '@/components/members-sidebar'
+import { CommunityCreator } from '@/components/community-creator'
 import { AI_AGENTS, type Agent, type User } from '@/lib/agents'
 import { useMessages } from '@/hooks/useMessages'
 import { useAgentActivity } from '@/hooks/useAgentActivity'
@@ -23,6 +24,7 @@ export default function Home() {
   const [currentCommunity, setCurrentCommunity] = useState('late-night-coders')
   const [showUsernameModal, setShowUsernameModal] = useState(true)
   const [showPersonalityCreator, setShowPersonalityCreator] = useState(false)
+  const [showCommunityCreator, setShowCommunityCreator] = useState(false)
   const [showProfileModal, setShowProfileModal] = useState(false)
   const [selectedUser, setSelectedUser] = useState<any>(null)
   const [currentView, setCurrentView] = useState<'chat' | 'dm'>('chat')
@@ -30,6 +32,29 @@ export default function Home() {
   const [activeDMs, setActiveDMs] = useState<string[]>([])
   const [agents, setAgents] = useState<Agent[]>(AI_AGENTS)
   const [humanUsers, setHumanUsers] = useState<User[]>([])
+  const [communities, setCommunities] = useState([
+    {
+      id: 'late-night-coders',
+      name: 'Dating Advice Bros',
+      icon: '💕',
+      description: '6 AI members online',
+      members: 6
+    },
+    {
+      id: 'new-to-sf',
+      name: 'New to SF',
+      icon: '🌉',
+      description: '6 AI members online',
+      members: 6
+    },
+    {
+      id: 'startup-founders',
+      name: 'Startup Founders',
+      icon: '🚀',
+      description: '6 AI members online',
+      members: 6
+    }
+  ])
 
   // Messages and agent activity for current community
   const { messages } = useMessages({
@@ -65,29 +90,7 @@ export default function Home() {
     }
   }, [username])
 
-  const communities = [
-    {
-      id: 'late-night-coders',
-      name: 'Dating Advice Bros',
-      icon: '💕',
-      description: '6 AI members online',
-      members: 6
-    },
-    {
-      id: 'new-to-sf',
-      name: 'New to SF',
-      icon: '🌉',
-      description: '6 AI members online',
-      members: 6
-    },
-    {
-      id: 'startup-founders',
-      name: 'Startup Founders',
-      icon: '🚀',
-      description: '6 AI members online',
-      members: 6
-    }
-  ]
+
 
   const handleUsernameSubmit = (newUsername: string) => {
     setUsername(newUsername)
@@ -124,16 +127,47 @@ export default function Home() {
 
   const handleMemberClick = (member: Agent | User) => {
     if ('personality' in member) {
-      // It's an AI agent - start DM
-      handleStartDM(member.name)
-    } else {
-      // It's a human user - show profile
-      handleShowProfile(member)
+      // It's an AI agent
+      handleShowProfile({
+        name: member.name,
+        avatar: member.avatar,
+        personality: member.personality,
+        isAI: true
+      })
     }
   }
 
+  const handleCreateCommunity = (newCommunity: {
+    name: string
+    description: string
+    icon: string
+    invitedAgents: string[]
+  }) => {
+    const communityId = newCommunity.name.toLowerCase().replace(/\s+/g, '-')
+    const community = {
+      id: communityId,
+      name: newCommunity.name,
+      icon: newCommunity.icon,
+      description: newCommunity.description,
+      members: newCommunity.invitedAgents.length
+    }
+    
+    setCommunities(prev => [...prev, community])
+    setCurrentCommunity(communityId)
+    setCurrentView('chat')
+    setShowCommunityCreator(false)
+  }
+
   if (showUsernameModal) {
-    return <UsernameModal onSubmit={handleUsernameSubmit} />
+    return (
+      <UsernameModal 
+        onSubmit={handleUsernameSubmit}
+        onCreateCommunity={(communityData) => {
+          // Create the community directly from the username modal
+          handleCreateCommunity(communityData)
+        }}
+      />
+    )
   }
 
   return (
@@ -189,6 +223,19 @@ export default function Home() {
                     </CardContent>
                   </Card>
                 ))}
+              </div>
+              
+              {/* Create Community Button */}
+              <div className="mt-3">
+                <Button 
+                  onClick={() => setShowCommunityCreator(true)}
+                  variant="outline"
+                  className="w-full justify-start text-muted-foreground hover:text-foreground"
+                  size="sm"
+                >
+                  <Plus className="w-4 h-4 mr-2" />
+                  Create Community
+                </Button>
               </div>
             </div>
 
@@ -306,6 +353,16 @@ export default function Home() {
           <PersonalityCreator 
             onClose={() => setShowPersonalityCreator(false)}
             communityId={currentCommunity}
+          />
+        </DialogContent>
+      </Dialog>
+
+      {/* Community Creator Modal */}
+      <Dialog open={showCommunityCreator} onOpenChange={setShowCommunityCreator}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <CommunityCreator 
+            onClose={() => setShowCommunityCreator(false)}
+            onCreateCommunity={handleCreateCommunity}
           />
         </DialogContent>
       </Dialog>
