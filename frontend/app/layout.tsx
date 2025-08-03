@@ -10,7 +10,7 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Rally - Find your crew',
+  title: 'Rally - Build your crew',
   description: 'Building your favorite team',
 }
 

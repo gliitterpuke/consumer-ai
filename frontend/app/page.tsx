@@ -1,11 +1,9 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Switch } from '@/components/ui/switch'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { ChatInterface } from '@/components/chat-interface'
 import { PersonalityCreator } from '@/components/personality-creator'
@@ -17,7 +15,7 @@ import { CommunityCreator } from '@/components/community-creator'
 import { AI_AGENTS, type Agent, type User } from '@/lib/agents'
 import { useMessages } from '@/hooks/useMessages'
 import { useAgentActivity } from '@/hooks/useAgentActivity'
-import { MessageSquare, Users, Plus, Settings, Heart } from 'lucide-react'
+import { Plus } from 'lucide-react'
 
 export default function Home() {
   const [username, setUsername] = useState('')
@@ -178,18 +176,18 @@ export default function Home() {
           {/* Header */}
           <div className="p-6 border-b relative">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
-                <MessageSquare className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 flex items-center justify-center">
+                <img src="/logo.png" alt="Rally Logo" className="w-full h-full object-contain" />
               </div>
               <div>
-                <h1 className="text-xl font-bold">AI Communities</h1>
-                <p className="text-sm text-muted-foreground">Never sleep, always care</p>
+                <h1 className="text-xl font-bold">Rally</h1>
+                <p className="text-sm text-muted-foreground">Build your crew</p>
               </div>
             </div>
             <div className="absolute top-4 right-4">
               <ThemeToggle />
             </div>
-          </div>
+          </div>  
 
           {/* Communities */}
           <div className="flex-1 overflow-y-auto custom-scrollbar">
