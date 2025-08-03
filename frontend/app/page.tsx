@@ -130,7 +130,7 @@ export default function Home() {
       // It's an AI agent
       handleShowProfile({
         name: member.name,
-        // avatar: member.avatar,
+        avatar: member.avatar,
         personality: member.personality,
         isAI: true
       })
