@@ -1,46 +1,6 @@
 {
   "conversations": [
     {
-      "userId": "user_eung3get4",
-      "message": "she invited me to the movies?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T00:07:14.568Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "can i cheat on my girlfriend to go out with this girl?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T00:08:06.916Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "hey guys should i start hitting the gym? i don't feel that physcially confident",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T00:12:05.177Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "but i don't know where to start?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T00:12:08.723Z"
-    },
-    {
-      "userId": "avatar-test",
-      "message": "Testing new profile pictures! Do you like the new avatar system?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T00:29:15.805Z"
-    },
-    {
       "userId": "avatar-fix-test",
       "message": "Testing the fixed avatar system! Can you all respond so I can see your profile pictures?",
       "context": {
@@ -399,6 +359,46 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T02:01:00.721Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:04:56.615Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:06:01.547Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hi",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:06:21.959Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hi",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:07:00.483Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:09:29.240Z"
     }
   ],
   "userProfiles": {
@@ -498,9 +498,9 @@
       "lastSeen": "2025-08-02T23:58:07.768Z"
     },
     "user_eung3get4": {
-      "username": "Max",
-      "lastMessage": "Hey!!!! I'm Max!!",
-      "lastSeen": "2025-08-03T02:01:00.720Z"
+      "username": "m ax",
+      "lastMessage": "hey",
+      "lastSeen": "2025-08-03T02:09:29.240Z"
     },
     "layout-test": {
       "username": "LayoutTester",

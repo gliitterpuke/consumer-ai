@@ -20,7 +20,6 @@ console.log(`🤖 LLM Service initialized. Gemini 2.5 available: ${llmService.is
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../frontend')));
 
 // In-memory storage for demo (would be database in production)
 let communities = {};
@@ -381,9 +380,6 @@ messageHistory['late-night-coders'] = [
 ];
 
 // Routes
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/index.html'));
-});
 
 // API Routes
 app.get('/api/communities', (req, res) => {
@@ -534,7 +530,13 @@ function shouldAgentRespond(agent, userMessage, communityId, context = {}) {
   const behavior = agent.behavior_config;
   if (!behavior) return Math.random() < 0.5; // Default 50% chance
   
-  // Check cooldown period
+  // PRIORITY 1: Direct @mention = guaranteed response, bypass cooldown
+  if (context.isMentioned) {
+    console.log(`📢 ${agent.name} MENTIONED -> GUARANTEED RESPONSE (cooldown bypassed)`);
+    return true;
+  }
+
+  // Check cooldown period for non-mentions
   const agentKey = `${communityId}_${agent.id}`;
   const lastResponse = agentResponseHistory[agentKey];
   if (lastResponse && Date.now() - lastResponse < behavior.recent_response_cooldown) {
@@ -544,12 +546,6 @@ function shouldAgentRespond(agent, userMessage, communityId, context = {}) {
   
   // Base probability check
   let baseProbability = behavior.response_probability;
-  
-  // PRIORITY 1: Direct @mention = guaranteed response
-  if (context.isMentioned) {
-    console.log(`📢 ${agent.name} MENTIONED -> GUARANTEED RESPONSE`);
-    return true;
-  }
   
   // PRIORITY 2: Reacting to another agent's response = higher chance
   if (context.isReactingToAgent) {

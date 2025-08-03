@@ -1,46 +1,6 @@
 {
   "conversations": [
     {
-      "userId": "user_f22rboqao",
-      "message": "hey guys",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:24:45.211Z"
-    },
-    {
-      "userId": "debug",
-      "message": "Test LLM call",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:37:52.029Z"
-    },
-    {
-      "userId": "anxietytest",
-      "message": "I have severe dating anxiety, can someone help?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:39:35.196Z"
-    },
-    {
-      "userId": "anxietytest",
-      "message": "@anxiety_andy I have severe social anxiety when dating, can you help me?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:43:05.432Z"
-    },
-    {
-      "userId": "user_a6nh6lhz7",
-      "message": "Hi! I'm bill, excited to be here!",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:45:27.494Z"
-    },
-    {
       "userId": "user_a6nh6lhz7",
       "message": "ok you guys are all gasing me up, but how do I know she likes me? I'm kinda scared of getting rejected guys",
       "context": {
@@ -399,6 +359,46 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T02:01:04.191Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:04:58.767Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:06:02.608Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hi",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:06:18.645Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hi",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:06:19.827Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:09:24.068Z"
     }
   ],
   "userProfiles": {
@@ -463,9 +463,9 @@
       "lastSeen": "2025-08-02T23:07:55.781Z"
     },
     "user_eung3get4": {
-      "username": "max",
-      "lastMessage": "hey i like this girl not sure if she likes me back any advice chat",
-      "lastSeen": "2025-08-03T01:01:00.352Z"
+      "username": "m ax",
+      "lastMessage": "hey",
+      "lastSeen": "2025-08-03T02:09:24.067Z"
     },
     "test-user": {
       "username": "TokenTester",

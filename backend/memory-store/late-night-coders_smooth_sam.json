@@ -319,6 +319,14 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T01:58:58.480Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:11:52.537Z"
     }
   ],
   "userProfiles": {
@@ -393,9 +401,9 @@
       "lastSeen": "2025-08-02T23:56:20.022Z"
     },
     "user_eung3get4": {
-      "username": "max",
-      "lastMessage": "Hey guys!! I'm max",
-      "lastSeen": "2025-08-03T01:58:58.479Z"
+      "username": "m ax",
+      "lastMessage": "hey guys",
+      "lastSeen": "2025-08-03T02:11:52.537Z"
     },
     "resilience-test": {
       "username": "ResilienceTest",

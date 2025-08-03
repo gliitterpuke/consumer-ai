@@ -1,0 +1,6 @@
+{
+  "watch": ["backend/"],
+  "ext": "js,mjs,json",
+  "ignore": ["backend/memory-store/*"],
+  "exec": "node backend/server.js"
+}

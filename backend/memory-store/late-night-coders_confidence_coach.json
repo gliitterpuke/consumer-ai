@@ -1,38 +1,6 @@
 {
   "conversations": [
     {
-      "userId": "anxietytest",
-      "message": "I have severe dating anxiety, can someone help?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:39:29.491Z"
-    },
-    {
-      "userId": "directtest",
-      "message": "@anxiety_andy help me with anxiety please",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:41:01.325Z"
-    },
-    {
-      "userId": "user_a6nh6lhz7",
-      "message": "Hi! I'm bill, excited to be here!",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:45:30.058Z"
-    },
-    {
-      "userId": "user_a6nh6lhz7",
-      "message": "Chat there's a girl that I'm talking to, she invited me to watch the movies with her and cook dinner at her place. But is she into me or are we cooked?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:46:38.670Z"
-    },
-    {
       "userId": "user_a6nh6lhz7",
       "message": "ok you guys are all gasing me up, but how do I know she likes me? I'm kinda scared of getting rejected guys",
       "context": {
@@ -399,6 +367,38 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T02:00:58.567Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:04:55.550Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:06:04.759Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:09:37.264Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:11:56.777Z"
     }
   ],
   "userProfiles": {
@@ -453,9 +453,9 @@
       "lastSeen": "2025-08-02T23:07:51.815Z"
     },
     "user_eung3get4": {
-      "username": "Max",
-      "lastMessage": "Hey!!!! I'm Max!!",
-      "lastSeen": "2025-08-03T02:00:58.567Z"
+      "username": "m ax",
+      "lastMessage": "hey guys",
+      "lastSeen": "2025-08-03T02:11:56.777Z"
     },
     "test-user": {
       "username": "TokenTester",

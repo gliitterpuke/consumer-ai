@@ -1,14 +1,6 @@
 {
   "conversations": [
     {
-      "userId": "curious456",
-      "message": "How do I ask someone out without seeming desperate?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T21:45:59.807Z"
-    },
-    {
       "userId": "tester789",
       "message": "Quick question - best way to start a conversation with someone new?",
       "context": {
@@ -383,6 +375,30 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T01:37:53.332Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hi",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:07:07.119Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:09:32.933Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:11:47.260Z"
     }
   ],
   "userProfiles": {
@@ -437,9 +453,9 @@
       "lastSeen": "2025-08-02T23:49:59.122Z"
     },
     "user_eung3get4": {
-      "username": "max",
-      "lastMessage": "@Anxiety_Andy you especially",
-      "lastSeen": "2025-08-03T01:00:51.027Z"
+      "username": "m ax",
+      "lastMessage": "hey guys",
+      "lastSeen": "2025-08-03T02:11:47.259Z"
     },
     "test-user-2": {
       "username": "UITester",
