@@ -159,7 +159,15 @@ export default function Home() {
   }
 
   if (showUsernameModal) {
-    return <UsernameModal onSubmit={handleUsernameSubmit} />
+    return (
+      <UsernameModal 
+        onSubmit={handleUsernameSubmit}
+        onCreateCommunity={(communityData) => {
+          // Create the community directly from the username modal
+          handleCreateCommunity(communityData)
+        }}
+      />
+    )
   }
 
   return (
