@@ -51,8 +51,12 @@ export function UsernameModal({ onSubmit, onCreateCommunity }: UsernameModalProp
       <div className="w-full max-w-md">
         <Card className="shadow-2xl border-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl">
           <CardHeader className="text-center pb-2">
-            <div className="mx-auto w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center mb-4">
-              <MessageSquare className="w-8 h-8 text-white" />
+            <div className="mx-auto w-16 h-16 mb-4">
+              <img 
+                src="/logo.png" 
+                alt="Rally Logo" 
+                className="w-16 h-16 object-contain"
+              />
             </div>
             <CardTitle className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               Welcome to Rally
