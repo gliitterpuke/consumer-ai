@@ -62,7 +62,7 @@ export function UsernameModal({ onSubmit, onCreateCommunity }: UsernameModalProp
               Welcome to Rally
             </CardTitle>
             <CardDescription className="text-lg text-muted-foreground font-medium">
-              Find your crew
+              Build your crew
             </CardDescription>
           </CardHeader>
           
