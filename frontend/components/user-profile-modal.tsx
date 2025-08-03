@@ -4,7 +4,7 @@ import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { MessageSquare, User, Clock, Heart } from 'lucide-react'
+import { MessageSquare, User, Clock, Heart, UserX } from 'lucide-react'
 
 interface UserProfileModalProps {
   isOpen: boolean
@@ -23,6 +23,13 @@ interface UserProfileModalProps {
 export function UserProfileModal({ isOpen, onClose, user, onStartDM }: UserProfileModalProps) {
   const handleStartDM = () => {
     onStartDM(user.name)
+    onClose()
+  }
+
+  const handleKickUser = () => {
+    // Demo functionality only - would connect to backend in real app
+    console.log(`Would kick user: ${user.name}`)
+    alert(`Demo: Would kick ${user.name} from the chat`)
     onClose()
   }
 
@@ -101,16 +108,28 @@ export function UserProfileModal({ isOpen, onClose, user, onStartDM }: UserProfi
           </Card>
 
           {/* Actions */}
-          <div className="flex gap-2">
+          <div className="space-y-2">
+            <div className="flex gap-2">
+              <Button 
+                onClick={handleStartDM}
+                className="flex-1 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white"
+              >
+                <MessageSquare className="w-4 h-4 mr-2" />
+                Send DM
+              </Button>
+              <Button variant="outline" onClick={onClose}>
+                Close
+              </Button>
+            </div>
+            
+            {/* Demo: Kick from chat button */}
             <Button 
-              onClick={handleStartDM}
-              className="flex-1 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white"
+              onClick={handleKickUser}
+              variant="outline"
+              className="w-full text-red-600 hover:text-red-700 hover:bg-red-50 border-red-200 hover:border-red-300"
             >
-              <MessageSquare className="w-4 h-4 mr-2" />
-              Send DM
-            </Button>
-            <Button variant="outline" onClick={onClose}>
-              Close
+              <UserX className="w-4 h-4 mr-2" />
+              Kick from Chat
             </Button>
           </div>
         </div>

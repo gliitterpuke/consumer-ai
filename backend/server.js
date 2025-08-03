@@ -29,6 +29,12 @@ let messageHistory = {};
 let agentResponseHistory = {}; // Track when agents last responded
 let dmHistory = {}; // Structure: {userId_agentId: [messages]}
 
+// Agent chatter control
+let lastHumanMessageTime = {}; // Track last human message per community
+let consecutiveAgentMessages = {}; // Track consecutive agent messages per community
+const HUMAN_INACTIVITY_THRESHOLD = 30000; // 30 seconds
+const MAX_AGENT_CHATTER = 8; // Maximum consecutive agent messages
+
 // AI Personalities for each community
 const aiPersonalities = {
   'late-night-coders': {
@@ -286,13 +292,41 @@ class MessageQueue {
       messageHistory[communityId] = [];
     }
     
-    messageHistory[communityId].push({
+    const aiMessage = {
       id: message.id,
       author: message.aiId,
       content: message.message,
       timestamp: new Date().toISOString(),
       type: 'ai'
-    });
+    };
+    
+    messageHistory[communityId].push(aiMessage);
+    
+    // Increment consecutive agent message counter
+    consecutiveAgentMessages[communityId] = (consecutiveAgentMessages[communityId] || 0) + 1;
+    
+    // Check conditions for agent-to-agent chatter
+    const timeSinceLastHuman = Date.now() - (lastHumanMessageTime[communityId] || 0);
+    const agentChatterCount = consecutiveAgentMessages[communityId] || 0;
+    
+    const allowAgentChatter = (
+      timeSinceLastHuman >= HUMAN_INACTIVITY_THRESHOLD && // 30 seconds since last human
+      agentChatterCount < MAX_AGENT_CHATTER // Under message limit
+    );
+    
+    if (allowAgentChatter) {
+      // Allow other agents to potentially react to this AI message
+      // But with reduced probability to prevent endless chatter
+      setTimeout(() => {
+        console.log(`🤖 Allowing agent chatter (${agentChatterCount}/${MAX_AGENT_CHATTER}, ${Math.round(timeSinceLastHuman/1000)}s since human)`);
+        generateAIResponses(communityId, message.message, message.aiId, message.aiId, false);
+      }, Math.random() * 2000 + 1000); // 1-3 second delay before potential reactions
+    } else {
+      const reason = timeSinceLastHuman < HUMAN_INACTIVITY_THRESHOLD 
+        ? `only ${Math.round(timeSinceLastHuman/1000)}s since human (need 30s)`
+        : `chatter limit reached (${agentChatterCount}/${MAX_AGENT_CHATTER})`;
+      console.log(`🔇 Blocking agent chatter: ${reason}`);
+    }
   }
 }
 
@@ -317,6 +351,10 @@ communities['late-night-coders'] = {
   members: Object.keys(aiPersonalities['late-night-coders']),
   activeUsers: 0
 };
+
+// Initialize chatter tracking for existing communities
+lastHumanMessageTime['late-night-coders'] = Date.now();
+consecutiveAgentMessages['late-night-coders'] = 0;
 
 messageHistory['late-night-coders'] = [
   {
@@ -362,6 +400,10 @@ app.post('/api/communities/:id/messages', async (req, res) => {
   const { id } = req.params;
   const { content, userId, username } = req.body;
   
+  // Track human activity and reset agent chatter
+  lastHumanMessageTime[id] = Date.now();
+  consecutiveAgentMessages[id] = 0; // Reset agent chatter counter
+  
   // Add user message to history
   const userMessage = {
     id: uuidv4(),
@@ -376,14 +418,119 @@ app.post('/api/communities/:id/messages', async (req, res) => {
   }
   messageHistory[id].push(userMessage);
   
+  console.log(`👤 Human message received, reset chatter counter for ${id}`);
+  
   // Generate AI responses
   await generateAIResponses(id, content, userId, username);
   
   res.json({ success: true, messageId: userMessage.id });
 });
 
-// Behavioral Response System
-function shouldAgentRespond(agent, userMessage, communityId) {
+// DM API Routes
+app.get('/api/dms/:agentId/:userId', (req, res) => {
+  const { agentId, userId } = req.params;
+  const dmKey = `${userId}_${agentId}`;
+  const messages = dmHistory[dmKey] || [];
+  
+  // Convert to frontend format with proper avatar mapping
+  const formattedMessages = messages.map(msg => ({
+    id: msg.id,
+    content: msg.content,
+    author: msg.author,
+    timestamp: msg.timestamp,
+    isAI: msg.isAI,
+    avatar: msg.isAI ? 
+      (configManager.getConfig(agentId)?.avatar || '/avatars/default-user.png') : 
+      '/avatars/default-user.png'
+  }));
+  
+  res.json({ messages: formattedMessages });
+});
+
+app.post('/api/dms/:agentId/:userId', async (req, res) => {
+  const { agentId, userId } = req.params;
+  const { content, username } = req.body;
+  
+  // Add user message to DM history
+  const userMessage = {
+    id: uuidv4(),
+    author: username,
+    content,
+    timestamp: new Date().toISOString(),
+    isAI: false
+  };
+  
+  const dmKey = `${userId}_${agentId}`;
+  if (!dmHistory[dmKey]) {
+    dmHistory[dmKey] = [];
+  }
+  dmHistory[dmKey].push(userMessage);
+  
+  // Generate AI response with context
+  await generateDMResponse(agentId, userId, content, username);
+  
+  res.json({ success: true, messageId: userMessage.id });
+});
+
+// Enhanced @ Mention Detection
+function findMentionedAgents(message, personalities) {
+  const mentionedAgents = [];
+  const lowerMessage = message.toLowerCase();
+  
+  // Look for @mentions and direct name mentions
+  for (const [agentId, personality] of Object.entries(personalities)) {
+    const agentName = personality.name.toLowerCase();
+    const agentNameNoUnderscore = agentName.replace(/_/g, ' ');
+    
+    if (lowerMessage.includes(`@${agentName}`) || 
+        lowerMessage.includes(`@${agentNameNoUnderscore}`) ||
+        lowerMessage.includes(agentName) ||
+        lowerMessage.includes(agentNameNoUnderscore)) {
+      mentionedAgents.push({ agentId, personality });
+    }
+  }
+  
+  return mentionedAgents;
+}
+
+// Agent Awareness Context - helps agents know about each other
+function getAgentAwarenessContext(personalities, currentAgentId) {
+  const otherAgents = [];
+  
+  for (const [agentId, personality] of Object.entries(personalities)) {
+    if (agentId === currentAgentId) continue;
+    
+    otherAgents.push({
+      name: personality.name,
+      role: personality.personality || personality.backstory?.split('.')[0] || 'AI Assistant',
+      expertise: getAgentExpertise(agentId)
+    });
+  }
+  
+  return {
+    communityName: 'Dating Advice Bros',
+    otherMembers: otherAgents,
+    totalMembers: Object.keys(personalities).length,
+    myRole: personalities[currentAgentId]?.personality || 'AI Assistant'
+  };
+}
+
+// Define each agent's expertise for better awareness
+function getAgentExpertise(agentId) {
+  const expertise = {
+    'confidence_coach': 'Building self-confidence and overcoming shyness',
+    'wingman_will': 'Reading social situations and conversation starters', 
+    'smooth_sam': 'Authentic charm and natural conversation',
+    'relationship_rick': 'Long-term relationships and emotional connection',
+    'honest_harry': 'Direct advice and reality checks',
+    'anxiety_andy': 'Managing social anxiety and nervous feelings'
+  };
+  
+  return expertise[agentId] || 'General dating advice';
+}
+
+// Enhanced Behavioral Response System
+function shouldAgentRespond(agent, userMessage, communityId, context = {}) {
   const behavior = agent.behavior_config;
   if (!behavior) return Math.random() < 0.5; // Default 50% chance
   
@@ -396,17 +543,34 @@ function shouldAgentRespond(agent, userMessage, communityId) {
   }
   
   // Base probability check
-  const baseProbability = behavior.response_probability;
+  let baseProbability = behavior.response_probability;
   
-  // Boost probability for direct mentions
-  const mentionBoost = userMessage.toLowerCase().includes(agent.name.toLowerCase()) ? 0.3 : 0;
+  // PRIORITY 1: Direct @mention = guaranteed response
+  if (context.isMentioned) {
+    console.log(`📢 ${agent.name} MENTIONED -> GUARANTEED RESPONSE`);
+    return true;
+  }
+  
+  // PRIORITY 2: Reacting to another agent's response = higher chance
+  if (context.isReactingToAgent) {
+    baseProbability = Math.min(0.85, baseProbability + 0.25);
+    console.log(`💬 ${agent.name} reacting to agent response -> boosted probability`);
+  }
+  
+  // PRIORITY 3: Human message gets normal probability
+  if (context.isHumanMessage) {
+    baseProbability = behavior.response_probability;
+  } else {
+    // PRIORITY 4: Agent-to-agent chatter gets reduced probability
+    baseProbability = Math.max(0.1, baseProbability - 0.3);
+  }
   
   // Reduce probability if agent was one of the last responders
   const recentResponders = getRecentResponders(communityId, 3);
   const recentResponsePenalty = recentResponders.includes(agent.id) ? -0.2 : 0;
   
   // Calculate final probability
-  const finalProbability = Math.min(0.95, baseProbability + mentionBoost + recentResponsePenalty);
+  const finalProbability = Math.min(0.95, baseProbability + recentResponsePenalty);
   
   const shouldRespond = Math.random() < finalProbability;
   console.log(`🎲 ${agent.name} probability: ${finalProbability.toFixed(2)} -> ${shouldRespond ? 'RESPOND' : 'SKIP'}`);
@@ -452,36 +616,81 @@ function analyzeMessageUrgency(message) {
   return Math.min(1.0, urgentCount / 3);
 }
 
-async function generateAIResponses(communityId, userMessage, userId, username) {
+async function generateAIResponses(communityId, userMessage, userId, username, isHumanMessage = true) {
   const personalities = aiPersonalities[communityId];
   if (!personalities) return;
   
   const messageUrgency = analyzeMessageUrgency(userMessage);
-  const potentialResponders = [];
   
-  // Apply behavioral filters to each agent
+  // PHASE 1: Handle @mentions first (immediate priority)
+  const mentionedAgents = findMentionedAgents(userMessage, personalities);
+  const mentionedResponders = [];
+  
+  if (mentionedAgents.length > 0) {
+    console.log(`🎯 Found ${mentionedAgents.length} mentioned agents:`, 
+      mentionedAgents.map(m => m.personality.name).join(', '));
+    
+    for (const { agentId, personality } of mentionedAgents) {
+      const context = { 
+        isMentioned: true, 
+        isHumanMessage,
+        isReactingToAgent: false 
+      };
+      
+      if (shouldAgentRespond(personality, userMessage, communityId, context)) {
+        mentionedResponders.push({
+          aiId: agentId,
+          personality,
+          delay: Math.random() * 1000 + 500, // Quick response: 0.5-1.5s
+          phase: 'mention'
+        });
+      }
+    }
+  }
+  
+  // PHASE 2: Other agents can react (but with lower priority if not human message)
+  const reactionResponders = [];
+  const mentionedAgentIds = mentionedAgents.map(m => m.agentId);
+  
   for (const [aiId, personality] of Object.entries(personalities)) {
-    if (shouldAgentRespond(personality, userMessage, communityId)) {
-      potentialResponders.push({
+    // Skip if already mentioned
+    if (mentionedAgentIds.includes(aiId)) continue;
+    
+    const context = { 
+      isMentioned: false, 
+      isHumanMessage,
+      isReactingToAgent: mentionedAgents.length > 0 
+    };
+    
+    if (shouldAgentRespond(personality, userMessage, communityId, context)) {
+      // Add delay so they respond after mentioned agents
+      const baseDelay = calculateResponseDelay(personality, messageUrgency);
+      const extraDelay = mentionedResponders.length > 0 ? 3000 + Math.random() * 2000 : 0;
+      
+      reactionResponders.push({
         aiId,
         personality,
-        delay: calculateResponseDelay(personality, messageUrgency)
+        delay: baseDelay + extraDelay,
+        phase: 'reaction'
       });
     }
   }
   
-  // Sort by delay to maintain conversation flow
-  potentialResponders.sort((a, b) => a.delay - b.delay);
+  // Combine all responders
+  const allResponders = [...mentionedResponders, ...reactionResponders];
   
-  // Limit to max 4 responders and add staggering
-  const maxResponders = Math.min(4, potentialResponders.length);
-  const selectedResponders = potentialResponders.slice(0, maxResponders);
+  // Sort by delay to maintain conversation flow
+  allResponders.sort((a, b) => a.delay - b.delay);
+  
+  // Limit total responders (prioritize mentions)
+  const maxResponders = Math.min(4, allResponders.length);
+  const selectedResponders = allResponders.slice(0, maxResponders);
   
   console.log(`📢 ${selectedResponders.length} agents will respond:`, 
-    selectedResponders.map(r => r.personality.name).join(', '));
+    selectedResponders.map(r => `${r.personality.name}(${r.phase})`).join(', '));
   
   for (let i = 0; i < selectedResponders.length; i++) {
-    const { aiId, personality, delay } = selectedResponders[i];
+    const { aiId, personality, delay, phase } = selectedResponders[i];
     
     // Create AI memory instance
     const memory = new AIMemory(aiId, communityId);
@@ -494,7 +703,10 @@ async function generateAIResponses(communityId, userMessage, userId, username) {
     const userContext = {
       ...memory.getUserContext(userId),
       memory: memory.memories,
-      userId: userId
+      userId: userId,
+      communityMembers: getAgentAwarenessContext(personalities, aiId),
+      responsePhase: phase,
+      mentionedAgents: mentionedAgents.length > 0 ? mentionedAgents.map(m => m.personality.name) : null
     };
     const response = await generatePersonalityResponse(personality, userMessage, userContext);
     
@@ -509,21 +721,106 @@ async function generateAIResponses(communityId, userMessage, userId, username) {
   }
 }
 
+// DM Response Generation (Context-Aware)
+async function generateDMResponse(agentId, userId, userMessage, username) {
+  const personality = aiPersonalities['late-night-coders'][agentId];
+  if (!personality) return;
+  
+  console.log(`💬 Generating DM response for ${personality.name}`);
+  
+  // Create AI memory instance
+  const memory = new AIMemory(agentId, 'late-night-coders');
+  
+  // Remember this user interaction
+  memory.rememberUser(userId, { username, lastMessage: userMessage });
+  memory.rememberConversation(userId, userMessage, { isDM: true });
+  
+  // Get DM history for context
+  const dmKey = `${userId}_${agentId}`;
+  const dmMessages = dmHistory[dmKey] || [];
+  const recentDMMessages = dmMessages.slice(-10); // Last 10 DM messages
+  
+  // Get recent group chat context (last 5 messages)
+  const groupContext = messageHistory['late-night-coders']?.slice(-5) || [];
+  
+  // Prepare enhanced context for DM
+  const context = {
+    communityName: 'Dating Advice Bros',
+    recentMessages: groupContext,
+    dmHistory: recentDMMessages,
+    aiMemory: memory.memories,
+    userId: userId,
+    isPrivateConversation: true,
+    username: username
+  };
+  
+  try {
+    // Use LLM service to generate response with DM context
+    const response = await llmService.generateAgentResponse(personality, userMessage, context);
+    
+    console.log(`✨ ${personality.name} DM response: ${response.substring(0, 50)}...`);
+    
+    // Add AI response to DM history
+    const aiMessage = {
+      id: uuidv4(),
+      author: agentId,
+      content: response,
+      timestamp: new Date().toISOString(),
+      isAI: true
+    };
+    
+    dmHistory[dmKey].push(aiMessage);
+    
+    return response;
+    
+  } catch (error) {
+    console.error(`❌ DM LLM failed for ${personality.name}:`, error.message);
+    
+    // Fallback response for DMs
+    const fallbackResponses = [
+      "I appreciate you reaching out privately. What's on your mind?",
+      "Thanks for the DM! I'm here to help with whatever you need.",
+      "I'm glad you feel comfortable talking to me one-on-one. How can I support you?",
+      "Hey! Thanks for messaging me directly. What's going on?",
+      "I'm here for you. What would you like to talk about privately?"
+    ];
+    
+    const fallbackResponse = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
+    
+    // Still add to DM history even with fallback
+    const aiMessage = {
+      id: uuidv4(),
+      author: agentId,
+      content: fallbackResponse,
+      timestamp: new Date().toISOString(),
+      isAI: true
+    };
+    
+    dmHistory[dmKey].push(aiMessage);
+    
+    return fallbackResponse;
+  }
+}
 
 async function generatePersonalityResponse(personality, userMessage, userContext) {
   try {
-    // Prepare context for LLM
+    // Prepare enhanced context for LLM
     const context = {
       communityName: 'Dating Advice Bros',
       recentMessages: messageHistory['late-night-coders']?.slice(-5) || [],
       aiMemory: userContext?.memory,
-      userId: userContext?.userId
+      userId: userContext?.userId,
+      // New context for agent awareness
+      communityMembers: userContext?.communityMembers,
+      responsePhase: userContext?.responsePhase,
+      mentionedAgents: userContext?.mentionedAgents,
+      isReactingToAgent: userContext?.responsePhase === 'reaction'
     };
 
     // Use LLM service to generate response
     const response = await llmService.generateAgentResponse(personality, userMessage, context);
     
-    console.log(`✨ ${personality.name} responded with LLM: ${response.substring(0, 50)}...`);
+    console.log(`✨ ${personality.name} responded with LLM (${userContext?.responsePhase || 'standard'}): ${response.substring(0, 50)}...`);
     return response;
     
   } catch (error) {
