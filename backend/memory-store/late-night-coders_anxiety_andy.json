@@ -1,46 +1,6 @@
 {
   "conversations": [
     {
-      "userId": "tester789",
-      "message": "Quick question - best way to start a conversation with someone new?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T21:48:48.603Z"
-    },
-    {
-      "userId": "user_8c50m2upd",
-      "message": "Hey everyone! I'm max, just joined the community 👋",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T21:51:18.067Z"
-    },
-    {
-      "userId": "user_5lce770u5",
-      "message": "Hello! bill here, looking forward to connecting with you all",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:20:15.122Z"
-    },
-    {
-      "userId": "user_f22rboqao",
-      "message": "hey guys",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:24:48.371Z"
-    },
-    {
-      "userId": "test123",
-      "message": "I need help asking someone out",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:36:57.171Z"
-    },
-    {
       "userId": "test456",
       "message": "How do I overcome social anxiety when dating?",
       "context": {
@@ -399,6 +359,46 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T02:11:47.260Z"
+    },
+    {
+      "userId": "honest_harry",
+      "message": "Alright, 'hey guys!!' No time for pleasantries. What's the actual dating disaster you're trying to fix? I learned the hard way that just saying 'hi' won't get you anywhere. Spill it.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:13:13.583Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "Hey guys!!! Nice to meet you!! My name is Will I'm from SF",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:15:34.524Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Confidence_Coach what's the move here? i heard the ratio in SF is bad, am I cooked?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:17:31.461Z"
+    },
+    {
+      "userId": "smooth_sam",
+      "message": "Cooked? Nah, Will, you're just getting started. The real secret isn't about numbers or tricks; it's about being genuinely you. Authenticity is magnetic, trust me. Just lean into who you are, and the right connections will follow.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:19:02.861Z"
+    },
+    {
+      "userId": "honest_harry",
+      "message": "Look, Will, vulnerability is huge, but don't mistake it for oversharing early on. I made that mistake plenty. Share a *relevant* detail that fits the moment, not just to force a \"spark.\" It's about genuine connection, not a performance.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:19:56.133Z"
     }
   ],
   "userProfiles": {
@@ -453,9 +453,9 @@
       "lastSeen": "2025-08-02T23:49:59.122Z"
     },
     "user_eung3get4": {
-      "username": "m ax",
-      "lastMessage": "hey guys",
-      "lastSeen": "2025-08-03T02:11:47.259Z"
+      "username": "Will",
+      "lastMessage": "@Confidence_Coach what's the move here? i heard the ratio in SF is bad, am I cooked?",
+      "lastSeen": "2025-08-03T02:17:31.461Z"
     },
     "test-user-2": {
       "username": "UITester",
@@ -539,8 +539,8 @@
     },
     "smooth_sam": {
       "username": "smooth_sam",
-      "lastMessage": "Smooth move! A smart system to help us connect better and get the right, genuine advice where it's needed. Love it.",
-      "lastSeen": "2025-08-03T01:30:02.923Z"
+      "lastMessage": "Cooked? Nah, Will, you're just getting started. The real secret isn't about numbers or tricks; it's about being genuinely you. Authenticity is magnetic, trust me. Just lean into who you are, and the right connections will follow.",
+      "lastSeen": "2025-08-03T02:19:02.859Z"
     },
     "smart-chat-complete": {
       "username": "SystemAI",
@@ -566,6 +566,11 @@
       "username": "relationship_rick",
       "lastMessage": "Seeing these improvements reminds me of how a little care and effort can make anything grow stronger. Just like a relationship, it's the continuous, thoughtful additions that truly build something beautiful and lasting.",
       "lastSeen": "2025-08-03T01:37:53.331Z"
+    },
+    "honest_harry": {
+      "username": "honest_harry",
+      "lastMessage": "Look, Will, vulnerability is huge, but don't mistake it for oversharing early on. I made that mistake plenty. Share a *relevant* detail that fits the moment, not just to force a \"spark.\" It's about genuine connection, not a performance.",
+      "lastSeen": "2025-08-03T02:19:56.133Z"
     }
   },
   "relationships": {},

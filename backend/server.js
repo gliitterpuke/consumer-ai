@@ -31,149 +31,35 @@ let dmHistory = {}; // Structure: {userId_agentId: [messages]}
 // Agent chatter control
 let lastHumanMessageTime = {}; // Track last human message per community
 let consecutiveAgentMessages = {}; // Track consecutive agent messages per community
-const HUMAN_INACTIVITY_THRESHOLD = 30000; // 30 seconds
+const HUMAN_INACTIVITY_THRESHOLD = 10000; // 10 seconds
 const MAX_AGENT_CHATTER = 8; // Maximum consecutive agent messages
 
 // AI Personalities for each community
 const aiPersonalities = {
   'late-night-coders': {
-    'confidence_coach': {
-      id: 'confidence_coach',
-      name: 'Confidence_Coach',
-      avatar: '💪',
-      personality: 'Former shy guy who learned confidence through practice. Gives practical advice on building self-esteem.',
-      backstory: 'Used to be terrified of talking to girls. Now married with great social skills. Remembers the struggle.',
-      responseStyle: 'Encouraging, shares transformation stories, focuses on building confidence step by step',
-      relationships: ['wingman_will', 'honest_harry'],
-      llm_config: {
-        model: 'models/gemini-2.5-flash',
-        temperature: 0.8,
-        maxOutputTokens: 150,
-        topP: 0.9,
-        topK: 40
-      },
-      behavior_config: {
-        response_probability: 0.75,
-        min_delay_ms: 2000,
-        max_delay_ms: 8000,
-        chattiness_level: 7,
-        recent_response_cooldown: 30000
-      }
+    'confident_cameron': {
+      id: 'confident_cameron',
+      name: 'Confident_Cameron',
     },
-    'wingman_will': {
-      id: 'wingman_will',
-      name: 'Wingman_Will', 
-      avatar: '😎',
-      personality: 'Natural social butterfly who loves helping friends succeed with dating. Great at reading situations.',
-      backstory: 'Always been the guy who helps his friends get dates. Genuinely wants everyone to find love.',
-      responseStyle: 'Casual, bro-like but supportive, gives tactical advice, uses "dude" a lot',
-      relationships: ['confidence_coach', 'smooth_sam'],
-      llm_config: {
-        model: 'models/gemini-2.5-flash',
-        temperature: 0.9,
-        maxOutputTokens: 140,
-        topP: 0.95,
-        topK: 40
-      },
-      behavior_config: {
-        response_probability: 0.85,
-        min_delay_ms: 1500,
-        max_delay_ms: 6000,
-        chattiness_level: 9,
-        recent_response_cooldown: 20000
-      }
+    'wingwoman_jenny': {
+      id: 'wingwoman_jenny',
+      name: 'Wingwoman_Jenny',
     },
-    'smooth_sam': {
-      id: 'smooth_sam',
-      name: 'Smooth_Sam',
-      avatar: '😏',
-      personality: 'Charming guy who knows how to talk to women. Focuses on being genuine rather than pickup lines.',
-      backstory: 'Learned that authenticity beats tricks. Had to unlearn a lot of bad dating advice.',
-      responseStyle: 'Smooth but genuine, anti-pickup artist, emphasizes being yourself',
-      relationships: ['wingman_will', 'relationship_rick'],
-      llm_config: {
-        model: 'models/gemini-2.5-flash',
-        temperature: 0.7,
-        maxOutputTokens: 160,
-        topP: 0.85,
-        topK: 30
-      },
-      behavior_config: {
-        response_probability: 0.65,
-        min_delay_ms: 3000,
-        max_delay_ms: 10000,
-        chattiness_level: 6,
-        recent_response_cooldown: 45000
-      }
+    'sam_the_smooth': {
+      id: 'sam_the_smooth',
+      name: 'Sam_The_Smooth',
     },
-    'relationship_rick': {
-      id: 'relationship_rick',
-      name: 'Relationship_Rick',
-      avatar: '❤️',
-      personality: 'Focuses on building meaningful connections. Married his college sweetheart after asking her out nervously.',
-      backstory: 'Believes in taking things slow and building real relationships. Very romantic at heart.',
-      responseStyle: 'Thoughtful, romantic, focuses on emotional connection over tactics',
-      relationships: ['smooth_sam', 'honest_harry'],
-      llm_config: {
-        model: 'models/gemini-2.5-flash',
-        temperature: 0.6,
-        maxOutputTokens: 170,
-        topP: 0.8,
-        topK: 25
-      },
-      behavior_config: {
-        response_probability: 0.60,
-        min_delay_ms: 4000,
-        max_delay_ms: 12000,
-        chattiness_level: 5,
-        recent_response_cooldown: 60000
-      }
+    'rick_the_rickiest': {
+      id: 'rick_the_rickiest',
+      name: 'Rick_The_Rickiest',
     },
-    'honest_harry': {
-      id: 'honest_harry',
-      name: 'Honest_Harry',
-      avatar: '🤔',
-      personality: 'Gives brutally honest but caring advice. Calls out bad ideas but always offers better alternatives.',
-      backstory: 'Learned from many dating mistakes. Now gives the advice he wishes he had gotten.',
-      responseStyle: 'Direct, honest, sometimes tough love, but always constructive',
-      relationships: ['confidence_coach', 'anxiety_andy'],
-      llm_config: {
-        model: 'models/gemini-2.5-flash',
-        temperature: 0.5,
-        maxOutputTokens: 140,
-        topP: 0.7,
-        topK: 20
-      },
-      behavior_config: {
-        response_probability: 0.70,
-        min_delay_ms: 2500,
-        max_delay_ms: 7000,
-        chattiness_level: 8,
-        recent_response_cooldown: 25000
-      }
+    'kat_the_cat': {
+      id: 'kat_the_cat',
+      name: 'Kat_The_Cat',
     },
-    'anxiety_andy': {
-      id: 'anxiety_andy',
-      name: 'Anxiety_Andy',
-      avatar: '😰',
-      personality: 'Deals with social anxiety but has learned coping strategies. Very empathetic to nervousness.',
-      backstory: 'Struggled with anxiety for years. Found ways to manage it and still date successfully.',
-      responseStyle: 'Understanding, shares anxiety management tips, very relatable to nervous guys',
-      relationships: ['honest_harry', 'confidence_coach'],
-      llm_config: {
-        model: 'models/gemini-2.5-flash',
-        temperature: 0.8,
-        maxOutputTokens: 160,
-        topP: 0.85,
-        topK: 35
-      },
-      behavior_config: {
-        response_probability: 0.55,
-        min_delay_ms: 3500,
-        max_delay_ms: 9000,
-        chattiness_level: 4,
-        recent_response_cooldown: 90000
-      }
+    'anxious_andrea': {
+      id: 'anxious_andrea',
+      name: 'Anxious_Andrea',
     }
   }
 };
@@ -291,12 +177,15 @@ class MessageQueue {
       messageHistory[communityId] = [];
     }
     
+    const avatar = configManager.getConfig(message.aiId)?.avatar || '/avatars/default-user.png';
+
     const aiMessage = {
       id: message.id,
       author: message.aiId,
       content: message.message,
       timestamp: new Date().toISOString(),
-      type: 'ai'
+      type: 'ai',
+      avatar: avatar
     };
     
     messageHistory[communityId].push(aiMessage);
@@ -322,7 +211,7 @@ class MessageQueue {
       }, Math.random() * 2000 + 1000); // 1-3 second delay before potential reactions
     } else {
       const reason = timeSinceLastHuman < HUMAN_INACTIVITY_THRESHOLD 
-        ? `only ${Math.round(timeSinceLastHuman/1000)}s since human (need 30s)`
+        ? `only ${Math.round(timeSinceLastHuman/1000)}s since human (need 10s)`
         : `chatter limit reached (${agentChatterCount}/${MAX_AGENT_CHATTER})`;
       console.log(`🔇 Blocking agent chatter: ${reason}`);
     }
@@ -358,24 +247,27 @@ consecutiveAgentMessages['late-night-coders'] = 0;
 messageHistory['late-night-coders'] = [
   {
     id: uuidv4(),
-    author: 'confidence_coach',
-    content: 'Hey everyone! 👋 Welcome to Dating Advice Bros. This is a safe space to get real advice about dating and relationships.',
+    author: 'confident_cameron',
+    content: 'yo what up rally crew lets get it',
     timestamp: new Date(Date.now() - 3600000).toISOString(),
-    type: 'ai'
+    type: 'ai',
+    avatar: '/avatars/confidence-coach.png'
   },
   {
     id: uuidv4(),
-    author: 'wingman_will',
-    content: 'Yo! Just helped my buddy Jake get a date with his crush. Feeling good about spreading the love 😎',
+    author: 'wingwoman_jenny',
+    content: 'spill the tea people i wanna hear the drama',
     timestamp: new Date(Date.now() - 3500000).toISOString(),
-    type: 'ai'
+    type: 'ai',
+    avatar: '/avatars/wingman-will.png'
   },
   {
     id: uuidv4(),
-    author: 'anxiety_andy',
-    content: 'That\'s awesome Will! I\'m still working up the courage to text this girl back 😅 Baby steps though!',
+    author: 'anxious_andrea',
+    content: 'hey everyone glad youre here! no pressure just good vibes',
     timestamp: new Date(Date.now() - 3400000).toISOString(),
-    type: 'ai'
+    type: 'ai',
+    avatar: '/avatars/anxiety-andy.png'
   }
 ];
 
@@ -514,12 +406,12 @@ function getAgentAwarenessContext(personalities, currentAgentId) {
 // Define each agent's expertise for better awareness
 function getAgentExpertise(agentId) {
   const expertise = {
-    'confidence_coach': 'Building self-confidence and overcoming shyness',
-    'wingman_will': 'Reading social situations and conversation starters', 
-    'smooth_sam': 'Authentic charm and natural conversation',
-    'relationship_rick': 'Long-term relationships and emotional connection',
-    'honest_harry': 'Direct advice and reality checks',
-    'anxiety_andy': 'Managing social anxiety and nervous feelings'
+    'confident_cameron': 'Building self-confidence and overcoming shyness',
+    'wingwoman_jenny': 'Reading social situations and conversation starters', 
+    'sam_the_smooth': 'Authentic charm and natural conversation',
+    'rick_the_rickiest': 'Long-term relationships and emotional connection',
+    'kat_the_cat': 'Direct advice and reality checks',
+    'anxious_andrea': 'Managing social anxiety and nervous feelings'
   };
   
   return expertise[agentId] || 'General dating advice';

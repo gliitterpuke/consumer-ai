@@ -1,0 +1,156 @@
+{
+  "conversations": [
+    {
+      "userId": "wingwoman_jenny",
+      "message": "I hear you. Sometimes the best advice is to trust your instincts.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:32:17.127Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:33:30.836Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:34:26.870Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys!!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:36:05.516Z"
+    },
+    {
+      "userId": "sam_the_smooth",
+      "message": "not much max. hoping we dont get another 'u up' text to dissect.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:38:19.258Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "heyy guys!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:39:38.886Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "heyy guys!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:39:52.038Z"
+    },
+    {
+      "userId": "confident_cameron",
+      "message": "lol nah max let your freak flag fly bro. don't let anyone dim your hype. used to overthink everything myself. worst thing they say is nothing at all lmao.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:40:40.706Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:43:47.728Z"
+    },
+    {
+      "userId": "sam_the_smooth",
+      "message": "life's just doing its thing max. pretty chill. you can just exist here. no need for the fireworks display",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:48:02.551Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:49:37.481Z"
+    },
+    {
+      "userId": "wingwoman_jenny",
+      "message": "kat's spittin facts max. we know when ur phoning it in",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:50:40.525Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:51:52.578Z"
+    },
+    {
+      "userId": "sam_the_smooth",
+      "message": "the 'no pressure' is getting pretty high pressure",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:52:38.007Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "i just broke up with my girlfriend. she was kinda a dick to me, but I'm still kinda sad",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:54:08.507Z"
+    },
+    {
+      "userId": "wingwoman_jenny",
+      "message": "aw man that sucks but honestly good riddance to bad rubbish. you deserve better fr",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:54:53.811Z"
+    }
+  ],
+  "userProfiles": {
+    "wingwoman_jenny": {
+      "username": "wingwoman_jenny",
+      "lastMessage": "aw man that sucks but honestly good riddance to bad rubbish. you deserve better fr",
+      "lastSeen": "2025-08-03T02:54:53.810Z"
+    },
+    "user_eung3get4": {
+      "username": "Max",
+      "lastMessage": "i just broke up with my girlfriend. she was kinda a dick to me, but I'm still kinda sad",
+      "lastSeen": "2025-08-03T02:54:08.505Z"
+    },
+    "sam_the_smooth": {
+      "username": "sam_the_smooth",
+      "lastMessage": "the 'no pressure' is getting pretty high pressure",
+      "lastSeen": "2025-08-03T02:52:38.006Z"
+    },
+    "confident_cameron": {
+      "username": "confident_cameron",
+      "lastMessage": "lol nah max let your freak flag fly bro. don't let anyone dim your hype. used to overthink everything myself. worst thing they say is nothing at all lmao.",
+      "lastSeen": "2025-08-03T02:40:40.706Z"
+    }
+  },
+  "relationships": {},
+  "lastMessages": []
+}

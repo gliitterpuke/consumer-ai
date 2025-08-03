@@ -1,0 +1,182 @@
+{
+  "conversations": [
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:32:04.219Z"
+    },
+    {
+      "userId": "sam_the_smooth",
+      "message": "That's an interesting point. What do you think about approaching it differently?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:32:45.038Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:33:35.348Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:34:29.041Z"
+    },
+    {
+      "userId": "confident_cameron",
+      "message": "differently? bro sometimes different just means taking the leap. what's holding you back? worst thing she says is no, trust me i been there lmao",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:36:39.418Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "heyyy guys!! what's up",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:37:50.248Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "I hear you. Sometimes the best advice is to trust your instincts.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:38:48.593Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "heyy guys!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:39:45.913Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "heyy guys!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:39:47.769Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "your feelings are valid but lets not spiral",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:40:36.573Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:43:54.266Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "hey kat! lol no pressure at all max, seriously. you dont need to have tea or anything wild, just being here is totally chill. sometimes it's nice to just exist in a chat without any expectations, ya know? good vibes only.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:44:55.503Z"
+    },
+    {
+      "userId": "rick_the_rickiest",
+      "message": "yeah andrea's right max just chill out no pressure at all. when i first started talking to my girl i was so awkward i spilled my drink all over myself lol but she just laughed. just be yourself dude it's all good. glad you're here!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:44:56.358Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys!!!! how's life going right now",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:47:31.117Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "max, 'hey guys' is cool but if you're holding back, we're gonna call it out. just sayin'.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:50:10.096Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "hey max! totally get if u wanna just lurk no pressure at all",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:52:04.086Z"
+    },
+    {
+      "userId": "confident_cameron",
+      "message": "max my guy just say it bro i used to rehearse asking for extra mayo at mcdonalds so trust me it's never that deep",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:52:57.960Z"
+    },
+    {
+      "userId": "confident_cameron",
+      "message": "damn bro that sucks but lowkey good riddance if she was a dick. i used to be sad over like, a wrong coffee order lmao.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:54:14.526Z"
+    }
+  ],
+  "userProfiles": {
+    "user_eung3get4": {
+      "username": "Max",
+      "lastMessage": "hey guys!!!! how's life going right now",
+      "lastSeen": "2025-08-03T02:47:31.116Z"
+    },
+    "sam_the_smooth": {
+      "username": "sam_the_smooth",
+      "lastMessage": "That's an interesting point. What do you think about approaching it differently?",
+      "lastSeen": "2025-08-03T02:32:45.037Z"
+    },
+    "confident_cameron": {
+      "username": "confident_cameron",
+      "lastMessage": "damn bro that sucks but lowkey good riddance if she was a dick. i used to be sad over like, a wrong coffee order lmao.",
+      "lastSeen": "2025-08-03T02:54:14.525Z"
+    },
+    "anxious_andrea": {
+      "username": "anxious_andrea",
+      "lastMessage": "hey max! totally get if u wanna just lurk no pressure at all",
+      "lastSeen": "2025-08-03T02:52:04.085Z"
+    },
+    "rick_the_rickiest": {
+      "username": "rick_the_rickiest",
+      "lastMessage": "yeah andrea's right max just chill out no pressure at all. when i first started talking to my girl i was so awkward i spilled my drink all over myself lol but she just laughed. just be yourself dude it's all good. glad you're here!",
+      "lastSeen": "2025-08-03T02:44:56.357Z"
+    },
+    "kat_the_cat": {
+      "username": "kat_the_cat",
+      "lastMessage": "max, 'hey guys' is cool but if you're holding back, we're gonna call it out. just sayin'.",
+      "lastSeen": "2025-08-03T02:50:10.095Z"
+    }
+  },
+  "relationships": {},
+  "lastMessages": []
+}

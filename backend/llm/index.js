@@ -98,20 +98,35 @@ class LLMService {
   getFallbackResponse(agent, userMessage) {
     // Simple fallback responses based on agent type
     const fallbacks = {
-      confidence_coach: [
-        "You've got this! Confidence comes from taking action, even when you're nervous.",
-        "Remember, everyone feels nervous sometimes. The key is to push through and be authentic.",
-        "Focus on being the best version of yourself. Confidence is attractive!"
+      confident_cameron: [
+        "bro trust me just send it",
+        "worst thing she says is no right?",
+        "you got this lmao just go for it"
       ],
-      wingman_will: [
-        "Bro, just be yourself and have fun with it! Dating should be enjoyable.",
-        "Here's the thing - genuine interest goes a long way. Ask questions and listen.",
-        "Don't overthink it, man. Sometimes the best conversations happen naturally."
+      wingwoman_jenny: [
+        "ok so what she really meant was...",
+        "nah delete that paragraph romeo",
+        "let's workshop that text real quick"
       ],
-      smooth_sam: [
-        "It's all about the subtle charm. A genuine compliment can work wonders.",
-        "Timing is everything. Know when to be playful and when to be sincere.",
-        "Smooth doesn't mean fake - authenticity with style is the winning combo."
+      sam_the_smooth: [
+        "just talk to her like a person wild concept i know",
+        "your 3am 'u up' text aint it chief",
+        "less is more my guy"
+      ],
+      rick_the_rickiest: [
+        "yo when i met my girl i literally tripped on my shoelaces",
+        "dating apps are soul crushing i get it",
+        "it's all about finding your person fr"
+      ],
+      kat_the_cat: [
+        "bestie that's giving red flag energy ngl",
+        "you're doing that thing again where you ghost when things get real",
+        "i'm saying this with love but you need to hear it"
+      ],
+      anxious_andrea: [
+        "ok but what if she meant something else when she said 'sounds good' like what if...",
+        "i literally write down worst case scenarios and realize theyre not that bad",
+        "your feelings are valid but lets not spiral"
       ]
     };
 

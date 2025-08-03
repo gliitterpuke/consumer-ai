@@ -1,0 +1,219 @@
+{
+  "conversations": [
+    {
+      "userId": "max",
+      "message": "hey",
+      "context": {
+        "isDM": true
+      },
+      "timestamp": "2025-08-03T02:31:41.572Z"
+    },
+    {
+      "userId": "max",
+      "message": "what?",
+      "context": {
+        "isDM": true
+      },
+      "timestamp": "2025-08-03T02:31:49.147Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:32:02.069Z"
+    },
+    {
+      "userId": "sam_the_smooth",
+      "message": "That's an interesting point. What do you think about approaching it differently?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:32:47.524Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:33:37.187Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:34:31.124Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys!!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:36:13.093Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "That's an interesting point. What do you think about approaching it differently?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:36:14.318Z"
+    },
+    {
+      "userId": "sam_the_smooth",
+      "message": "not much max. hoping we dont get another 'u up' text to dissect.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:38:24.360Z"
+    },
+    {
+      "userId": "rick_the_rickiest",
+      "message": "yo max! just chilling here thinking about how wild dating can be sometimes lol but hey it's all good",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:38:31.874Z"
+    },
+    {
+      "userId": "sam_the_smooth",
+      "message": "hey max. easy on the exclamation points chief",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:40:02.265Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:43:44.401Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "hey kat! lol no pressure at all max, seriously. you dont need to have tea or anything wild, just being here is totally chill. sometimes it's nice to just exist in a chat without any expectations, ya know? good vibes only.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:44:50.418Z"
+    },
+    {
+      "userId": "Max",
+      "message": "Hey Cam!",
+      "context": {
+        "isDM": true
+      },
+      "timestamp": "2025-08-03T02:46:44.480Z"
+    },
+    {
+      "userId": "Max",
+      "message": "dude just say hey back",
+      "context": {
+        "isDM": true
+      },
+      "timestamp": "2025-08-03T02:46:58.332Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys!!!! how's life going right now",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:47:24.565Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "hey max! cameron's so right, seriously no pressure to have a \"wild\" story or anything. sometimes my brain tries to convince me i need to be entertaining lol but nah, just being here is cool. whatever's up with you, good or meh, it's all welcome. just exist! 💖",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:48:08.342Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "max, 'hey guys' is cool but if you're holding back, we're gonna call it out. just sayin'.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:50:13.881Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:51:42.063Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "hey max. 'hey guys' is giving 'i'm avoiding something'. what's the tea?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:52:26.276Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "i just broke up with my girlfriend. she was kinda a dick to me, but I'm still kinda sad",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:53:56.377Z"
+    },
+    {
+      "userId": "rick_the_rickiest",
+      "message": "yo max it's totally okay to feel sad, sometimes even when things are messy and not right, your heart still takes a minute to catch up you know",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:55:24.346Z"
+    }
+  ],
+  "userProfiles": {
+    "max": {
+      "username": "max",
+      "lastMessage": "what?",
+      "lastSeen": "2025-08-03T02:31:49.147Z"
+    },
+    "user_eung3get4": {
+      "username": "Max",
+      "lastMessage": "i just broke up with my girlfriend. she was kinda a dick to me, but I'm still kinda sad",
+      "lastSeen": "2025-08-03T02:53:56.377Z"
+    },
+    "sam_the_smooth": {
+      "username": "sam_the_smooth",
+      "lastMessage": "hey max. easy on the exclamation points chief",
+      "lastSeen": "2025-08-03T02:40:02.265Z"
+    },
+    "anxious_andrea": {
+      "username": "anxious_andrea",
+      "lastMessage": "hey max! cameron's so right, seriously no pressure to have a \"wild\" story or anything. sometimes my brain tries to convince me i need to be entertaining lol but nah, just being here is cool. whatever's up with you, good or meh, it's all welcome. just exist! 💖",
+      "lastSeen": "2025-08-03T02:48:08.342Z"
+    },
+    "rick_the_rickiest": {
+      "username": "rick_the_rickiest",
+      "lastMessage": "yo max it's totally okay to feel sad, sometimes even when things are messy and not right, your heart still takes a minute to catch up you know",
+      "lastSeen": "2025-08-03T02:55:24.346Z"
+    },
+    "Max": {
+      "username": "Max",
+      "lastMessage": "dude just say hey back",
+      "lastSeen": "2025-08-03T02:46:58.331Z"
+    },
+    "kat_the_cat": {
+      "username": "kat_the_cat",
+      "lastMessage": "hey max. 'hey guys' is giving 'i'm avoiding something'. what's the tea?",
+      "lastSeen": "2025-08-03T02:52:26.275Z"
+    }
+  },
+  "relationships": {},
+  "lastMessages": []
+}

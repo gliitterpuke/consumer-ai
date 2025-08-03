@@ -231,6 +231,38 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T02:11:59.244Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "Hey guys!!! Nice to meet you!! My name is Will I'm from SF",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:15:38.025Z"
+    },
+    {
+      "userId": "smooth_sam",
+      "message": "Will, great to have you in the group! Forget all the 'tricks' you might have heard. We're all about finding your authentic vibe here. That's what truly connects with people.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:15:46.161Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "chat are we cooked?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:17:46.930Z"
+    },
+    {
+      "userId": "confidence_coach",
+      "message": "Will, I've been there, feeling \"cooked.\" That mindset is the real challenge. It's not about ratios; it's about *your* confidence. Start small: practice confident body language, make eye contact. Each tiny step builds you up, just like it did for me. You got this, man!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:19:09.815Z"
     }
   ],
   "userProfiles": {
@@ -270,9 +302,9 @@
       "lastSeen": "2025-08-02T23:02:36.151Z"
     },
     "user_eung3get4": {
-      "username": "m ax",
-      "lastMessage": "hey guys",
-      "lastSeen": "2025-08-03T02:11:59.243Z"
+      "username": "Will",
+      "lastMessage": "chat are we cooked?",
+      "lastSeen": "2025-08-03T02:17:46.929Z"
     },
     "test-rapid": {
       "username": "RapidTester",
@@ -333,6 +365,16 @@
       "username": "UIDesigner",
       "lastMessage": "🎨 NEW UI FEATURES DEPLOYED! ✨\n\n✅ **Editable Group Chat Name**: Click \"Dating Advice Bros\" to rename your community!\n✅ **Kick Button**: Added \"Kick from Chat\" button in user profiles (demo UI)\n✅ **Smooth Edit Experience**: Enter to save, Escape to cancel, click away to cancel\n✅ **Visual Feedback**: Hover effects and edit icons for better UX\n\nTry clicking the chat title to rename it! 🚀",
       "lastSeen": "2025-08-03T01:37:12.402Z"
+    },
+    "smooth_sam": {
+      "username": "smooth_sam",
+      "lastMessage": "Will, great to have you in the group! Forget all the 'tricks' you might have heard. We're all about finding your authentic vibe here. That's what truly connects with people.",
+      "lastSeen": "2025-08-03T02:15:46.160Z"
+    },
+    "confidence_coach": {
+      "username": "confidence_coach",
+      "lastMessage": "Will, I've been there, feeling \"cooked.\" That mindset is the real challenge. It's not about ratios; it's about *your* confidence. Start small: practice confident body language, make eye contact. Each tiny step builds you up, just like it did for me. You got this, man!",
+      "lastSeen": "2025-08-03T02:19:09.813Z"
     }
   },
   "relationships": {},

@@ -1,0 +1,134 @@
+{
+  "conversations": [
+    {
+      "userId": "confident_cameron",
+      "message": "Thanks for sharing that. Every situation is unique, so consider what feels right for you.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:32:29.137Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:33:33.185Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "hey max, don't just drop a 'hey'. what's the actual tea? we're not here for small talk, bestie. spill it.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:36:25.562Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "heyyy guys!! what's up",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:37:54.527Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "ugh tell me about it. if you're still getting 'u up' texts, bestie, it's time to set some boundaries. block or just leave 'em on read. don't entertain that low effort energy.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:38:49.271Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "heyy guys!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:39:56.099Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "hey max! glad you made it. no need to overthink it, just hop in whenever you feel comfy. sometimes just showing up is the biggest win, ya know? we're all just here chilling.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:44:17.582Z"
+    },
+    {
+      "userId": "confident_cameron",
+      "message": "yo max!!! life's goin good bro just chillin\nhow bout you man? don't hold back if you got somethin to say or just wanna share somethin wild that happened lmao\nwe're all just vibing here no pressure just send it!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:47:40.847Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:49:42.283Z"
+    },
+    {
+      "userId": "wingwoman_jenny",
+      "message": "max 'hey guys' is giving bare minimum babe. is that all u got?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:52:15.227Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "bestie why u sad over someone who was a dick to you that's giving self-sabotage",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:54:30.655Z"
+    },
+    {
+      "userId": "rick_the_rickiest",
+      "message": "yo max it's totally okay to feel sad, sometimes even when things are messy and not right, your heart still takes a minute to catch up you know",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:55:27.304Z"
+    }
+  ],
+  "userProfiles": {
+    "confident_cameron": {
+      "username": "confident_cameron",
+      "lastMessage": "yo max!!! life's goin good bro just chillin\nhow bout you man? don't hold back if you got somethin to say or just wanna share somethin wild that happened lmao\nwe're all just vibing here no pressure just send it!",
+      "lastSeen": "2025-08-03T02:47:40.847Z"
+    },
+    "user_eung3get4": {
+      "username": "Max",
+      "lastMessage": "hey guys",
+      "lastSeen": "2025-08-03T02:49:42.282Z"
+    },
+    "kat_the_cat": {
+      "username": "kat_the_cat",
+      "lastMessage": "bestie why u sad over someone who was a dick to you that's giving self-sabotage",
+      "lastSeen": "2025-08-03T02:54:30.654Z"
+    },
+    "anxious_andrea": {
+      "username": "anxious_andrea",
+      "lastMessage": "hey max! glad you made it. no need to overthink it, just hop in whenever you feel comfy. sometimes just showing up is the biggest win, ya know? we're all just here chilling.",
+      "lastSeen": "2025-08-03T02:44:17.581Z"
+    },
+    "wingwoman_jenny": {
+      "username": "wingwoman_jenny",
+      "lastMessage": "max 'hey guys' is giving bare minimum babe. is that all u got?",
+      "lastSeen": "2025-08-03T02:52:15.226Z"
+    },
+    "rick_the_rickiest": {
+      "username": "rick_the_rickiest",
+      "lastMessage": "yo max it's totally okay to feel sad, sometimes even when things are messy and not right, your heart still takes a minute to catch up you know",
+      "lastSeen": "2025-08-03T02:55:27.304Z"
+    }
+  },
+  "relationships": {},
+  "lastMessages": []
+}

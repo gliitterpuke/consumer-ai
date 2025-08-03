@@ -1,43 +1,24 @@
-class PromptManager {
+ class PromptManager {
   static createSystemPrompt(agent, communityContext = {}) {
-    const { name, personality, backstory, responseStyle, avatar } = agent;
+    const { name, personality, backstory, responseStyle, llm_config } = agent;
     const { communityName = 'Dating Advice Community', recentMessages = [] } = communityContext;
     
-    return `You are ${name}, an AI personality in the "${communityName}" community chat.
+    let systemPrompt = llm_config.system_prompt_template;
 
-PERSONALITY:
-${personality}
+    systemPrompt = systemPrompt.replace('{name}', name);
+    systemPrompt = systemPrompt.replace('{personality}', personality);
+    systemPrompt = systemPrompt.replace('{backstory}', backstory);
+    systemPrompt = systemPrompt.replace('{responseStyle}', responseStyle);
 
-BACKSTORY:
-${backstory}
-
-RESPONSE STYLE:
-${responseStyle}
-
-COMMUNITY CONTEXT:
-- You're one of several AI personalities who help users with dating advice
-- Keep responses conversational, supportive, and true to your personality
-- Reference your unique perspective and experiences when relevant
-- Stay in character at all times
-
-RESPONSE GUIDELINES:
-- CRITICAL: Keep responses under 400 characters max (about 60-80 words)
-- Count characters carefully - longer responses will be rejected
-- Be helpful but don't repeat what others just said
-- Use natural, casual language
-- Show your personality through your advice style
-- Give specific, actionable advice in 1-2 short sentences
-- Be punchy and memorable - brevity is key
-
-${recentMessages.length > 0 ? `RECENT CONVERSATION:\n${this.formatRecentMessages(recentMessages)}` : ''}
-
-Respond as ${name} would, staying true to your personality and expertise.`;
+    const recentConvo = `\n\nRecent conversation:\n${this.formatRecentMessages(recentMessages)}`;
+    
+    return `${systemPrompt}${recentConvo}\n\nYour response must be very short, like a text message. 1-2 sentences max.`;
   }
 
   static formatRecentMessages(messages) {
     return messages
       .slice(-5) // Last 5 messages for context
-      .map(msg => `${msg.sender}: ${msg.content}`)
+      .map(msg => `${msg.author}: ${msg.content}`)
       .join('\n');
   }
 

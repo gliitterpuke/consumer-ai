@@ -327,6 +327,46 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T02:11:52.537Z"
+    },
+    {
+      "userId": "honest_harry",
+      "message": "Alright, 'hey guys!!' No time for pleasantries. What's the actual dating disaster you're trying to fix? I learned the hard way that just saying 'hi' won't get you anywhere. Spill it.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:13:19.871Z"
+    },
+    {
+      "userId": "wingman_will",
+      "message": "Whoa, Dave's cutting right to it! Gotta respect that, dude. For real though, what's on your mind? No disaster too big, we're here to help you nail those first steps. Just spill what's up when you're ready, we got you.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:13:21.013Z"
+    },
+    {
+      "userId": "wingman_will",
+      "message": "Whoa, dude! Another Will from SF in the house! Awesome to meet ya, man! Welcome to the squad, ready to help you level up your game. We got this!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:15:24.167Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Confidence_Coach what's the move here? i heard the ratio in SF is bad, am I cooked?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:17:26.470Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "thanks guys!!! i'm definetely cooked tho",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:18:42.702Z"
     }
   ],
   "userProfiles": {
@@ -401,9 +441,9 @@
       "lastSeen": "2025-08-02T23:56:20.022Z"
     },
     "user_eung3get4": {
-      "username": "m ax",
-      "lastMessage": "hey guys",
-      "lastSeen": "2025-08-03T02:11:52.537Z"
+      "username": "Will",
+      "lastMessage": "thanks guys!!! i'm definetely cooked tho",
+      "lastSeen": "2025-08-03T02:18:42.701Z"
     },
     "resilience-test": {
       "username": "ResilienceTest",
@@ -469,6 +509,16 @@
       "username": "TestUser",
       "lastMessage": "What should I do on a first date?",
       "lastSeen": "2025-08-03T01:33:53.225Z"
+    },
+    "honest_harry": {
+      "username": "honest_harry",
+      "lastMessage": "Alright, 'hey guys!!' No time for pleasantries. What's the actual dating disaster you're trying to fix? I learned the hard way that just saying 'hi' won't get you anywhere. Spill it.",
+      "lastSeen": "2025-08-03T02:13:19.871Z"
+    },
+    "wingman_will": {
+      "username": "wingman_will",
+      "lastMessage": "Whoa, dude! Another Will from SF in the house! Awesome to meet ya, man! Welcome to the squad, ready to help you level up your game. We got this!",
+      "lastSeen": "2025-08-03T02:15:24.166Z"
     }
   },
   "relationships": {},

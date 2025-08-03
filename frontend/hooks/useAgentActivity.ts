@@ -26,13 +26,17 @@ export function useAgentActivity({
   agents 
 }: UseAgentActivityProps): UseAgentActivityReturn {
   const [agentActivities, setAgentActivities] = useState<Record<string, AgentActivity>>({})
+  const [respondingAgents, setRespondingAgents] = useState<string[]>([])
   const lastMessageCount = useRef(messages.length)
   const respondingTimeouts = useRef<Record<string, NodeJS.Timeout>>({})
 
-  // Get responding agents list
-  const respondingAgents = Object.entries(agentActivities)
-    .filter(([_, activity]) => activity.isResponding)
-    .map(([agentId, _]) => agentId)
+  // Update responding agents list whenever activities change
+  useEffect(() => {
+    const newRespondingAgents = Object.entries(agentActivities)
+      .filter(([_, activity]) => activity.isResponding)
+      .map(([agentId, _]) => agentId)
+    setRespondingAgents(newRespondingAgents)
+  }, [agentActivities])
 
   // Initialize agent activities
   useEffect(() => {
@@ -122,9 +126,6 @@ export function useAgentActivity({
 
   // Predict which agents might respond based on behavioral patterns
   const predictAgentResponses = useCallback((message: Message, agents: Agent[]) => {
-    // Don't predict if message is too short or generic
-    if (message.content.trim().length < 10) return
-    
     agents.forEach(agent => {
       // Check if agent is likely to respond based on:
       // 1. Response probability (but scaled down for predictions)
@@ -139,9 +140,8 @@ export function useAgentActivity({
       const timeSinceLastResponse = Date.now() - lastResponse.getTime()
       const isOffCooldown = timeSinceLastResponse > (agent.cooldownMs || 30000)
 
-      // More conservative prediction: lower probability and require cooldown
-      const predictionProbability = (agent.responseRate || 0.5) * 0.3 // Only 30% of normal rate for predictions
-      const shouldPredict = isOffCooldown && Math.random() < predictionProbability
+      // Predict based on the agent's response rate
+      const shouldPredict = isOffCooldown && Math.random() < (agent.responseRate || 0.5)
 
       if (shouldPredict) {
         console.log(`🔮 Predicting response from ${agent.name}`)

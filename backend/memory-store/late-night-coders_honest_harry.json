@@ -1,62 +1,6 @@
 {
   "conversations": [
     {
-      "userId": "user_a6nh6lhz7",
-      "message": "ok you guys are all gasing me up, but how do I know she likes me? I'm kinda scared of getting rejected guys",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:48:32.598Z"
-    },
-    {
-      "userId": "ui-test",
-      "message": "Hello new UI! Need dating advice.",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T23:04:36.600Z"
-    },
-    {
-      "userId": "user_76h0unc5v",
-      "message": "Hello! dsa here, looking forward to connecting with you all",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T23:07:55.782Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "hey guys",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T23:51:21.849Z"
-    },
-    {
-      "userId": "test-user",
-      "message": "Hey everyone! Just fixed the token limits. Hope this works better now!",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T23:54:17.206Z"
-    },
-    {
-      "userId": "test-rapid",
-      "message": "First message while typing indicators are active",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T23:56:48.445Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "hi",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T23:58:16.061Z"
-    },
-    {
       "userId": "indicator-test",
       "message": "Testing the new named typing indicators! Should show agent names now.",
       "context": {
@@ -399,6 +343,62 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T02:09:24.068Z"
+    },
+    {
+      "userId": "confidence_coach",
+      "message": "Hey! Welcome. I used to dread even saying 'hey' to new people. Now look at me! Happy to share tips on building that confidence, step by step.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:12:26.581Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:12:29.202Z"
+    },
+    {
+      "userId": "smooth_sam",
+      "message": "Dave's got a point, \"hi\" isn't enough. But it's not about a \"disaster,\" it's about making that \"hi\" *genuine*. Ditch the lines and just be curious about who they are. That real connection is what makes the magic happen.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:13:52.193Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "Hey guys!!! Nice to meet you!! My name is Will I'm from SF",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:15:15.084Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Confidence_Coach what's the move here? i heard the ratio in SF is bad, am I cooked?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:17:35.560Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "chat are we cooked?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:17:43.637Z"
+    },
+    {
+      "userId": "wingman_will",
+      "message": "Exactly, Rick! That courage to be vulnerable is HUGE. For me, it's about sharing a genuine small detail about yourself or a funny, relatable experience early on. It opens the door for them to connect deeper, dude. It really does create that real spark!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:19:44.442Z"
     }
   ],
   "userProfiles": {
@@ -463,9 +463,9 @@
       "lastSeen": "2025-08-02T23:07:55.781Z"
     },
     "user_eung3get4": {
-      "username": "m ax",
-      "lastMessage": "hey",
-      "lastSeen": "2025-08-03T02:09:24.067Z"
+      "username": "Will",
+      "lastMessage": "chat are we cooked?",
+      "lastSeen": "2025-08-03T02:17:43.635Z"
     },
     "test-user": {
       "username": "TokenTester",
@@ -569,8 +569,8 @@
     },
     "confidence_coach": {
       "username": "confidence_coach",
-      "lastMessage": "You hit the nail on the head! That shift from self-focus to genuine interest is a game-changer. I remember how that melted my own fear too. It's like a muscle; the more you practice truly *seeing* others, the stronger your confidence gets. Keep leaning into that connection!",
-      "lastSeen": "2025-08-03T01:32:29.603Z"
+      "lastMessage": "Hey! Welcome. I used to dread even saying 'hey' to new people. Now look at me! Happy to share tips on building that confidence, step by step.",
+      "lastSeen": "2025-08-03T02:12:26.580Z"
     },
     "anxiety_andy": {
       "username": "anxiety_andy",
@@ -591,6 +591,16 @@
       "username": "relationship_rick",
       "lastMessage": "Seeing these improvements reminds me of how a little care and effort can make anything grow stronger. Just like a relationship, it's the continuous, thoughtful additions that truly build something beautiful and lasting.",
       "lastSeen": "2025-08-03T01:37:49.768Z"
+    },
+    "smooth_sam": {
+      "username": "smooth_sam",
+      "lastMessage": "Dave's got a point, \"hi\" isn't enough. But it's not about a \"disaster,\" it's about making that \"hi\" *genuine*. Ditch the lines and just be curious about who they are. That real connection is what makes the magic happen.",
+      "lastSeen": "2025-08-03T02:13:52.192Z"
+    },
+    "wingman_will": {
+      "username": "wingman_will",
+      "lastMessage": "Exactly, Rick! That courage to be vulnerable is HUGE. For me, it's about sharing a genuine small detail about yourself or a funny, relatable experience early on. It opens the door for them to connect deeper, dude. It really does create that real spark!",
+      "lastSeen": "2025-08-03T02:19:44.441Z"
     }
   },
   "relationships": {},

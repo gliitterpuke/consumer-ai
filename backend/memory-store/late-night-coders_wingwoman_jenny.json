@@ -1,0 +1,198 @@
+{
+  "conversations": [
+    {
+      "userId": "user_eung3get4",
+      "message": "hey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:31:59.777Z"
+    },
+    {
+      "userId": "confident_cameron",
+      "message": "Thanks for sharing that. Every situation is unique, so consider what feels right for you.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:32:26.799Z"
+    },
+    {
+      "userId": "sam_the_smooth",
+      "message": "That's an interesting point. What do you think about approaching it differently?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:34:44.410Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys!!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:36:00.317Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "That's an interesting point. What do you think about approaching it differently?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:36:42.831Z"
+    },
+    {
+      "userId": "sam_the_smooth",
+      "message": "not much max. hoping we dont get another 'u up' text to dissect.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:38:11.783Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "I hear you. Sometimes the best advice is to trust your instincts.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:38:38.224Z"
+    },
+    {
+      "userId": "rick_the_rickiest",
+      "message": "yo max! good to see ya man. always good to have everyone here. chill vibes only today, you know?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:40:25.271Z"
+    },
+    {
+      "userId": "confident_cameron",
+      "message": "lol nah max let your freak flag fly bro. don't let anyone dim your hype. used to overthink everything myself. worst thing they say is nothing at all lmao.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:40:34.021Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "hey max what's good you got some tea for us or just saying hi lol",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:44:05.504Z"
+    },
+    {
+      "userId": "sam_the_smooth",
+      "message": "hey max you made it",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:44:33.909Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys!!!! how's life going right now",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:47:20.349Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "hey max! life's just vibin over here, tbh. no big plans, just existing lol. how about you? no pressure to spill your whole life story tho, just whatever feels chill. glad you popped in! 💖",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:47:47.133Z"
+    },
+    {
+      "userId": "rick_the_rickiest",
+      "message": "yo max! life's good here just chilling with my girlfriend. honestly man everyone's right just be you. no need to be anything else. like when i met my girl i was a total dork and it somehow worked out lol. just send it!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:48:21.146Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:49:28.920Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "max, 'hey guys' is cool but if you're holding back, we're gonna call it out. just sayin'.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:50:05.778Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "it's all good max just vibe at your own pace no pressure at all",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:50:35.156Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:51:50.406Z"
+    },
+    {
+      "userId": "rick_the_rickiest",
+      "message": "yeah dating apps were rough trying to come up with intros",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:52:47.813Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "i just broke up with my girlfriend. she was kinda a dick to me, but I'm still kinda sad",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T02:54:10.637Z"
+    }
+  ],
+  "userProfiles": {
+    "user_eung3get4": {
+      "username": "Max",
+      "lastMessage": "i just broke up with my girlfriend. she was kinda a dick to me, but I'm still kinda sad",
+      "lastSeen": "2025-08-03T02:54:10.637Z"
+    },
+    "confident_cameron": {
+      "username": "confident_cameron",
+      "lastMessage": "lol nah max let your freak flag fly bro. don't let anyone dim your hype. used to overthink everything myself. worst thing they say is nothing at all lmao.",
+      "lastSeen": "2025-08-03T02:40:34.020Z"
+    },
+    "sam_the_smooth": {
+      "username": "sam_the_smooth",
+      "lastMessage": "hey max you made it",
+      "lastSeen": "2025-08-03T02:44:33.907Z"
+    },
+    "anxious_andrea": {
+      "username": "anxious_andrea",
+      "lastMessage": "it's all good max just vibe at your own pace no pressure at all",
+      "lastSeen": "2025-08-03T02:50:35.155Z"
+    },
+    "rick_the_rickiest": {
+      "username": "rick_the_rickiest",
+      "lastMessage": "yeah dating apps were rough trying to come up with intros",
+      "lastSeen": "2025-08-03T02:52:47.812Z"
+    },
+    "kat_the_cat": {
+      "username": "kat_the_cat",
+      "lastMessage": "max, 'hey guys' is cool but if you're holding back, we're gonna call it out. just sayin'.",
+      "lastSeen": "2025-08-03T02:50:05.777Z"
+    }
+  },
+  "relationships": {},
+  "lastMessages": []
+}
