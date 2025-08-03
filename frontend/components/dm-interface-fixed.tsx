@@ -31,7 +31,6 @@ export function DMInterface({ dmPartner, username, onBack }: DMInterfaceProps) {
     messages, 
     sendMessage, 
     isLoading, 
-    isTyping,
     error, 
     connectionStatus 
   } = useDMMessages({
@@ -178,45 +177,6 @@ export function DMInterface({ dmPartner, username, onBack }: DMInterfaceProps) {
             </div>
           )
         })}
-
-        {/* AI Typing Indicator */}
-        {isTyping && (
-          <Card className="max-w-[80%] mr-auto bg-card hover:shadow-md">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 flex items-center justify-center">
-                  {dmPartner.avatar.startsWith('/') ? (
-                    <img 
-                      src={dmPartner.avatar} 
-                      alt={dmPartner.name}
-                      className="w-8 h-8 rounded-full object-cover"
-                    />
-                  ) : (
-                    <div className="text-lg">{dmPartner.avatar}</div>
-                  )}
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-semibold text-sm text-foreground">
-                      {dmPartner.name}
-                    </span>
-                    <span className="text-xs text-muted-foreground">
-                      now
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="flex gap-1">
-                      <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-                      <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-                      <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce"></div>
-                    </div>
-                    <span className="text-xs text-muted-foreground ml-2">typing...</span>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        )}
 
         {/* Error State */}
         {error && (

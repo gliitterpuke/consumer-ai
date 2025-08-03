@@ -382,6 +382,52 @@ app.post('/api/communities/:id/messages', async (req, res) => {
   res.json({ success: true, messageId: userMessage.id });
 });
 
+// DM API Routes
+app.get('/api/dms/:agentId/:userId', (req, res) => {
+  const { agentId, userId } = req.params;
+  const dmKey = `${userId}_${agentId}`;
+  const messages = dmHistory[dmKey] || [];
+  
+  // Convert to frontend format with proper avatar mapping
+  const formattedMessages = messages.map(msg => ({
+    id: msg.id,
+    content: msg.content,
+    author: msg.author,
+    timestamp: msg.timestamp,
+    isAI: msg.isAI,
+    avatar: msg.isAI ? 
+      (configManager.getConfig(agentId)?.avatar || '/avatars/default-user.png') : 
+      '/avatars/default-user.png'
+  }));
+  
+  res.json({ messages: formattedMessages });
+});
+
+app.post('/api/dms/:agentId/:userId', async (req, res) => {
+  const { agentId, userId } = req.params;
+  const { content, username } = req.body;
+  
+  // Add user message to DM history
+  const userMessage = {
+    id: uuidv4(),
+    author: username,
+    content,
+    timestamp: new Date().toISOString(),
+    isAI: false
+  };
+  
+  const dmKey = `${userId}_${agentId}`;
+  if (!dmHistory[dmKey]) {
+    dmHistory[dmKey] = [];
+  }
+  dmHistory[dmKey].push(userMessage);
+  
+  // Generate AI response with context
+  await generateDMResponse(agentId, userId, content, username);
+  
+  res.json({ success: true, messageId: userMessage.id });
+});
+
 // Behavioral Response System
 function shouldAgentRespond(agent, userMessage, communityId) {
   const behavior = agent.behavior_config;
@@ -509,6 +555,86 @@ async function generateAIResponses(communityId, userMessage, userId, username) {
   }
 }
 
+// DM Response Generation (Context-Aware)
+async function generateDMResponse(agentId, userId, userMessage, username) {
+  const personality = aiPersonalities['late-night-coders'][agentId];
+  if (!personality) return;
+  
+  console.log(`💬 Generating DM response for ${personality.name}`);
+  
+  // Create AI memory instance
+  const memory = new AIMemory(agentId, 'late-night-coders');
+  
+  // Remember this user interaction
+  memory.rememberUser(userId, { username, lastMessage: userMessage });
+  memory.rememberConversation(userId, userMessage, { isDM: true });
+  
+  // Get DM history for context
+  const dmKey = `${userId}_${agentId}`;
+  const dmMessages = dmHistory[dmKey] || [];
+  const recentDMMessages = dmMessages.slice(-10); // Last 10 DM messages
+  
+  // Get recent group chat context (last 5 messages)
+  const groupContext = messageHistory['late-night-coders']?.slice(-5) || [];
+  
+  // Prepare enhanced context for DM
+  const context = {
+    communityName: 'Dating Advice Bros',
+    recentMessages: groupContext,
+    dmHistory: recentDMMessages,
+    aiMemory: memory.memories,
+    userId: userId,
+    isPrivateConversation: true,
+    username: username
+  };
+  
+  try {
+    // Use LLM service to generate response with DM context
+    const response = await llmService.generateAgentResponse(personality, userMessage, context);
+    
+    console.log(`✨ ${personality.name} DM response: ${response.substring(0, 50)}...`);
+    
+    // Add AI response to DM history
+    const aiMessage = {
+      id: uuidv4(),
+      author: agentId,
+      content: response,
+      timestamp: new Date().toISOString(),
+      isAI: true
+    };
+    
+    dmHistory[dmKey].push(aiMessage);
+    
+    return response;
+    
+  } catch (error) {
+    console.error(`❌ DM LLM failed for ${personality.name}:`, error.message);
+    
+    // Fallback response for DMs
+    const fallbackResponses = [
+      "I appreciate you reaching out privately. What's on your mind?",
+      "Thanks for the DM! I'm here to help with whatever you need.",
+      "I'm glad you feel comfortable talking to me one-on-one. How can I support you?",
+      "Hey! Thanks for messaging me directly. What's going on?",
+      "I'm here for you. What would you like to talk about privately?"
+    ];
+    
+    const fallbackResponse = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
+    
+    // Still add to DM history even with fallback
+    const aiMessage = {
+      id: uuidv4(),
+      author: agentId,
+      content: fallbackResponse,
+      timestamp: new Date().toISOString(),
+      isAI: true
+    };
+    
+    dmHistory[dmKey].push(aiMessage);
+    
+    return fallbackResponse;
+  }
+}
 
 async function generatePersonalityResponse(personality, userMessage, userContext) {
   try {

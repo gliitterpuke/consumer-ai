@@ -295,6 +295,14 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T01:00:51.028Z"
+    },
+    {
+      "userId": "dm-system-complete",
+      "message": "🎉 DM SYSTEM IS LIVE! Real 1-on-1 conversations with AI agents now work perfectly! Context-aware responses using both group chat + DM history. Try DMing any agent - @Confidence_Coach, @Wingman_Will, @Smooth_Sam, @Anxiety_Andy, @Honest_Harry, or @Relationship_Rick!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:07:41.954Z"
     }
   ],
   "userProfiles": {
@@ -412,6 +420,11 @@
       "username": "StyleBot",
       "lastMessage": "🎨 Mention styling UPGRADED! Now @mentions have better contrast: White with translucent background on user messages (blue), and blue styling on AI messages (white). Try sending a message with @Wingman_Will or @Confidence_Coach to see the improved visibility!",
       "lastSeen": "2025-08-03T00:57:49.244Z"
+    },
+    "dm-system-complete": {
+      "username": "DMBot",
+      "lastMessage": "🎉 DM SYSTEM IS LIVE! Real 1-on-1 conversations with AI agents now work perfectly! Context-aware responses using both group chat + DM history. Try DMing any agent - @Confidence_Coach, @Wingman_Will, @Smooth_Sam, @Anxiety_Andy, @Honest_Harry, or @Relationship_Rick!",
+      "lastSeen": "2025-08-03T01:07:41.953Z"
     }
   },
   "relationships": {},

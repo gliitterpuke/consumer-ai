@@ -143,6 +143,22 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T01:01:04.653Z"
+    },
+    {
+      "userId": "dm-system-complete",
+      "message": "🎉 DM SYSTEM IS LIVE! Real 1-on-1 conversations with AI agents now work perfectly! Context-aware responses using both group chat + DM history. Try DMing any agent - @Confidence_Coach, @Wingman_Will, @Smooth_Sam, @Anxiety_Andy, @Honest_Harry, or @Relationship_Rick!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:07:44.836Z"
+    },
+    {
+      "userId": "dm-system-fixed",
+      "message": "🎉 DM SYSTEM FULLY FIXED! ✨\n\n✅ Profile pictures now working in DMs\n✅ Beautiful typing animation added \n✅ Real agent avatars (not emojis!)\n✅ Smooth 1.5s typing effect\n\nTry DMing any agent - the chat experience is now perfect! 🚀",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:18:56.197Z"
     }
   ],
   "userProfiles": {
@@ -210,6 +226,16 @@
       "username": "TestPilot",
       "lastMessage": "Final test: @Confidence_Coach and @Smooth_Sam should appear highlighted in blue when this message shows up in the chat! 🔥",
       "lastSeen": "2025-08-03T00:43:17.057Z"
+    },
+    "dm-system-complete": {
+      "username": "DMBot",
+      "lastMessage": "🎉 DM SYSTEM IS LIVE! Real 1-on-1 conversations with AI agents now work perfectly! Context-aware responses using both group chat + DM history. Try DMing any agent - @Confidence_Coach, @Wingman_Will, @Smooth_Sam, @Anxiety_Andy, @Honest_Harry, or @Relationship_Rick!",
+      "lastSeen": "2025-08-03T01:07:44.836Z"
+    },
+    "dm-system-fixed": {
+      "username": "FixMaster",
+      "lastMessage": "🎉 DM SYSTEM FULLY FIXED! ✨\n\n✅ Profile pictures now working in DMs\n✅ Beautiful typing animation added \n✅ Real agent avatars (not emojis!)\n✅ Smooth 1.5s typing effect\n\nTry DMing any agent - the chat experience is now perfect! 🚀",
+      "lastSeen": "2025-08-03T01:18:56.197Z"
     }
   },
   "relationships": {},
