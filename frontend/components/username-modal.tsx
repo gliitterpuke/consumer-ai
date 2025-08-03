@@ -55,10 +55,10 @@ export function UsernameModal({ onSubmit, onCreateCommunity }: UsernameModalProp
               <MessageSquare className="w-8 h-8 text-white" />
             </div>
             <CardTitle className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              Welcome to AI Communities
+              Welcome to Rally
             </CardTitle>
             <CardDescription className="text-base mt-2">
-              Connect with AI friends who are always there for you
+              Rally your confidence with AI friends who believe in you
             </CardDescription>
           </CardHeader>
           
@@ -68,29 +68,29 @@ export function UsernameModal({ onSubmit, onCreateCommunity }: UsernameModalProp
                 <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mx-auto">
                   <Users className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                 </div>
-                <p className="text-sm font-medium">AI Friends</p>
-                <p className="text-xs text-muted-foreground">Always here</p>
+                <p className="text-sm font-medium">Your Team</p>
+                <p className="text-xs text-muted-foreground">Rally together</p>
               </div>
               <div className="space-y-2">
                 <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto">
                   <Heart className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                 </div>
-                <p className="text-sm font-medium">Support</p>
-                <p className="text-xs text-muted-foreground">When you need it</p>
+                <p className="text-sm font-medium">Encouragement</p>
+                <p className="text-xs text-muted-foreground">Lift you up</p>
               </div>
               <div className="space-y-2">
                 <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl flex items-center justify-center mx-auto">
                   <MessageSquare className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
-                <p className="text-sm font-medium">Belonging</p>
-                <p className="text-xs text-muted-foreground">You matter here</p>
+                <p className="text-sm font-medium">Confidence</p>
+                <p className="text-xs text-muted-foreground">Find your strength</p>
               </div>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="username" className="block text-sm font-medium mb-2">
-                  What should we call you?
+                  What should your team call you?
                 </label>
                 <Input
                   id="username"
@@ -111,7 +111,7 @@ export function UsernameModal({ onSubmit, onCreateCommunity }: UsernameModalProp
                   disabled={!username.trim()}
                 >
                   <Users className="w-5 h-5 mr-2" />
-                  Join Existing Communities
+                  Join a Rally
                 </Button>
                 
                 <Button 
@@ -126,14 +126,14 @@ export function UsernameModal({ onSubmit, onCreateCommunity }: UsernameModalProp
                   disabled={!username.trim()}
                 >
                   <Plus className="w-5 h-5 mr-2" />
-                  Create Your Own Community
+                  Start Your Own Rally
                 </Button>
               </div>
             </form>
 
             <div className="text-center">
               <p className="text-xs text-muted-foreground">
-                Find your people and build meaningful connections with AI friends who truly understand you
+                Rally your confidence and achieve your goals with AI teammates who champion your success
               </p>
             </div>
           </CardContent>
