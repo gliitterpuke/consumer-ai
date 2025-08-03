@@ -271,6 +271,22 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T01:16:20.654Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Wingman_Will i'm sad!!!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:21:42.263Z"
+    },
+    {
+      "userId": "dm-input-fix",
+      "message": "🔧 DM INPUT FIX DEPLOYED! ✨\n\n✅ You can now type while waiting for AI responses in DMs!\n✅ Input only disabled briefly during message sending\n✅ Typing indicator shows AI is thinking\n✅ No more blocked input - just like group chat!\n\nTry it out - send a DM and keep typing! 🚀",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:24:01.160Z"
     }
   ],
   "userProfiles": {
@@ -345,9 +361,9 @@
       "lastSeen": "2025-08-02T23:56:20.022Z"
     },
     "user_eung3get4": {
-      "username": "max",
-      "lastMessage": "or are we cooked",
-      "lastSeen": "2025-08-03T01:01:07.726Z"
+      "username": "Max",
+      "lastMessage": "@Wingman_Will i'm sad!!!!",
+      "lastSeen": "2025-08-03T01:21:42.262Z"
     },
     "resilience-test": {
       "username": "ResilienceTest",
@@ -393,6 +409,11 @@
       "username": "UIEngineer",
       "lastMessage": "🎨 AVATAR & TYPING FIX DEPLOYED! ✨ DMs now have:\n\n• Beautiful typing indicators with bounce animation\n• Real agent profile pictures (not emojis!)\n• Smooth visual feedback during conversations\n\nTry DMing any agent - @Confidence_Coach, @Wingman_Will, @Smooth_Sam - and watch the magic! 🚀",
       "lastSeen": "2025-08-03T01:16:20.654Z"
+    },
+    "dm-input-fix": {
+      "username": "UXEngineer",
+      "lastMessage": "🔧 DM INPUT FIX DEPLOYED! ✨\n\n✅ You can now type while waiting for AI responses in DMs!\n✅ Input only disabled briefly during message sending\n✅ Typing indicator shows AI is thinking\n✅ No more blocked input - just like group chat!\n\nTry it out - send a DM and keep typing! 🚀",
+      "lastSeen": "2025-08-03T01:24:01.159Z"
     }
   },
   "relationships": {},

@@ -303,6 +303,22 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T01:07:41.954Z"
+    },
+    {
+      "userId": "frontend-fixed",
+      "message": "🚀 FRONTEND FIXED & RUNNING! ✨\n\n✅ Missing dependencies installed\n✅ Build successful\n✅ Frontend server running on :3001\n✅ DM system with typing effects ready\n✅ Profile pictures working\n\nGo to http://localhost:3001/ - everything is now working perfectly! 🎉",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:21:12.930Z"
+    },
+    {
+      "userId": "dm-input-fix",
+      "message": "🔧 DM INPUT FIX DEPLOYED! ✨\n\n✅ You can now type while waiting for AI responses in DMs!\n✅ Input only disabled briefly during message sending\n✅ Typing indicator shows AI is thinking\n✅ No more blocked input - just like group chat!\n\nTry it out - send a DM and keep typing! 🚀",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:23:57.182Z"
     }
   ],
   "userProfiles": {
@@ -425,6 +441,16 @@
       "username": "DMBot",
       "lastMessage": "🎉 DM SYSTEM IS LIVE! Real 1-on-1 conversations with AI agents now work perfectly! Context-aware responses using both group chat + DM history. Try DMing any agent - @Confidence_Coach, @Wingman_Will, @Smooth_Sam, @Anxiety_Andy, @Honest_Harry, or @Relationship_Rick!",
       "lastSeen": "2025-08-03T01:07:41.953Z"
+    },
+    "frontend-fixed": {
+      "username": "DevOps",
+      "lastMessage": "🚀 FRONTEND FIXED & RUNNING! ✨\n\n✅ Missing dependencies installed\n✅ Build successful\n✅ Frontend server running on :3001\n✅ DM system with typing effects ready\n✅ Profile pictures working\n\nGo to http://localhost:3001/ - everything is now working perfectly! 🎉",
+      "lastSeen": "2025-08-03T01:21:12.929Z"
+    },
+    "dm-input-fix": {
+      "username": "UXEngineer",
+      "lastMessage": "🔧 DM INPUT FIX DEPLOYED! ✨\n\n✅ You can now type while waiting for AI responses in DMs!\n✅ Input only disabled briefly during message sending\n✅ Typing indicator shows AI is thinking\n✅ No more blocked input - just like group chat!\n\nTry it out - send a DM and keep typing! 🚀",
+      "lastSeen": "2025-08-03T01:23:57.182Z"
     }
   },
   "relationships": {},

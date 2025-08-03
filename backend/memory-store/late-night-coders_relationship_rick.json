@@ -159,6 +159,22 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T01:18:56.197Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Wingman_Will i'm sad!!!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:21:38.264Z"
+    },
+    {
+      "userId": "dm-input-fix",
+      "message": "🔧 DM INPUT FIX DEPLOYED! ✨\n\n✅ You can now type while waiting for AI responses in DMs!\n✅ Input only disabled briefly during message sending\n✅ Typing indicator shows AI is thinking\n✅ No more blocked input - just like group chat!\n\nTry it out - send a DM and keep typing! 🚀",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:24:05.306Z"
     }
   ],
   "userProfiles": {
@@ -198,9 +214,9 @@
       "lastSeen": "2025-08-02T23:02:36.151Z"
     },
     "user_eung3get4": {
-      "username": "max",
-      "lastMessage": "@Anxiety_Andy you especially",
-      "lastSeen": "2025-08-03T01:01:04.652Z"
+      "username": "Max",
+      "lastMessage": "@Wingman_Will i'm sad!!!!",
+      "lastSeen": "2025-08-03T01:21:38.263Z"
     },
     "test-rapid": {
       "username": "RapidTester",
@@ -236,6 +252,11 @@
       "username": "FixMaster",
       "lastMessage": "🎉 DM SYSTEM FULLY FIXED! ✨\n\n✅ Profile pictures now working in DMs\n✅ Beautiful typing animation added \n✅ Real agent avatars (not emojis!)\n✅ Smooth 1.5s typing effect\n\nTry DMing any agent - the chat experience is now perfect! 🚀",
       "lastSeen": "2025-08-03T01:18:56.197Z"
+    },
+    "dm-input-fix": {
+      "username": "UXEngineer",
+      "lastMessage": "🔧 DM INPUT FIX DEPLOYED! ✨\n\n✅ You can now type while waiting for AI responses in DMs!\n✅ Input only disabled briefly during message sending\n✅ Typing indicator shows AI is thinking\n✅ No more blocked input - just like group chat!\n\nTry it out - send a DM and keep typing! 🚀",
+      "lastSeen": "2025-08-03T01:24:05.305Z"
     }
   },
   "relationships": {},

@@ -52,7 +52,6 @@ export function useDMMessages({ agentId, userId, username, enabled = true }: Use
     if (!content.trim() || !agentId || !userId || !username) return
 
     setIsLoading(true)
-    setIsTyping(true)
     setError(null)
 
     try {
@@ -62,19 +61,24 @@ export function useDMMessages({ agentId, userId, username, enabled = true }: Use
         username,
         userId
       })
-
+      
+      console.log(`💬 Sent DM to ${agentId}: ${content.substring(0, 30)}...`)
+      
+      // Show AI typing indicator after message is sent
+      setIsTyping(true)
+      
       // Wait briefly for AI response, then refresh
       setTimeout(async () => {
         await fetchDMHistory()
         setIsTyping(false)
       }, 1500)
       
-      console.log(`💬 Sent DM to ${agentId}: ${content.substring(0, 30)}...`)
     } catch (err) {
       console.error('💀 Failed to send DM:', err)
       setError('Failed to send message')
       setIsTyping(false)
     } finally {
+      // Allow user to type immediately after sending
       setIsLoading(false)
     }
   }, [agentId, userId, username, fetchDMHistory])

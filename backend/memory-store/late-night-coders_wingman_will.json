@@ -1,62 +1,6 @@
 {
   "conversations": [
     {
-      "userId": "test123",
-      "message": "I need help asking someone out",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:36:51.127Z"
-    },
-    {
-      "userId": "debug",
-      "message": "Test LLM call",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:37:45.669Z"
-    },
-    {
-      "userId": "anxietytest",
-      "message": "I have severe dating anxiety, can someone help?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:39:23.569Z"
-    },
-    {
-      "userId": "panictest",
-      "message": "I panic when I try to talk to girls. Any anxiety tips?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:40:17.548Z"
-    },
-    {
-      "userId": "anxietytest",
-      "message": "@anxiety_andy I have severe social anxiety when dating, can you help me?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:43:14.273Z"
-    },
-    {
-      "userId": "test",
-      "message": "anxiety_andy are you there? I need anxiety tips!",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:43:52.719Z"
-    },
-    {
-      "userId": "user_a6nh6lhz7",
-      "message": "Hi! I'm bill, excited to be here!",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-02T22:45:19.008Z"
-    },
-    {
       "userId": "user_a6nh6lhz7",
       "message": "Chat there's a girl that I'm talking to, she invited me to watch the movies with her and cook dinner at her place. But is she into me or are we cooked?",
       "context": {
@@ -399,6 +343,62 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T01:18:51.864Z"
+    },
+    {
+      "userId": "frontend-fixed",
+      "message": "🚀 FRONTEND FIXED & RUNNING! ✨\n\n✅ Missing dependencies installed\n✅ Build successful\n✅ Frontend server running on :3001\n✅ DM system with typing effects ready\n✅ Profile pictures working\n\nGo to http://localhost:3001/ - everything is now working perfectly! 🎉",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:21:07.634Z"
+    },
+    {
+      "userId": "Max",
+      "message": "hey dude i'm pretty sad",
+      "context": {
+        "isDM": true
+      },
+      "timestamp": "2025-08-03T01:22:14.513Z"
+    },
+    {
+      "userId": "Max",
+      "message": "can you cheer me up a bit?",
+      "context": {
+        "isDM": true
+      },
+      "timestamp": "2025-08-03T01:22:24.021Z"
+    },
+    {
+      "userId": "dm-input-fix",
+      "message": "🔧 DM INPUT FIX DEPLOYED! ✨\n\n✅ You can now type while waiting for AI responses in DMs!\n✅ Input only disabled briefly during message sending\n✅ Typing indicator shows AI is thinking\n✅ No more blocked input - just like group chat!\n\nTry it out - send a DM and keep typing! 🚀",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:23:54.509Z"
+    },
+    {
+      "userId": "Max",
+      "message": "yea",
+      "context": {
+        "isDM": true
+      },
+      "timestamp": "2025-08-03T01:24:22.739Z"
+    },
+    {
+      "userId": "Max",
+      "message": "i could def use some help",
+      "context": {
+        "isDM": true
+      },
+      "timestamp": "2025-08-03T01:24:35.095Z"
+    },
+    {
+      "userId": "Max",
+      "message": "my girlfriend left me dude",
+      "context": {
+        "isDM": true
+      },
+      "timestamp": "2025-08-03T01:24:50.623Z"
     }
   ],
   "userProfiles": {
@@ -586,6 +586,21 @@
       "username": "FixMaster",
       "lastMessage": "🎉 DM SYSTEM FULLY FIXED! ✨\n\n✅ Profile pictures now working in DMs\n✅ Beautiful typing animation added \n✅ Real agent avatars (not emojis!)\n✅ Smooth 1.5s typing effect\n\nTry DMing any agent - the chat experience is now perfect! 🚀",
       "lastSeen": "2025-08-03T01:18:51.863Z"
+    },
+    "frontend-fixed": {
+      "username": "DevOps",
+      "lastMessage": "🚀 FRONTEND FIXED & RUNNING! ✨\n\n✅ Missing dependencies installed\n✅ Build successful\n✅ Frontend server running on :3001\n✅ DM system with typing effects ready\n✅ Profile pictures working\n\nGo to http://localhost:3001/ - everything is now working perfectly! 🎉",
+      "lastSeen": "2025-08-03T01:21:07.633Z"
+    },
+    "Max": {
+      "username": "Max",
+      "lastMessage": "my girlfriend left me dude",
+      "lastSeen": "2025-08-03T01:24:50.622Z"
+    },
+    "dm-input-fix": {
+      "username": "UXEngineer",
+      "lastMessage": "🔧 DM INPUT FIX DEPLOYED! ✨\n\n✅ You can now type while waiting for AI responses in DMs!\n✅ Input only disabled briefly during message sending\n✅ Typing indicator shows AI is thinking\n✅ No more blocked input - just like group chat!\n\nTry it out - send a DM and keep typing! 🚀",
+      "lastSeen": "2025-08-03T01:23:54.509Z"
     }
   },
   "relationships": {},

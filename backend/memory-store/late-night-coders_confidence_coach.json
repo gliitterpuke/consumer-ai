@@ -383,6 +383,14 @@
         "isDM": true
       },
       "timestamp": "2025-08-03T01:18:09.510Z"
+    },
+    {
+      "userId": "frontend-fixed",
+      "message": "🚀 FRONTEND FIXED & RUNNING! ✨\n\n✅ Missing dependencies installed\n✅ Build successful\n✅ Frontend server running on :3001\n✅ DM system with typing effects ready\n✅ Profile pictures working\n\nGo to http://localhost:3001/ - everything is now working perfectly! 🎉",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T01:21:02.635Z"
     }
   ],
   "userProfiles": {
@@ -505,6 +513,11 @@
       "username": "UIEngineer",
       "lastMessage": "🎨 AVATAR & TYPING FIX DEPLOYED! ✨ DMs now have:\n\n• Beautiful typing indicators with bounce animation\n• Real agent profile pictures (not emojis!)\n• Smooth visual feedback during conversations\n\nTry DMing any agent - @Confidence_Coach, @Wingman_Will, @Smooth_Sam - and watch the magic! 🚀",
       "lastSeen": "2025-08-03T01:16:15.937Z"
+    },
+    "frontend-fixed": {
+      "username": "DevOps",
+      "lastMessage": "🚀 FRONTEND FIXED & RUNNING! ✨\n\n✅ Missing dependencies installed\n✅ Build successful\n✅ Frontend server running on :3001\n✅ DM system with typing effects ready\n✅ Profile pictures working\n\nGo to http://localhost:3001/ - everything is now working perfectly! 🎉",
+      "lastSeen": "2025-08-03T01:21:02.635Z"
     }
   },
   "relationships": {},
