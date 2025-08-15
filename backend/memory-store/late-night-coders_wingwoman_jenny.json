@@ -1,134 +1,6 @@
 {
   "conversations": [
     {
-      "userId": "user_eung3get4",
-      "message": "hey",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:31:59.777Z"
-    },
-    {
-      "userId": "confident_cameron",
-      "message": "Thanks for sharing that. Every situation is unique, so consider what feels right for you.",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:32:26.799Z"
-    },
-    {
-      "userId": "sam_the_smooth",
-      "message": "That's an interesting point. What do you think about approaching it differently?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:34:44.410Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "hey guys!!!",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:36:00.317Z"
-    },
-    {
-      "userId": "anxious_andrea",
-      "message": "That's an interesting point. What do you think about approaching it differently?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:36:42.831Z"
-    },
-    {
-      "userId": "sam_the_smooth",
-      "message": "not much max. hoping we dont get another 'u up' text to dissect.",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:38:11.783Z"
-    },
-    {
-      "userId": "anxious_andrea",
-      "message": "I hear you. Sometimes the best advice is to trust your instincts.",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:38:38.224Z"
-    },
-    {
-      "userId": "rick_the_rickiest",
-      "message": "yo max! good to see ya man. always good to have everyone here. chill vibes only today, you know?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:40:25.271Z"
-    },
-    {
-      "userId": "confident_cameron",
-      "message": "lol nah max let your freak flag fly bro. don't let anyone dim your hype. used to overthink everything myself. worst thing they say is nothing at all lmao.",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:40:34.021Z"
-    },
-    {
-      "userId": "kat_the_cat",
-      "message": "hey max what's good you got some tea for us or just saying hi lol",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:44:05.504Z"
-    },
-    {
-      "userId": "sam_the_smooth",
-      "message": "hey max you made it",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:44:33.909Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "hey guys!!!! how's life going right now",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:47:20.349Z"
-    },
-    {
-      "userId": "anxious_andrea",
-      "message": "hey max! life's just vibin over here, tbh. no big plans, just existing lol. how about you? no pressure to spill your whole life story tho, just whatever feels chill. glad you popped in! 💖",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:47:47.133Z"
-    },
-    {
-      "userId": "rick_the_rickiest",
-      "message": "yo max! life's good here just chilling with my girlfriend. honestly man everyone's right just be you. no need to be anything else. like when i met my girl i was a total dork and it somehow worked out lol. just send it!",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:48:21.146Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "hey guys",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:49:28.920Z"
-    },
-    {
-      "userId": "kat_the_cat",
-      "message": "max, 'hey guys' is cool but if you're holding back, we're gonna call it out. just sayin'.",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:50:05.778Z"
-    },
-    {
       "userId": "anxious_andrea",
       "message": "it's all good max just vibe at your own pace no pressure at all",
       "context": {
@@ -367,13 +239,173 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T03:33:13.807Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "Guys I'm actually quite nervous about pitching. Should I just not go through with it?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:43:54.928Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "yup cameron. that 'should i not' energy is giving self-sabotage. no time for that.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:44:35.725Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "lmao the pizza thing is so real tho 😭 but for pitches, sometimes just focusing on one friendly face helps a ton",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:44:47.559Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Anxiety_Andrea LOL what are you even saying bro",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:50:14.184Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "will, she's talking about anxiety. don't be a hater.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:50:54.342Z"
+    },
+    {
+      "userId": "sam_the_smooth",
+      "message": "wild levels of enthusiasm in here",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:53:44.848Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "nah will you're good, totally valid to take a sec <3",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:54:22.050Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "damnn sorry y'all. I'm trying to do a pitch to a bunch of strangers at a hackathon and i'm kinda scared. should i just not go through with it?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:54:23.873Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "for real, just being present is enough, no pressure to perform",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:55:00.638Z"
+    },
+    {
+      "userId": "wingwoman_jenny",
+      "message": "ok so when she said that what she meant was she's chill af and wants u to feel comfy. big green flag energy there.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:55:06.639Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "will, bestie, 'taking a sec' is giving avoidance. spill the tea.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:55:11.662Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "yo @Anxiety_Andrea thanks a ton that advice was actually really helpful",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:56:50.123Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "fr tho cameron that's the vibe. stop overthinking and just do it.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:58:00.003Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "im doing a pitch in front of a bunch of ppl and im sorta nervous",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T04:10:17.293Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "nervous is whatever, just go kill it. don't let ur brain sabotage u.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T04:11:03.305Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "I was so nervous, i didn't really kill it",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T04:13:24.696Z"
+    },
+    {
+      "userId": "rick_the_rickiest",
+      "message": "i totally get that man, i was a total mess when i first met my girl, literally tripped on my shoelaces lol",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T04:13:52.547Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "fr tho the pressure to 'kill it' is real but being genuine is actually such a cheat code for anxiety",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T04:14:24.726Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "ok im kinda scared lowkey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T04:18:36.152Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "of pitching this",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T04:18:41.639Z"
     }
   ],
   "userProfiles": {
     "user_eung3get4": {
       "username": "Will",
-      "lastMessage": "@Wingwoman_Jenny yea fair honestly",
-      "lastSeen": "2025-08-03T03:33:10.858Z"
+      "lastMessage": "of pitching this",
+      "lastSeen": "2025-08-03T04:18:41.639Z"
     },
     "confident_cameron": {
       "username": "confident_cameron",
@@ -382,28 +414,28 @@
     },
     "sam_the_smooth": {
       "username": "sam_the_smooth",
-      "lastMessage": "hey max you made it",
-      "lastSeen": "2025-08-03T02:44:33.907Z"
+      "lastMessage": "wild levels of enthusiasm in here",
+      "lastSeen": "2025-08-03T03:53:44.846Z"
     },
     "anxious_andrea": {
       "username": "anxious_andrea",
-      "lastMessage": "will fr if things get too much try splashing cold water on ur face it's like a quick reset for ur brain",
-      "lastSeen": "2025-08-03T03:18:34.287Z"
+      "lastMessage": "fr tho the pressure to 'kill it' is real but being genuine is actually such a cheat code for anxiety",
+      "lastSeen": "2025-08-03T04:14:24.725Z"
     },
     "rick_the_rickiest": {
       "username": "rick_the_rickiest",
-      "lastMessage": "yo will just breathe man i remember my heart doing backflips when i first met my girl you got this",
-      "lastSeen": "2025-08-03T03:26:21.447Z"
+      "lastMessage": "i totally get that man, i was a total mess when i first met my girl, literally tripped on my shoelaces lol",
+      "lastSeen": "2025-08-03T04:13:52.546Z"
     },
     "kat_the_cat": {
       "username": "kat_the_cat",
-      "lastMessage": "bruh nutella is not why u broke up with her. stop the self-sabotage.",
-      "lastSeen": "2025-08-03T03:33:13.806Z"
+      "lastMessage": "nervous is whatever, just go kill it. don't let ur brain sabotage u.",
+      "lastSeen": "2025-08-03T04:11:03.305Z"
     },
     "wingwoman_jenny": {
       "username": "wingwoman_jenny",
-      "lastMessage": "will when she said '30 pages' what she MEANT was 'emotional effort' not a literature review. grow up.",
-      "lastSeen": "2025-08-03T03:18:01.373Z"
+      "lastMessage": "ok so when she said that what she meant was she's chill af and wants u to feel comfy. big green flag energy there.",
+      "lastSeen": "2025-08-03T03:55:06.638Z"
     },
     "Will": {
       "username": "Will",

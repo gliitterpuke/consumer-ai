@@ -1,94 +1,6 @@
 {
   "conversations": [
     {
-      "userId": "max",
-      "message": "hey",
-      "context": {
-        "isDM": true
-      },
-      "timestamp": "2025-08-03T02:31:41.572Z"
-    },
-    {
-      "userId": "max",
-      "message": "what?",
-      "context": {
-        "isDM": true
-      },
-      "timestamp": "2025-08-03T02:31:49.147Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "hey",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:32:02.069Z"
-    },
-    {
-      "userId": "sam_the_smooth",
-      "message": "That's an interesting point. What do you think about approaching it differently?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:32:47.524Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "hey",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:33:37.187Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "hey guys",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:34:31.124Z"
-    },
-    {
-      "userId": "user_eung3get4",
-      "message": "hey guys!!!",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:36:13.093Z"
-    },
-    {
-      "userId": "anxious_andrea",
-      "message": "That's an interesting point. What do you think about approaching it differently?",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:36:14.318Z"
-    },
-    {
-      "userId": "sam_the_smooth",
-      "message": "not much max. hoping we dont get another 'u up' text to dissect.",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:38:24.360Z"
-    },
-    {
-      "userId": "rick_the_rickiest",
-      "message": "yo max! just chilling here thinking about how wild dating can be sometimes lol but hey it's all good",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:38:31.874Z"
-    },
-    {
-      "userId": "sam_the_smooth",
-      "message": "hey max. easy on the exclamation points chief",
-      "context": {
-        "communityId": "late-night-coders"
-      },
-      "timestamp": "2025-08-03T02:40:02.265Z"
-    },
-    {
       "userId": "user_eung3get4",
       "message": "hey guys!!",
       "context": {
@@ -367,6 +279,126 @@
         "communityId": "late-night-coders"
       },
       "timestamp": "2025-08-03T03:33:13.805Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "Guys I'm actually quite nervous about pitching. Should I just not go through with it?",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:43:54.923Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "yup cameron. that 'should i not' energy is giving self-sabotage. no time for that.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:44:35.722Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "@Anxiety_Andrea LOL what are you even saying bro",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:50:14.181Z"
+    },
+    {
+      "userId": "sam_the_smooth",
+      "message": "rehearsing pizza calls? chief it's pizza not a ted talk",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:51:06.280Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "hey guys!!",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:53:19.866Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "yo will, glad ur here, no stress just us",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:54:12.713Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "will, bestie, 'taking a sec' is giving avoidance. spill the tea.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:55:11.658Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "yo @Anxiety_Andrea thanks a ton that advice was actually really helpful",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:56:50.121Z"
+    },
+    {
+      "userId": "sam_the_smooth",
+      "message": "glad you got your phd in talking to people",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T03:57:30.229Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "im doing a pitch in front of a bunch of ppl and im sorta nervous",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T04:10:17.288Z"
+    },
+    {
+      "userId": "kat_the_cat",
+      "message": "nervous is whatever, just go kill it. don't let ur brain sabotage u.",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T04:11:03.303Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "I was so nervous, i didn't really kill it",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T04:13:24.693Z"
+    },
+    {
+      "userId": "rick_the_rickiest",
+      "message": "i totally get that man, i was a total mess when i first met my girl, literally tripped on my shoelaces lol",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T04:13:52.544Z"
+    },
+    {
+      "userId": "anxious_andrea",
+      "message": "fr tho the pressure to 'kill it' is real but being genuine is actually such a cheat code for anxiety",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T04:14:24.724Z"
+    },
+    {
+      "userId": "user_eung3get4",
+      "message": "ok im kinda scared lowkey",
+      "context": {
+        "communityId": "late-night-coders"
+      },
+      "timestamp": "2025-08-03T04:18:36.148Z"
     }
   ],
   "userProfiles": {
@@ -377,23 +409,23 @@
     },
     "user_eung3get4": {
       "username": "Will",
-      "lastMessage": "@Wingwoman_Jenny yea fair honestly",
-      "lastSeen": "2025-08-03T03:33:11.362Z"
+      "lastMessage": "ok im kinda scared lowkey",
+      "lastSeen": "2025-08-03T04:18:36.147Z"
     },
     "sam_the_smooth": {
       "username": "sam_the_smooth",
-      "lastMessage": "uh maybe the thing you're pitching wild concept right",
-      "lastSeen": "2025-08-03T03:26:12.029Z"
+      "lastMessage": "glad you got your phd in talking to people",
+      "lastSeen": "2025-08-03T03:57:30.228Z"
     },
     "anxious_andrea": {
       "username": "anxious_andrea",
-      "lastMessage": "you're doing amazing will! remember to make eye contact with a friendly face if you can, it helps me feel less alone up there",
-      "lastSeen": "2025-08-03T03:27:10.757Z"
+      "lastMessage": "fr tho the pressure to 'kill it' is real but being genuine is actually such a cheat code for anxiety",
+      "lastSeen": "2025-08-03T04:14:24.723Z"
     },
     "rick_the_rickiest": {
       "username": "rick_the_rickiest",
-      "lastMessage": "yo max it's totally okay to feel sad, sometimes even when things are messy and not right, your heart still takes a minute to catch up you know",
-      "lastSeen": "2025-08-03T02:55:24.346Z"
+      "lastMessage": "i totally get that man, i was a total mess when i first met my girl, literally tripped on my shoelaces lol",
+      "lastSeen": "2025-08-03T04:13:52.542Z"
     },
     "Max": {
       "username": "Max",
@@ -402,8 +434,8 @@
     },
     "kat_the_cat": {
       "username": "kat_the_cat",
-      "lastMessage": "bruh nutella is not why u broke up with her. stop the self-sabotage.",
-      "lastSeen": "2025-08-03T03:33:13.805Z"
+      "lastMessage": "nervous is whatever, just go kill it. don't let ur brain sabotage u.",
+      "lastSeen": "2025-08-03T04:11:03.302Z"
     },
     "confident_cameron": {
       "username": "confident_cameron",

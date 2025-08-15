@@ -281,7 +281,7 @@ app.get('/api/communities', (req, res) => {
 app.get('/api/communities/:id/messages', (req, res) => {
   const { id } = req.params;
   const messages = messageHistory[id] || [];
-  res.json(messages.slice(-50)); // Last 50 messages
+  res.json(messages);
 });
 
 app.post('/api/communities/:id/messages', async (req, res) => {

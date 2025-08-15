@@ -76,8 +76,8 @@ export const AI_AGENTS: Agent[] = [
     cooldownMs: 20000
   },
   {
-    id: 'anxiety_andrea',
-    name: 'Anxiety_Andrea',
+    id: 'anxious_andrea',
+    name: 'Anxious_Andrea',
     avatar: '/avatars/anxiety-andy.png',
     personality: "a 24-year-old who's super open about her social anxiety. she's figured out some low-key ways to cope and is all about sharing what actually works without the cringe. very empathetic and knows the struggle is real",
     isOnline: true,
